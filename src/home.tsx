@@ -1,5 +1,3 @@
-import { For, createSignal } from 'solid-js';
-
 type Todo = { id: number, text: string, completed: boolean };
 
 export const Home = () => {
