@@ -9,7 +9,7 @@ body, #root {
 
 @font-face {
     font-family: "manrope";
-    src: local("manrope"), url("fonts/manrope.wght.ttf") format("truetype");
+    src: local("manrope"), url("/fonts/manrope.wght.ttf") format("truetype");
     font-weight: 200 800;
     font-display: block;
 }
