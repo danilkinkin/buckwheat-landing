@@ -1,0 +1,17 @@
+version: "3.3"
+networks:
+  web:
+    external: true
+services:
+    buckwheat-landing:
+        build: .
+        restart: unless-stopped
+        networks:
+          - web
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.buckwheat-landing.rule=Host(`buckwheat.app`)"
+          - "traefik.http.routers.buckwheat-landing.entrypoints=web-http,web-https"
+          - "traefik.http.routers.buckwheat-landing.tls=true"
+          - "traefik.http.routers.buckwheat-landing.tls.certresolver=letsEncrypt"
+          - "traefik.http.services.buckwheat-landing-service.loadbalancer.server.port=3000"
