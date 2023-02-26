@@ -1,0 +1,8 @@
+{
+  "extends": ["next/core-web-vitals", "next", "prettier"],
+  "plugins": ["@next/eslint-plugin-next", "prettier"],
+  "rules": {
+    "prettier/prettier": "warn",
+    "react/react-in-jsx-scope": "off"
+  }
+}
