@@ -17,7 +17,7 @@ export function GooglePlayButton(props: GooglePlayButtonProps) {
         alt="Get it on Google Play"
         src={badgeImage}
         height={undefined}
-        width={130}
+        width={160}
       />
     </Link>
   );
