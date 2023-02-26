@@ -1,0 +1,23 @@
+.card {
+  border-radius: 36px;
+  overflow: hidden;
+  padding: 52px 64px;
+  background-color: var(--background);
+}
+
+.title {
+  color: var(--on-background);
+  font-size: 1.6rem;
+  max-width: 500px;
+}
+
+.subtitle {
+  color: var(--on-background-secondary);
+  font-size: 1rem;
+  max-width: 500px;
+  margin-top: 4px;
+}
+
+.content {
+
+}

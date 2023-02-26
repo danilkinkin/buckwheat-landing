@@ -1,0 +1,15 @@
+.footer {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+}
+
+.author {
+  font-weight: 700;
+}
+
+.danilkinkin {
+  color: #FF006B;
+}

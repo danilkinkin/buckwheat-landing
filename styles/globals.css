@@ -2,13 +2,15 @@
   --max-width: 1100px;
   --border-radius: 12px;
 
-  --on-background: #000;
+  --on-background: #242424;
+  --on-background-secondary: #545454;
   --background: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --on-background: #fff;
+    --on-background-secondary: #fff;
     --background: #000;
   }
 }
