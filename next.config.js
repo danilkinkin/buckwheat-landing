@@ -3,6 +3,10 @@ const plugins = [];
 /** @type {import('next').NextConfig} */
 const nextConfig = plugins.reduce((acc, next) => next(acc), {
   reactStrictMode: true,
+  i18n: {
+    locales: ['en', 'ru'],
+    defaultLocale: 'en',
+  },
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.svg$/i,

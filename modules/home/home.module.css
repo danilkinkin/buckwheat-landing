@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .header h1 {
@@ -19,6 +20,12 @@
   margin-top: 8px;
   font-size: 1.25rem;
   color: var(--on-background-secondary)
+}
+
+.langSwitcher {
+  position: absolute;
+  top: 16px;
+  right:  16px;
 }
 
 .logo {
