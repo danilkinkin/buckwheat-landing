@@ -8,6 +8,7 @@ import useLocale from '@/utils/useLocale';
 import { locales } from '@/modules/home/locales';
 import HowItsWorkCard from '@/modules/home/howItsWorkCard';
 import Header from '@/modules/home/header';
+import Link from 'next/link';
 
 export default function HomePage() {
   const t = useLocale(locales);
@@ -27,21 +28,19 @@ export default function HomePage() {
             title={t('somethingElseTitle')}
             subtitle={t('somethingElseDescription')}
           />
-          <Card
+          <Link
+            href="/contribute"
             className={clsx(styles.card, styles.contributeCard)}
-            title={t('contributeTitle')}
-            subtitle={t('contributeDescription')}
-          />
+          >
+            <Card
+              className={clsx(styles.card, styles.contributeCard)}
+              title={t('contributeTitle')}
+              subtitle={t('contributeDescription')}
+            />
+          </Link>
         </div>
       </main>
       <Footer />
     </>
   );
 }
-
-/* export const getStaticPaths = () => {
-  return {
-    paths: [{ locale: 'en-US' }, { locale: 'ru' }],
-    fallback: false,
-  };
-}; */

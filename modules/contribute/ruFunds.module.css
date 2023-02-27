@@ -1,0 +1,13 @@
+.card {
+  --on-background: #fff;
+  --on-background-secondary: #fff;
+  --background: #000;
+  min-height: 500px;
+  flex-basis: 86%;
+}
+
+.link {
+  --on-background: #000;
+  --on-background-secondary: #666666;
+  --background: #fff;
+}

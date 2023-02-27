@@ -1,8 +1,10 @@
 .card {
   border-radius: 36px;
   overflow: hidden;
-  padding: 52px 64px;
+  padding: 36px;
   background-color: var(--background);
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
@@ -21,5 +23,42 @@
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 
+.cardLink {
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: 16px;
+  background-color: var(--background);
+  max-width: 360px;
+  position: relative;
+}
+
+.cardLink:first-child {
+  margin-top: auto;
+}
+
+.cardLinkContent {
+  padding-right: 32px;
+}
+
+.icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.cardLink .title {
+  color: var(--on-background);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.cardLink .subtitle {
+  color: var(--on-background-secondary);
+  font-size: 0.75rem;
+  margin-top: 0;
 }

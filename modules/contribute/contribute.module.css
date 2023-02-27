@@ -1,0 +1,59 @@
+.header {
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.langSwitcher {
+  margin-left: 48px;
+  margin-right: 24px;
+}
+
+.logo {
+  
+}
+
+.googlePlayButton {
+  margin-left: auto;
+}
+
+.main {
+  padding: 24px;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1400px;
+  width: 100%;
+  align-self: center;
+}
+
+.description {
+  margin: 48px 0;
+  font-weight: 600;
+  font-size: 1rem;
+  max-width: 700px;
+}
+
+.cardsRow {
+  display: flex;
+  flex-direction: row;
+  gap: 48px;
+  padding-top: 24px;
+}
+
+.tellFriendsCard {
+  --on-background: #5C483D;
+  --on-background-secondary: #9E8F87;
+  --background: #FFF1EA;
+}
+
+
+@media screen and (max-width: 800px) {
+  
+}
