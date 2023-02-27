@@ -1,6 +1,8 @@
 import styles from '@/modules/contribute/ukraine.module.css';
 import { Card, CardLink } from '@/components/card';
 import clsx from 'clsx';
+import ukraineMapImage from '@/assets/images/ukraine-map.png';
+import Image from 'next/image';
 
 export default function HelpUkraineCard() {
   return (
@@ -20,6 +22,13 @@ export default function HelpUkraineCard() {
         title="Community of Ukrainian and international activists"
         hrefTitle="supportukrainenow.org"
         href="https://supportukrainenow.org/"
+      />
+      <Image
+        className={styles.ukraineMap}
+        alt="Ukraine map"
+        width={519}
+        height={381}
+        src={ukraineMapImage}
       />
     </Card>
   );

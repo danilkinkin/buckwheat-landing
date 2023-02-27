@@ -16,16 +16,18 @@ import Link from 'next/link';
 const locales: LocalesMap = {
   ru: {
     title: 'Гречка - Вклад',
+    appName: 'Гречка',
     description:
-      'Гречка это хобби-проект и я не планирую на этом зарабатывать, но если вы хотите помочь, то вот несколько способов как это сделать',
+      'это хобби-проект и я не планирую на этом зарабатывать, но если вы хотите помочь, то вот несколько способов как это сделать',
     tellFriendsTitle: 'Расскажите друзьям о приложении',
     tellFriendsDescription:
       'Очень приятно осознавать, что много людей пользуются вашим продуктом. Это делает меня счастливым',
   },
   en: {
     title: 'Buckwheat - Contribute',
+    appName: 'Buckwheat',
     description:
-      'Buckwheat is a hobby project and I do not plan to earn money on it, but if you want to help, here are a few ways how to do it',
+      'is a hobby project and I do not plan to earn money on it, but if you want to help, here are a few ways how to do it',
     tellFriendsTitle: 'Tell your friends about the application',
     tellFriendsDescription:
       'It is very nice to realize that many people use your product. It makes me happy',
@@ -52,7 +54,9 @@ export default function ContributePage() {
         </div>
       </header>
       <main className={styles.main}>
-        <p className={styles.description}>{t('description')}</p>
+        <p className={styles.description}>
+          <b className={styles.bold}>{t('appName')}</b> {t('description')}
+        </p>
         <div className={styles.cardsRow}>
           {router.locale !== 'ru' && <HelpUkraineCard />}
           {router.locale === 'ru' && <DonateToFunsCard />}

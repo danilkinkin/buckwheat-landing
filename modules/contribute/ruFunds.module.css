@@ -3,7 +3,8 @@
   --on-background-secondary: #fff;
   --background: #000;
   min-height: 500px;
-  flex-basis: 86%;
+  flex-basis: 70%;
+  flex-shrink: 0;
 }
 
 .link {

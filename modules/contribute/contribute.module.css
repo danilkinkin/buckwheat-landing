@@ -38,6 +38,12 @@
   font-weight: 600;
   font-size: 1rem;
   max-width: 700px;
+  color: rgba(0, 0, 0, 0.67);
+}
+
+.description .bold {
+  font-weight: 700;
+  color: #000;
 }
 
 .cardsRow {
