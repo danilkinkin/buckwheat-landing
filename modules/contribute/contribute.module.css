@@ -14,10 +14,6 @@
   margin-right: 24px;
 }
 
-.logo {
-  
-}
-
 .googlePlayButton {
   margin-left: auto;
 }
@@ -60,6 +56,11 @@
   min-width: 270px;
 }
 
+@media screen and (max-width: 630px) {
+  .googlePlayButton {
+    display: none;
+  }
+}
 
 @media screen and (max-width: 980px) {
   .cardsRow {

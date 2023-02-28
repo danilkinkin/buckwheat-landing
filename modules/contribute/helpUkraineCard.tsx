@@ -1,7 +1,7 @@
 import styles from '@/modules/contribute/ukraine.module.css';
 import { Card, CardLink } from '@/components/card';
 import clsx from 'clsx';
-import ukraineMapImage from '@/assets/images/ukraine-map.png';
+import UkraineMapSvg from '@/assets/images/ukraine-map.svg';
 import Image from 'next/image';
 
 export default function HelpUkraineCard() {
@@ -23,13 +23,7 @@ export default function HelpUkraineCard() {
         hrefTitle="supportukrainenow.org"
         href="https://supportukrainenow.org/"
       />
-      <Image
-        className={styles.ukraineMap}
-        alt="Ukraine map"
-        width={519}
-        height={381}
-        src={ukraineMapImage}
-      />
+      <UkraineMapSvg className={styles.ukraineMap} />
     </Card>
   );
 }

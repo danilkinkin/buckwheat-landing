@@ -25,4 +25,14 @@
   bottom: 0;
   margin: auto;
   right: 6%;
+  color: #f6ce00;
+  height: 80%;
+}
+
+@media screen and (max-width: 760px) {
+  .ukraineMap {
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
