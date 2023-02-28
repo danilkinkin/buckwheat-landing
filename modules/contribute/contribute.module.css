@@ -54,12 +54,15 @@
 }
 
 .tellFriendsCard {
-  --on-background: #5C483D;
-  --on-background-secondary: #9E8F87;
+  --on-background: #59321c;
+  --on-background-secondary: #866655;
   --background: #FFF1EA;
+  min-width: 270px;
 }
 
 
-@media screen and (max-width: 800px) {
-  
+@media screen and (max-width: 980px) {
+  .cardsRow {
+    flex-direction: column;
+  }
 }

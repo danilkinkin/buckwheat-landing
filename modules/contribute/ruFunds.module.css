@@ -3,12 +3,16 @@
   --on-background-secondary: #fff;
   --background: #000;
   min-height: 500px;
-  flex-basis: 70%;
-  flex-shrink: 0;
+  width: 100%;
 }
 
 .link {
   --on-background: #000;
   --on-background-secondary: #666666;
   --background: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.link:hover {
+  --background: #e0e0e0;
 }

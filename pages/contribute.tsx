@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '@/modules/contribute/contribute.module.css';
 import { Logo, LogoType } from '@/components/logo';
 import { GooglePlayButton } from '@/components/googlePlayButton';
@@ -18,19 +17,19 @@ const locales: LocalesMap = {
     title: 'Гречка - Вклад',
     appName: 'Гречка',
     description:
-      'это хобби-проект и я не планирую на этом зарабатывать, но если вы хотите помочь, то вот несколько способов как это сделать',
+      '— хобби проект и я не планирую на нём зарабатывать. У меня есть работа и постоянный заработок. Если вы очень хотите помочь, то вот несколько вариантов, что вы можете сделать. Спасибо',
     tellFriendsTitle: 'Расскажите друзьям о приложении',
     tellFriendsDescription:
-      'Очень приятно осознавать, что много людей пользуются вашим продуктом. Это делает меня счастливым',
+      'Я очень люблю когда мой проекты приносят пользу. Я был бы очень рад если вы рассказали об этом приложении друзьям',
   },
   en: {
     title: 'Buckwheat - Contribute',
     appName: 'Buckwheat',
     description:
-      'is a hobby project and I do not plan to earn money on it, but if you want to help, here are a few ways how to do it',
+      'is a hobby project and I do not plan to make money on it. I have a job and a steady income. If you really want to help, then here are a few things you can do. Thank you',
     tellFriendsTitle: 'Tell your friends about the application',
     tellFriendsDescription:
-      'It is very nice to realize that many people use your product. It makes me happy',
+      'I really love when my projects are useful. I would be very happy if you told your friends about this application',
   },
 };
 

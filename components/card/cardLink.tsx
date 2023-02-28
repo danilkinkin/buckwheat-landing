@@ -2,6 +2,7 @@ import { clsx } from 'clsx';
 import Link from 'next/link';
 import styles from './card.module.css';
 import LinkIcon from '@/assets/icons/link.svg';
+import { animated, useSpring } from '@react-spring/web';
 
 type CardProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -21,17 +22,36 @@ export function CardLink(props: CardProps) {
     ...restProps
   } = props;
 
+  const [springs, api] = useSpring(() => ({
+    scale: 1,
+    config: { mass: 1, tension: 150, friction: 10 },
+  }));
+
+  const handleEnter = () => {
+    api.start({
+      scale: 1.01,
+    });
+  };
+  const handleLeave = () => {
+    api.start({
+      scale: 1,
+    });
+  };
+
   return (
-    <Link
-      href={href}
-      target="_blank"
+    <animated.div
       className={clsx(styles.cardLink, restClassName)}
+      style={{ ...springs }}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
     >
-      <div className={styles.cardLinkContent} {...restProps}>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.subtitle}>{hrefTitle}</p>
-      </div>
+      <Link href={href} target="_blank">
+        <div className={styles.cardLinkContent}>
+          <h3 className={styles.title}>{title}</h3>
+          <p className={styles.subtitle}>{hrefTitle}</p>
+        </div>
         <LinkIcon className={styles.icon} />
-    </Link>
+      </Link>
+    </animated.div>
   );
 }

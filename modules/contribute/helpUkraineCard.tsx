@@ -9,7 +9,7 @@ export default function HelpUkraineCard() {
     <Card
       className={styles.card}
       title="Support Ukraine"
-      subtitle="Now people of Ukraine really need help. Help Ukraine through funds"
+      subtitle="For more than a year, the Russian authorities have been destroying a peaceful state. These people need help to defend their freedom."
     >
       <CardLink
         className={clsx(styles.link, styles.topOffset)}

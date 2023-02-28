@@ -3,15 +3,20 @@
   --on-background-secondary: #584A00;
   --background: #FED500;
   min-height: 500px;
-  flex-basis: 70%;
-  flex-shrink: 0;
+  width: 100%;
   position: relative;
 }
 
 .link {
   --on-background: #000;
-  --on-background-secondary: rgba(0, 0, 0, 0.6);;
-  --background: rgba(226, 190, 0, 0.38);;
+  --on-background-secondary: rgba(0, 0, 0, 0.6);
+  --background: rgba(226, 190, 0, 0.48);
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.link:hover {
+  --background: rgb(195 164 0 / 48%);
 }
 
 .ukraineMap {
