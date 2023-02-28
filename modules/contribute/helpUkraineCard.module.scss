@@ -1,3 +1,8 @@
+.cardContainer {
+  width: 100%;
+  position: relative;
+}
+
 .card {
   --on-background: #015BBB;
   --on-background-secondary: #584A00;
@@ -34,5 +39,35 @@
     right: 0;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+
+.captionLink {
+  position: absolute;
+  font-size: 14px;
+  margin-top: 12px;
+  margin-left: 36px;
+  margin-right: 36px;
+  color: #4b4b4b;
+  font-weight: 500;
+
+  svg {
+    margin-right: 6px;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    transform: translateY(-1px);
+  }
+
+  a {
+    color: #c7441a;
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .captionLink {
+    position: relative;
   }
 }

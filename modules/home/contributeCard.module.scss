@@ -25,17 +25,15 @@
   height: 100%;
   top: 0;
   left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .circlesBackground {
   position: absolute;
   width: 40%;
   padding: 40%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
   border-radius: 50%;
   background-color: #FFD4E6;
 }
@@ -44,11 +42,6 @@
   position: absolute;
   width: 25%;
   padding: 25%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
   border-radius: 50%;
   background-color: #FFBAD7;
 }
