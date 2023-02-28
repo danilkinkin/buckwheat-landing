@@ -1,3 +1,4 @@
+import useLocale, { LocalesMap } from '@/utils/useLocale';
 import { clsx } from 'clsx';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
@@ -8,9 +9,13 @@ type LangSwitcherProps = React.DetailedHTMLProps<
   HTMLDivElement
 > & {};
 
-const localesShortMap: { [key: string]: string } = {
-  en: 'eng',
-  ru: 'рус',
+const locales: LocalesMap = {
+  ru: {
+    chooseHeader: 'Выберете язык',
+  },
+  en: {
+    chooseHeader: 'Choose language',
+  },
 };
 
 const localesMap: { [key: string]: string } = {
@@ -24,6 +29,7 @@ export function LangSwitcher(props: LangSwitcherProps) {
   const selectorRef = useRef(null);
   const buttonRef = useRef(null);
   const [open, setOpen] = useState(false);
+  const t = useLocale(locales);
   const { pathname, asPath, query } = router;
 
   useEffect(() => {
@@ -50,7 +56,7 @@ export function LangSwitcher(props: LangSwitcherProps) {
     <div className={clsx(styles.langSwitcher, restClassName)} {...restProps}>
       <span
         ref={buttonRef}
-        className={styles.currentLanguage}
+        className={clsx(styles.currentLanguage, open && styles.hideCurrent)}
         onClick={() => setOpen(true)}
       >
         {localesMap[router.locale || 'en']}
@@ -59,6 +65,7 @@ export function LangSwitcher(props: LangSwitcherProps) {
         ref={selectorRef}
         className={clsx(styles.selector, open && styles.openSelector)}
       >
+        <h5 className={styles.header}>{t('chooseHeader')}</h5>
         <ul>
           {Object.keys(localesMap).map((locale) => (
             <li key={locale} onClick={handleSetLanguage(locale)}>

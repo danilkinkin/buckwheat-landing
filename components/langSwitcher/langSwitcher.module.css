@@ -12,6 +12,7 @@
 
 .selector {
   position: absolute;
+  width: 200px;
   top: 0;
   right: 0;
   background-color: var(--background);
@@ -26,9 +27,21 @@
   opacity: 0;
 }
 
+.header {
+  color: #6f6f6f;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 4px 16px;
+  margin-bottom: 8px;
+}
+
 .openSelector {
   pointer-events: all;
   opacity: 1;
+}
+
+.hideCurrent {
+  opacity: 0;
 }
 
 .selector ul {
@@ -38,7 +51,8 @@
 .selector li {
   font-size: 1rem;
   font-weight: 600;
-  padding: 4px 16px;
+  padding: 6px 16px;
+  transition: 0.3s ease;
 }
 
 .selector li:hover {
