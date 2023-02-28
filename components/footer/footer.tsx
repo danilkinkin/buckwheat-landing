@@ -10,7 +10,7 @@ type CardProps = React.DetailedHTMLProps<
 
 const localesMap: LocalesMap = {
   ru: {
-    madeBy: 'сделанно',
+    madeBy: 'сделано',
   },
   en: {
     madeBy: 'made by',
