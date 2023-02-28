@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import phoneMockupImage from '@/assets/images/phone-mockup-1.png';
 import screenshotMainImage from '@/assets/images/screenshot-main.png';
-import styles from '@/modules/home/home.module.css';
+import styles from '@/modules/home/howItsWorkCard.module.css';
 import { Card } from '@/components/card';
 import useLocale from '@/utils/useLocale';
 import { LocalesMap } from '@/utils/useLocale';
@@ -24,7 +24,7 @@ export default function HowItsWorkCard() {
 
   return (
     <Card
-      className={styles.howItsWorkCard}
+      className={styles.card}
       title={t('title')}
       subtitle={t('description')}
     >
