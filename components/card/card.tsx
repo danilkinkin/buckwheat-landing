@@ -7,6 +7,7 @@ type CardProps = React.DetailedHTMLProps<
 > & {
   title?: string;
   subtitle?: string;
+  classes?: { [key: string]: string };
 };
 
 export function Card(props: CardProps) {
@@ -14,6 +15,7 @@ export function Card(props: CardProps) {
     title,
     subtitle,
     children,
+    classes = {},
     className: restClassName,
     ...restProps
   } = props;
@@ -22,7 +24,7 @@ export function Card(props: CardProps) {
     <div className={clsx(styles.card, restClassName)} {...restProps}>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.subtitle}>{subtitle}</p>
-      <div className={styles.content}>{children}</div>
+      <div className={clsx(styles.content, classes.content)}>{children}</div>
     </div>
   );
 }

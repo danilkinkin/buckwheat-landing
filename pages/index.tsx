@@ -1,14 +1,12 @@
 import Head from 'next/head';
 
 import styles from '@/modules/home/home.module.css';
-import { Card } from '@/components/card';
 import { Footer } from '@/components/footer';
-import clsx from 'clsx';
 import useLocale from '@/utils/useLocale';
 import { locales } from '@/modules/home/locales';
 import HowItsWorkCard from '@/modules/home/howItsWorkCard';
 import Header from '@/modules/home/header';
-import Link from 'next/link';
+import ContributeCard from '@/modules/home/contributeCard';
 
 export default function HomePage() {
   const t = useLocale(locales);
@@ -22,23 +20,7 @@ export default function HomePage() {
       <Header />
       <main className={styles.main}>
         <HowItsWorkCard />
-        <div className={styles.cardsRow}>
-          <Card
-            className={clsx(styles.card, styles.somethingElseCard)}
-            title={t('somethingElseTitle')}
-            subtitle={t('somethingElseDescription')}
-          />
-          <Link
-            href="/contribute"
-            className={clsx(styles.card, styles.contributeCard)}
-          >
-            <Card
-              className={clsx(styles.card, styles.contributeCard)}
-              title={t('contributeTitle')}
-              subtitle={t('contributeDescription')}
-            />
-          </Link>
-        </div>
+        <ContributeCard />
       </main>
       <Footer />
     </>

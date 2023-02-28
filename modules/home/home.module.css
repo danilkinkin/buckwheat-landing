@@ -56,6 +56,7 @@
   width: 100%;
   height: 650px;
   position: relative;
+  
 }
 
 .mockupPhoneContiner {
@@ -86,18 +87,6 @@
 
 .card {
   flex-basis: 50%;
-}
-
-.somethingElseCard {
-  --on-background: #5C483D;
-  --on-background-secondary: #9E8F87;
-  --background: #FFF1EA;
-}
-
-.contributeCard {
-  --on-background: #A6074A;
-  --on-background-secondary: #BD7794;
-  --background: #FDE9F1;
 }
 
 @media screen and (max-width: 800px) {
