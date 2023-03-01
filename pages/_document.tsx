@@ -49,7 +49,7 @@ export default function Document(props: DocumentProps) {
         <meta property="og:description" content={t('description')} />
         <meta
           property="og:image"
-          content={`/images/share-banner-${locale}.png`}
+          content={`https://buckwheat.app/images/share-banner-${locale}.png`}
         />
 
         {/* Twitter */}
@@ -59,7 +59,7 @@ export default function Document(props: DocumentProps) {
         <meta property="twitter:description" content={t('description')} />
         <meta
           property="twitter:image"
-          content={`/images/share-banner-${locale}.png`}
+          content={`https://buckwheat.app/images/share-banner-${locale}.png`}
         />
       </Head>
       <body>
