@@ -11,12 +11,12 @@
 }
 
 .header .slogan {
-  max-width: 300px;
+  max-width: 400px;
   text-align: center;
   margin-top: 8px;
   font-size: 1.14rem;
   font-weight: 600;
-  color: var(--on-background-secondary)
+  color: var(--on-background-secondary);
 }
 
 .header p {
@@ -25,36 +25,29 @@
   margin-top: 8px;
   font-size: 1.14rem;
   font-weight: 500;
-  color: var(--on-background-secondary)
+  color: var(--on-background-secondary);
 }
 
 .langSwitcher {
   position: absolute;
   top: 24px;
-  right:  32px;
+  right: 32px;
 }
 
 .logo {
   margin-bottom: 24px;
 }
 
-.googlePlayButton {
-  margin-top: 60px;
-}
-
 .main {
-  padding: 24px;
+  padding: 48px;
   padding-top: 0;
   display: flex;
   flex-direction: column;
   gap: 48px;
-  max-width: 1400px;
+  max-width: 1500px;
   width: 100%;
   align-self: center;
 }
-
-
-
 
 .cardsRow {
   display: flex;
@@ -70,7 +63,7 @@
   .header h1 {
     font-size: 1.6rem;
   }
-  
+
   .header p {
     font-size: 1rem;
   }
@@ -92,7 +85,7 @@
     width: 700px;
     height: 600px;
   }
-  
+
   .screenshotMain {
     width: 176px;
   }

@@ -27,7 +27,6 @@ export default function ContributePage() {
         <Link href="/" style={{ marginRight: 'auto' }}>
           <Logo className={styles.logo} variant={LogoType.Full} />
         </Link>
-        <GooglePlayButton className={styles.googlePlayButton} />
         <div className={styles.langSwitcher}>
           <LangSwitcher />
         </div>
@@ -45,6 +44,14 @@ export default function ContributePage() {
             subtitle={t('tellFriendsDescription')}
           />
         </div>
+        <Card
+          className={clsx(styles.card, styles.reviewCard)}
+          title={t('reviewTitle')}
+          subtitle={t('reviewDescription')}
+          classes={{ content: styles.reviewCardContent }}
+        >
+          <GooglePlayButton className={styles.googlePlayButton} />
+        </Card>
       </main>
       <Footer />
     </>

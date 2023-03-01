@@ -14,17 +14,33 @@
   margin-right: 24px;
 }
 
+
+.reviewCard {
+  margin-top: 48px;
+  border-bottom-left-radius: 40px !important;
+  border-bottom-right-radius: 40px !important;
+  overflow: unset !important;
+  --on-background: #303309;
+  --on-background-secondary: #616825;
+  --background: #e6f45d;
+}
+
+.reviewCardContent {
+  margin: -36px;
+  margin-top: 36px !important;
+}
+
 .googlePlayButton {
-  margin-left: auto;
+  width: 100%;
 }
 
 .main {
-  padding: 24px;
+  padding: 48px;
   padding-top: 0;
   display: flex;
   flex-direction: column;
   gap: 48px;
-  max-width: 1400px;
+  max-width: 1500px;
   width: 100%;
   align-self: center;
 }
@@ -56,14 +72,11 @@
   min-width: 270px;
 }
 
-@media screen and (max-width: 630px) {
-  .googlePlayButton {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 980px) {
   .cardsRow {
     flex-direction: column;
+  }
+  .reviewCard {
+    margin-top: 0;
   }
 }

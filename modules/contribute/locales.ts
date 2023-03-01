@@ -11,6 +11,9 @@ export const locales: LocalesMap = {
     tellFriendsTitle: 'Расскажите друзьям о приложении',
     tellFriendsDescription:
       'Я очень люблю когда мой проекты приносят пользу. Я был бы очень рад если вы рассказали об этом приложении друзьям',
+    reviewTitle: 'Оставьте отзыв',
+    reviewDescription:
+      'Расскажите как вам приложение, отзывы хорошо помогают в развитии',
   },
   en: {
     pageTitle: 'Buckwheat - Contribute',
@@ -21,5 +24,8 @@ export const locales: LocalesMap = {
     tellFriendsTitle: 'Tell your friends about the application',
     tellFriendsDescription:
       'I really love when my projects are useful. I would be very happy if you told your friends about this application',
+    reviewTitle: 'Leave a review',
+    reviewDescription:
+      'Tell us how you like the app, reviews help a lot in development',
   },
 };

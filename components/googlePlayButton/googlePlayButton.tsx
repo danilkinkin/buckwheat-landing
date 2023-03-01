@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import styles from './googlePlayButton.module.css';
 import Link, { LinkProps } from 'next/link';
 import QRCodeSvg from '@/assets/images/download-gp-qr-code.svg';
 import LinkIcon from '@/assets/icons/link.svg';
 import useLocale, { LocalesMap } from '@/utils/useLocale';
+import clsx from 'clsx';
 
 const locales: LocalesMap = {
   ru: {
@@ -17,11 +17,11 @@ const locales: LocalesMap = {
 type GooglePlayButtonProps = Omit<LinkProps, 'href'> & { className?: string };
 
 export function GooglePlayButton(props: GooglePlayButtonProps) {
-  const { ...restProps } = props;
+  const { className: restCalssName, ...restProps } = props;
   const t = useLocale(locales);
 
   return (
-    <div className={styles.card}>
+    <div className={clsx(styles.card, restCalssName)}>
       <Link
         {...restProps}
         target="_blank"
