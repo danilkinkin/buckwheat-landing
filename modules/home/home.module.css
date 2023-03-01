@@ -1,7 +1,6 @@
 .header {
   min-height: 50vh;
   padding: 24px;
-  padding-top: 84px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,8 +29,15 @@
 
 .langSwitcher {
   position: absolute;
+  max-width: 1500px;
+  left: 0;
   top: 24px;
-  right: 32px;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 48px;
 }
 
 .logo {
@@ -88,5 +94,25 @@
 
   .screenshotMain {
     width: 176px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .main {
+    padding: 24px;
+    gap: 24px;
+  }
+  .cardsRow {
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    padding: 16px;
+    gap: 16px;
+  }
+  .cardsRow {
+    gap: 16px;
   }
 }

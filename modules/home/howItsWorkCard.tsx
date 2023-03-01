@@ -27,6 +27,7 @@ export default function HowItsWorkCard() {
       className={styles.card}
       title={t('title')}
       subtitle={t('description')}
+      classes={{ subtitle: styles.description }}
     >
       <div className={styles.mockupPhoneContiner}>
         <Image

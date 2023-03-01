@@ -45,7 +45,7 @@
   margin-right: 8px;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 620px) {
   .card {
     padding: 16px;
   }
@@ -56,8 +56,11 @@
 }
 
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 480px) {
   .qrCode {
     display: none;
+  }
+  .card {
+    padding: 36px;
   }
 }

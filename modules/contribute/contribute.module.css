@@ -1,19 +1,29 @@
 .header {
-  padding: 48px 24px;
+  min-height: 30vh;
+  padding: 48px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   position: relative;
-  max-width: 1400px;
+  max-width: 1500px;
   width: 100%;
   margin: 0 auto;
+  flex-shrink: 0;
 }
 
 .langSwitcher {
-  margin-left: 48px;
-  margin-right: 24px;
+  position: absolute;
+  max-width: 1500px;
+  left: 0;
+  top: 24px;
+  right: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 48px;
 }
-
 
 .reviewCard {
   margin-top: 48px;
@@ -46,7 +56,7 @@
 }
 
 .description {
-  margin: 48px 0;
+  margin-top: 36px;
   font-weight: 600;
   font-size: 1rem;
   max-width: 700px;
@@ -62,13 +72,12 @@
   display: flex;
   flex-direction: row;
   gap: 48px;
-  padding-top: 24px;
 }
 
 .tellFriendsCard {
   --on-background: #59321c;
   --on-background-secondary: #866655;
-  --background: #FFF1EA;
+  --background: #fff1ea;
   min-width: 270px;
 }
 
@@ -78,5 +87,25 @@
   }
   .reviewCard {
     margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .main {
+    padding: 24px;
+    gap: 24px;
+  }
+  .cardsRow {
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    padding: 16px;
+    gap: 16px;
+  }
+  .cardsRow {
+    gap: 16px;
   }
 }

@@ -24,17 +24,17 @@ export default function ContributePage() {
         <meta name="description" content={t('pageDescription')} />
       </Head>
       <header className={styles.header}>
-        <Link href="/" style={{ marginRight: 'auto' }}>
-          <Logo className={styles.logo} variant={LogoType.Full} />
-        </Link>
         <div className={styles.langSwitcher}>
           <LangSwitcher />
         </div>
-      </header>
-      <main className={styles.main}>
+        <Link href="/" style={{ marginRight: 'auto' }}>
+          <Logo className={styles.logo} variant={LogoType.Full} />
+        </Link>
         <p className={styles.description}>
           <b className={styles.bold}>{t('appName')}</b> {t('description')}
         </p>
+      </header>
+      <main className={styles.main}>
         <div className={styles.cardsRow}>
           {router.locale !== 'ru' && <HelpUkraineCard />}
           {router.locale === 'ru' && <DonateToFunsCard />}

@@ -23,7 +23,7 @@ export function Card(props: CardProps) {
   return (
     <div className={clsx(styles.card, restClassName)} {...restProps}>
       <h3 className={styles.title}>{title}</h3>
-      <p className={styles.subtitle}>{subtitle}</p>
+      <p className={clsx(styles.subtitle, classes.subtitle)}>{subtitle}</p>
       <div className={clsx(styles.content, classes.content)}>{children}</div>
     </div>
   );
