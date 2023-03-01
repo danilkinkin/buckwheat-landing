@@ -11,9 +11,7 @@ WORKDIR /app
 COPY . .
 
 # Install the dependencies and make the folder
-RUN yarn install --immutable
-
-
+RUN yarn install
 
 # Build the project and copy the files
 RUN yarn build
