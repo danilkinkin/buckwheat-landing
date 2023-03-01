@@ -2379,6 +2379,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"buckwheat-landing@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "buckwheat-landing@workspace:."
+  dependencies:
+    "@react-spring/web": ^9.7.1
+    "@svgr/webpack": ^6.5.1
+    "@types/node": 18.14.1
+    "@types/react": 18.0.28
+    "@types/react-dom": 18.0.11
+    add: ^2.0.6
+    clsx: ^1.2.1
+    eslint: ^8.35.0
+    eslint-config-next: ^13.2.1
+    eslint-config-prettier: ^8.6.0
+    eslint-plugin-prettier: ^4.2.1
+    next: 13.2.1
+    prettier: ^2.8.4
+    react: 18.2.0
+    react-dom: 18.2.0
+    sass: ^1.58.3
+    sharp: ^0.31.3
+    typescript: 4.9.5
+    yarn: ^1.22.19
+  languageName: unknown
+  linkType: soft
+
 "buffer@npm:^5.5.0":
   version: 5.7.1
   resolution: "buffer@npm:5.7.1"
@@ -4331,32 +4357,6 @@ __metadata:
   checksum: a2ed78cac49a0f0c4be8b1eafe3c5257a1411341d8e7f1ac740debae003de04e5f6372bfcfbd9d082e954ffd99aac85bcda85b7c6bc11609992483f4cdc0f745
   languageName: node
   linkType: hard
-
-"landing-next@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "landing-next@workspace:."
-  dependencies:
-    "@react-spring/web": ^9.7.1
-    "@svgr/webpack": ^6.5.1
-    "@types/node": 18.14.1
-    "@types/react": 18.0.28
-    "@types/react-dom": 18.0.11
-    add: ^2.0.6
-    clsx: ^1.2.1
-    eslint: ^8.35.0
-    eslint-config-next: ^13.2.1
-    eslint-config-prettier: ^8.6.0
-    eslint-plugin-prettier: ^4.2.1
-    next: 13.2.1
-    prettier: ^2.8.4
-    react: 18.2.0
-    react-dom: 18.2.0
-    sass: ^1.58.3
-    sharp: ^0.31.3
-    typescript: 4.9.5
-    yarn: ^1.22.19
-  languageName: unknown
-  linkType: soft
 
 "language-subtag-registry@npm:~0.3.2":
   version: 0.3.22
