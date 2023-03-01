@@ -42,7 +42,7 @@
     --background: #1a1716;
   }
   .mockupPhoneContiner {
-    opacity: 0.6;
+    opacity: 0.8;
   }
 }
 
@@ -69,6 +69,12 @@
 @media screen and (max-width: 730px) {
   .description {
     background-color: #fff1ea;
+  }
+}
+
+@media (prefers-color-scheme: dark) and (max-width: 730px) {
+  .description {
+    background-color: #1a1716;
   }
 }
 
