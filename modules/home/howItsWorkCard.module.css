@@ -35,6 +35,17 @@
   padding-top: 6px;
 }
 
+@media (prefers-color-scheme: dark) {
+  .card {
+    --on-background: #935c41;
+    --on-background-secondary: #9d8a80;
+    --background: #1a1716;
+  }
+  .mockupPhoneContiner {
+    opacity: 0.6;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .card {
     height: 550px;

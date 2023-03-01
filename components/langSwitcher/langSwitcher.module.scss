@@ -1,0 +1,79 @@
+.langSwitcher {
+  position: relative;
+  z-index: 1000;
+}
+
+.currentLanguage {
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--on-background-secondary)
+}
+
+.selector {
+  position: absolute;
+  width: 200px;
+  top: 0;
+  right: 0;
+  background-color: var(--background);
+  padding: 8px 8px;
+  border-radius: 16px;
+  border: 1px solid var(--divider);
+  box-shadow: 0px 4px 16px #00000014;
+  background-color: #fafafa;
+  z-index: 1000;
+
+  pointer-events: none;
+  opacity: 0;
+
+  .header {
+    color: #6f6f6f;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 4px 16px;
+    margin-bottom: 8px;
+  }
+
+  ul {
+    list-style: none;
+  
+    li {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s ease;
+  
+      &:hover {
+        background-color: var(--divider);
+      }
+    }
+  }
+}
+
+.openSelector {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.hideCurrent {
+  opacity: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .selector {
+    background-color: #171717;
+    border-color: #333;
+
+    ul {
+      li {
+        color: #c8c8c8;
+  
+        &:hover {
+          background-color: #262626;
+        }
+      }
+    }
+  }
+}

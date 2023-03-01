@@ -2,7 +2,7 @@ import useLocale, { LocalesMap } from '@/utils/useLocale';
 import { clsx } from 'clsx';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
-import styles from './langSwitcher.module.css';
+import styles from './langSwitcher.module.scss';
 
 type LangSwitcherProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,

@@ -18,10 +18,10 @@
   --background: rgba(226, 190, 0, 0.48);
   z-index: 1;
   transition: background-color 0.3s ease;
-}
 
-.link:hover {
-  --background: rgb(195 164 0 / 48%);
+  &:hover {
+    --background: rgb(195 164 0 / 48%);
+  }
 }
 
 .ukraineMap {
@@ -32,14 +32,6 @@
   right: 6%;
   color: #f6ce00;
   height: 80%;
-}
-
-@media screen and (max-width: 760px) {
-  .ukraineMap {
-    right: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 }
 
 .captionLink {
@@ -63,6 +55,43 @@
   a {
     color: #c7441a;
     text-decoration: underline;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --on-background: #75B8FF;
+    --on-background-secondary: #d5ca92;
+    --background: #463B00;
+  }
+  .link {
+    --background: rgb(176, 148, 0);
+
+    &:hover {
+      --background: rgb(236, 198, 0);
+    }
+  }
+  .ukraineMap {
+    color: #5e4f00;
+  }
+  .captionLink {
+    color: #979797;
+
+    svg {
+      color: #d7d7d7;
+    }
+  
+    a {
+      color: #f08360;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .ukraineMap {
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 

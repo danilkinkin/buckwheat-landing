@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styles from '@/modules/contribute/contribute.module.css';
+import styles from '@/modules/contribute/contribute.module.scss';
 import { Logo, LogoType } from '@/components/logo';
 import { GooglePlayButton } from '@/components/googlePlayButton';
 import { Card } from '@/components/card';

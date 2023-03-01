@@ -1,4 +1,4 @@
-import styles from './googlePlayButton.module.css';
+import styles from './googlePlayButton.module.scss';
 import Link, { LinkProps } from 'next/link';
 import QRCodeSvg from '@/assets/images/download-gp-qr-code.svg';
 import LinkIcon from '@/assets/icons/link.svg';

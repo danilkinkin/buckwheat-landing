@@ -34,6 +34,7 @@ export default function HowItsWorkCard() {
           className={styles.screenshotMain}
           height={2340}
           width={1080}
+          placeholder="blur"
           alt=""
           src={screenshotMainImage}
         />
@@ -41,6 +42,7 @@ export default function HowItsWorkCard() {
           className={styles.mockupPhone}
           height={900}
           width={1050}
+          placeholder="blur"
           alt=""
           src={phoneMockupImage}
         />
