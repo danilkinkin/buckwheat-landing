@@ -7,6 +7,7 @@ import { locales } from '@/modules/home/locales';
 import HowItsWorkCard from '@/modules/home/howItsWorkCard';
 import Header from '@/modules/home/header';
 import ContributeCard from '@/modules/home/contributeCard';
+import { GooglePlayButton } from '@/components/googlePlayButton';
 
 export default function HomePage() {
   const t = useLocale(locales);
@@ -20,7 +21,10 @@ export default function HomePage() {
       <Header />
       <main className={styles.main}>
         <HowItsWorkCard />
-        <ContributeCard />
+        <div className={styles.cardsRow}>
+          <GooglePlayButton className={styles.googlePlayButton} />
+          <ContributeCard />
+        </div>
       </main>
       <Footer />
     </>

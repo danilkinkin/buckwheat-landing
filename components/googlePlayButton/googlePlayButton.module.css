@@ -1,0 +1,63 @@
+.card {
+  border-radius: 36px;
+  overflow: hidden;
+  padding: 28px;
+  background-color: #f5f5f5;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.qrCode {
+  width: 240px;
+  height: 240px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.linkIcon {
+  width: 42px;
+  height: 42px;
+  margin-left: auto;
+}
+
+.getText {
+  color: #838383;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-top: auto;
+  margin-bottom: -6px;
+  margin-right: 8px;
+}
+
+.storeNameText {
+  color: #242424;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-right: 8px;
+}
+
+@media screen and (max-width: 520px) {
+  .card {
+    padding: 16px;
+  }
+  .qrCode {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+
+@media screen and (max-width: 420px) {
+  .qrCode {
+    display: none;
+  }
+}

@@ -16,7 +16,7 @@
   margin-top: 8px;
   font-size: 1.14rem;
   font-weight: 600;
-  color: var(--on-background)
+  color: var(--on-background-secondary)
 }
 
 .header p {
@@ -66,7 +66,7 @@
   flex-basis: 50%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 980px) {
   .header h1 {
     font-size: 1.6rem;
   }
