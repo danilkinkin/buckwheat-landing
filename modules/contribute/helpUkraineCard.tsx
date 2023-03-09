@@ -11,7 +11,7 @@ export default function HelpUkraineCard() {
       <Card
         className={styles.card}
         title="Support Ukraine"
-        subtitle="For more than a year, the Russian authorities have been destroying a peaceful state. These people need help to defend their freedom."
+        subtitle="For over a year, a peaceful nation has been under threat of destruction by the Russian authorities. They are fighting to hold on, but it's not easy. Please help Ukraine defend their freedom."
       >
         <CardLink
           className={clsx(styles.link, styles.topOffset)}
@@ -29,14 +29,14 @@ export default function HelpUkraineCard() {
       </Card>
       <p className={styles.captionLink}>
         <InfoIcon />
-        If you decide to donate, please fill out a{' '}
+        If you have decided to donate, please fill out{' '}
         <Link
           href="https://docs.google.com/forms/d/e/1FAIpQLSejBz_dbR15jJ33bAwxt-gKimhnX1VzqpDZJLADYubBR7bVbg/viewform"
           target="_blank"
         >
-          short form
+          a short anonymous form
         </Link>
-        . She is anonymous, I just want to understand how many people I inspired
+        . This will help me understand how many people were inspired to help.
       </p>
     </div>
   );

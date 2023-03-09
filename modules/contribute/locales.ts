@@ -7,25 +7,25 @@ export const locales: LocalesMap = {
       'Гречка — Приложение, которое поможет вам тратить деньги с умом',
     appName: 'Гречка',
     description:
-      '— хобби проект и я не планирую на нём зарабатывать. У меня есть работа и постоянный заработок. Если вы очень хотите помочь, то вот несколько вариантов, что вы можете сделать. Спасибо',
+      '— это мой хобби-проект, и на данный момент я не планирую на нем зарабатывать. Если вы действительно хотите помочь, то вот несколько вариантов, которые можно рассмотреть. Спасибо',
     tellFriendsTitle: 'Расскажите друзьям о приложении',
     tellFriendsDescription:
-      'Я очень люблю когда мой проекты приносят пользу. Я был бы очень рад если вы рассказали об этом приложении друзьям',
+      'Мне очень важно, чтобы мои проекты приносили пользу. Если вы расскажете своим друзьям о своем опыте использования этого приложения и как оно помогло вам, я буду вам очень признателен.',
     reviewTitle: 'Оставьте отзыв',
     reviewDescription:
-      'Расскажите как вам приложение, отзывы хорошо помогают в развитии',
+      'Буду благодарен, если вы оставите свой отзыв о приложении. Отзывы очень важны и помогают улучшать приложение.',
   },
   en: {
     pageTitle: 'Buckwheat - Contribute',
     pageDescription: 'Buckwheat — App that helps you spend money wisely',
     appName: 'Buckwheat',
     description:
-      'is a hobby project and I do not plan to make money on it. I have a job and a steady income. If you really want to help, then here are a few things you can do. Thank you',
+      "is my hobby project, and at the moment I don't plan to make money on it. If you really want to help, here are a few options to consider. Thank you",
     tellFriendsTitle: 'Tell your friends about the application',
     tellFriendsDescription:
-      'I really love when my projects are useful. I would be very happy if you told your friends about this application',
+      'It is very important to me that my projects bring benefits. If you tell your friends about your experience using this application and how it helped you, I will be very grateful to you.',
     reviewTitle: 'Leave a review',
     reviewDescription:
-      'Tell us how you like the app, reviews help a lot in development',
+      'I would be grateful if you could leave your feedback on the application. Reviews are very important and help us improve application.',
   },
 };
