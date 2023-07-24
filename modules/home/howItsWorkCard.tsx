@@ -1,10 +1,14 @@
 import Image from 'next/image';
-import phoneMockupImage from '@/assets/images/phone-mockup-1.png';
-import screenshotMainImage from '@/assets/images/screenshot-main.png';
-import styles from '@/modules/home/howItsWorkCard.module.css';
+import phoneMockupLightImage from '@/assets/images/phone-mockup-light.png';
+import phoneMockupDarkImage from '@/assets/images/phone-mockup-dark.png';
+import screenshotEnImage from '@/assets/images/screenshot-en.png';
+import screenshotRuImage from '@/assets/images/screenshot-ru.png';
+import styles from './howItsWorkCard.module.css';
 import { Card } from '@/components/card';
 import useLocale from '@/utils/useLocale';
 import { LocalesMap } from '@/utils/useLocale';
+import { useRouter } from 'next/router';
+import clsx from 'clsx';
 
 const locales: LocalesMap = {
   ru: {
@@ -20,6 +24,7 @@ const locales: LocalesMap = {
 };
 
 export default function HowItsWorkCard() {
+  const router = useRouter();
   const t = useLocale(locales);
 
   return (
@@ -31,20 +36,28 @@ export default function HowItsWorkCard() {
     >
       <div className={styles.mockupPhoneContiner}>
         <Image
+          className={clsx(styles.mockupPhone, styles.mockupPhoneLight)}
+          height={660}
+          width={939.4}
+          placeholder="blur"
+          alt=""
+          src={phoneMockupLightImage}
+        />
+        <Image
+          className={clsx(styles.mockupPhone, styles.mockupPhoneDark)}
+          height={660}
+          width={939.4}
+          placeholder="blur"
+          alt=""
+          src={phoneMockupDarkImage}
+        />
+        <Image
           className={styles.screenshotMain}
           height={2340}
           width={1080}
           placeholder="blur"
           alt=""
-          src={screenshotMainImage}
-        />
-        <Image
-          className={styles.mockupPhone}
-          height={900}
-          width={1050}
-          placeholder="blur"
-          alt=""
-          src={phoneMockupImage}
+          src={router.locale !== 'ru' ? screenshotEnImage : screenshotRuImage}
         />
       </div>
     </Card>

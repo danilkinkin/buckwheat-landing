@@ -11,6 +11,7 @@
   position: absolute;
   top: 4%;
   right: 5%;
+  z-index: 0;
 }
 
 .mockupPhone {
@@ -18,13 +19,22 @@
   position: relative;
 }
 
+.mockupPhoneDark {
+  display: none;
+}
+
+.mockupPhoneLight {
+
+}
+
 .screenshotMain {
   position: absolute;
-  top: 12.6%;
-  right: 17.4%;
-  transform: rotate(6.19deg);
-  width: 261px;
+  top: 19.8%;
+  right: 27.75%;
+  transform: rotate(6.49deg);
+  width: 269px;
   height: auto;
+  z-index: 1;
 }
 
 .description {
@@ -41,8 +51,13 @@
     --on-background-secondary: #9d8a80;
     --background: #1a1716;
   }
-  .mockupPhoneContiner {
-    opacity: 0.8;
+
+  .mockupPhoneDark {
+    display: block;
+  } 
+  
+  .mockupPhoneLight {
+    display: none;
   }
 }
 
@@ -53,16 +68,19 @@
   }
 
   .mockupPhoneContiner {
-    top: 25%;
+    top: 16%;
+    right: -14%;
   }
 
   .mockupPhone {
-    width: 700px;
-    height: 600px;
+    width: 723.338px;
+    height: 508.2px;
   }
 
   .screenshotMain {
-    width: 176px;
+    width: 207.3px;
+    right: 27.8%;
+    top: 19.8%;
   }
 }
 
@@ -80,6 +98,6 @@
 
 @media screen and (max-width: 480px) {
   .mockupPhoneContiner {
-    right: -5%;
+    right: -32%;
   }
 }
