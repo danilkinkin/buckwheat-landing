@@ -19,14 +19,6 @@
   position: relative;
 }
 
-.mockupPhoneDark {
-  display: none;
-}
-
-.mockupPhoneLight {
-
-}
-
 .screenshotMain {
   position: absolute;
   top: 19.8%;
@@ -38,7 +30,6 @@
 }
 
 .description {
-  z-index: 1000 !important;
   padding: 8px;
   margin: -8px;
   margin-top: 0;
@@ -50,14 +41,6 @@
     --on-background: #935c41;
     --on-background-secondary: #9d8a80;
     --background: #1a1716;
-  }
-
-  .mockupPhoneDark {
-    display: block;
-  } 
-  
-  .mockupPhoneLight {
-    display: none;
   }
 }
 
@@ -81,18 +64,6 @@
     width: 207.3px;
     right: 27.8%;
     top: 19.8%;
-  }
-}
-
-@media screen and (max-width: 730px) {
-  .description {
-    background-color: #fff1ea;
-  }
-}
-
-@media (prefers-color-scheme: dark) and (max-width: 730px) {
-  .description {
-    background-color: #1a1716;
   }
 }
 

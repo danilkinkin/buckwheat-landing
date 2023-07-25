@@ -7,6 +7,11 @@
   flex-direction: column;
 }
 
+.textWrapper {
+  position: relative;
+  z-index: 1;
+}
+
 .title {
   color: var(--on-background);
   font-size: 1.6rem;
@@ -22,6 +27,35 @@
   max-width: 500px;
   margin-top: 6px;
   z-index: 1;
+}
+
+.backdropOnText {
+  background-color: var(--background);
+  padding: 0.5rem 8px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.backdropOnText {
+  background-color: var(--background);
+  padding: 0 8px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  z-index: 1 !important;
+  position: relative;
+  box-shadow: 0px 5px 0px var(--background);
+}
+
+.backdropTextHelper {
+  position: absolute;
+  top: 0;
+  z-index: 0 !important;
+  pointer-events: none;
+  user-select: none;
+}
+
+.backdropTextHelper .backdropOnText {
+  box-shadow: 00px -5px 0px var(--background);
 }
 
 .content {

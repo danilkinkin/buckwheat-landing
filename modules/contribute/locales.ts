@@ -8,9 +8,6 @@ export const locales: LocalesMap = {
     appName: 'Гречка',
     description:
       '— это мой хобби-проект, и на данный момент я не планирую на нем зарабатывать. Если вы действительно хотите помочь, то вот несколько вариантов, которые можно рассмотреть. Спасибо',
-    tellFriendsTitle: 'Расскажите друзьям о приложении',
-    tellFriendsDescription:
-      'Мне очень важно, чтобы мои проекты приносили пользу. Если вы расскажете своим друзьям о своем опыте использования этого приложения и как оно помогло вам, я буду вам очень признателен.',
     reviewTitle: 'Оставьте отзыв',
     reviewDescription:
       'Буду благодарен, если вы оставите свой отзыв о приложении. Отзывы очень важны и помогают улучшать приложение.',
@@ -21,9 +18,6 @@ export const locales: LocalesMap = {
     appName: 'Buckwheat',
     description:
       "is my hobby project, and at the moment I don't plan to make money on it. If you really want to help, here are a few options to consider. Thank you",
-    tellFriendsTitle: 'Tell your friends about the application',
-    tellFriendsDescription:
-      'It is very important to me that my projects bring benefits. If you tell your friends about your experience using this application and how it helped you, I will be very grateful to you.',
     reviewTitle: 'Leave a review',
     reviewDescription:
       'I would be grateful if you could leave your feedback on the application. Reviews are very important and help us improve application.',

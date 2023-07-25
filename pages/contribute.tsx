@@ -12,6 +12,7 @@ import DonateToFunsCard from '@/modules/contribute/donateToFundsCard';
 import HelpUkraineCard from '@/modules/contribute/helpUkraineCard';
 import Link from 'next/link';
 import { locales } from '@/modules/contribute/locales';
+import ShareCard from '@/modules/contribute/shareCard';
 
 export default function ContributePage() {
   const router = useRouter();
@@ -38,11 +39,7 @@ export default function ContributePage() {
         <div className={styles.cardsRow}>
           {router.locale !== 'ru' && <HelpUkraineCard />}
           {router.locale === 'ru' && <DonateToFunsCard />}
-          <Card
-            className={clsx(styles.card, styles.tellFriendsCard)}
-            title={t('tellFriendsTitle')}
-            subtitle={t('tellFriendsDescription')}
-          />
+          <ShareCard />
         </div>
         <Card
           className={clsx(styles.card, styles.reviewCard)}

@@ -7,6 +7,7 @@ type CardProps = React.DetailedHTMLProps<
 > & {
   title?: string;
   subtitle?: string;
+  backdropOnText?: boolean;
   classes?: { [key: string]: string };
 };
 
@@ -14,6 +15,7 @@ export function Card(props: CardProps) {
   const {
     title,
     subtitle,
+    backdropOnText,
     children,
     classes = {},
     className: restClassName,
@@ -22,8 +24,40 @@ export function Card(props: CardProps) {
 
   return (
     <div className={clsx(styles.card, restClassName)} {...restProps}>
-      <h3 className={styles.title}>{title}</h3>
-      <p className={clsx(styles.subtitle, classes.subtitle)}>{subtitle}</p>
+      <div className={clsx(styles.textWrapper)}>
+        <h3 className={styles.title}>
+          <span className={clsx(backdropOnText && styles.backdropOnText)}>
+            {title}
+          </span>
+        </h3>
+        {backdropOnText && (
+          <h3 className={clsx(styles.title, styles.backdropTextHelper)}>
+            <span className={clsx(backdropOnText && styles.backdropOnText)}>
+              {title}
+            </span>
+          </h3>
+        )}
+      </div>
+      <div className={clsx(styles.textWrapper)}>
+        <p className={clsx(styles.subtitle, classes.subtitle)}>
+          <span className={clsx(backdropOnText && styles.backdropOnText)}>
+            {subtitle}
+          </span>
+        </p>
+        {backdropOnText && (
+          <p
+            className={clsx(
+              styles.subtitle,
+              classes.subtitle,
+              styles.backdropTextHelper
+            )}
+          >
+            <span className={clsx(backdropOnText && styles.backdropOnText)}>
+              {subtitle}
+            </span>
+          </p>
+        )}
+      </div>
       <div className={clsx(styles.content, classes.content)}>{children}</div>
     </div>
   );

@@ -32,21 +32,22 @@ export default function HowItsWorkCard() {
       className={styles.card}
       title={t('title')}
       subtitle={t('description')}
+      backdropOnText
       classes={{ subtitle: styles.description }}
     >
       <div className={styles.mockupPhoneContiner}>
         <Image
-          className={clsx(styles.mockupPhone, styles.mockupPhoneLight)}
-          height={660}
-          width={939.4}
+          className={clsx(styles.mockupPhone, '--light-image')}
+          height={800}
+          width={975}
           placeholder="blur"
           alt=""
           src={phoneMockupLightImage}
         />
         <Image
-          className={clsx(styles.mockupPhone, styles.mockupPhoneDark)}
-          height={660}
-          width={939.4}
+          className={clsx(styles.mockupPhone, '--dark-image')}
+          height={800}
+          width={975}
           placeholder="blur"
           alt=""
           src={phoneMockupDarkImage}

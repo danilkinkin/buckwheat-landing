@@ -1,0 +1,41 @@
+.card {
+  --on-background: #59321c;
+  --on-background-secondary: #866655;
+  --background: #fff2e8;
+  min-width: 270px;
+  position: relative;
+}
+
+.description {
+  padding: 8px;
+  margin: -8px;
+  margin-top: 0;
+  padding-top: 6px;
+}
+
+.heartContiner {
+  position: absolute;
+  bottom: -19%;
+  right: -22%;
+  z-index: 0;
+}
+
+.heartImage {
+  width: 300px;
+  height: auto;
+}
+
+@media screen and (max-width: 980px) {
+  .heartContiner {
+    bottom: -32%;
+    right: -4%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    --on-background: #dd8cae;
+    --on-background-secondary: #bb94a6;
+    --background: #270c18;
+  }
+}

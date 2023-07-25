@@ -8,11 +8,27 @@
   --divider: #efefef;
 }
 
+.--dark-image {
+  display: none;
+}
+
+.--light-image {
+  display: block;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --on-background: #f0f0f0;
     --on-background-secondary: #a8a8a8;
     --background: #000;
+  }
+
+  .--dark-image {
+    display: block;
+  }
+
+  .--light-image {
+    display: none;
   }
 }
 
