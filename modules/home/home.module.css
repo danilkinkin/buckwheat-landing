@@ -106,6 +106,10 @@
   .cardsRow {
     gap: 24px;
   }
+
+  .header {
+    min-height: 36vh;
+  }
 }
 
 @media screen and (max-width: 500px) {
