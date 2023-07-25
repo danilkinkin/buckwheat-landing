@@ -84,3 +84,21 @@
     }
   }
 }
+
+@media screen and (max-width: 540px) {
+  .selector {
+    width: calc(100vw - 48px);
+    right: -24px;
+    box-shadow: 0px 4px 180px rgb(0 0 0 / 31%);
+
+    .header {
+      font-size: 16px;
+    }
+
+    ul {
+      li {
+        padding: 12px 16px;
+      }
+    }
+  }
+}

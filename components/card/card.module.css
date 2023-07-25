@@ -101,3 +101,12 @@
   font-size: 0.75rem;
   margin-top: 4px;
 }
+
+
+@media screen and (max-width: 620px) {
+  .cardLink {
+    width: 100%;
+    max-width: unset;
+  }
+  
+}
