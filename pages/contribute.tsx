@@ -30,7 +30,7 @@ export default function ContributePage() {
           <GithubButton />
           <LangSwitcher />
         </div>
-        <Link href="/" style={{ marginRight: 'auto' }}>
+        <Link href="/" className={styles.homeLink}>
           <Logo className={styles.logo} variant={LogoType.Full} />
         </Link>
         <p className={styles.description}>
