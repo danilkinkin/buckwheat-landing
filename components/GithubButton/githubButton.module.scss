@@ -1,0 +1,11 @@
+.link {
+  display: inline-flex;
+}
+
+.linkIcon {
+  color: var(--on-background-secondary);
+
+  &:hover {
+    color: var(--on-background);
+  }
+}

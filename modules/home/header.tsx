@@ -3,6 +3,7 @@ import useLocale from '@/utils/useLocale';
 import { LocalesMap } from '@/utils/useLocale';
 import { LangSwitcher } from '@/components/langSwitcher';
 import { Logo, LogoType } from '@/components/logo';
+import { GithubButton } from '@/components/GithubButton';
 
 const locales: LocalesMap = {
   ru: {
@@ -19,6 +20,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.langSwitcher}>
+        <GithubButton />
         <LangSwitcher />
       </div>
       <Logo className={styles.logo} variant={LogoType.Full} />

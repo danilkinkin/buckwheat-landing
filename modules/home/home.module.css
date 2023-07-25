@@ -38,6 +38,7 @@
   flex-direction: row;
   justify-content: flex-end;
   padding: 0 48px;
+  gap: 24px;
 }
 
 .logo {

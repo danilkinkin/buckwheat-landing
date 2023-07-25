@@ -1,7 +1,8 @@
 import useLocale, { LocalesMap } from '@/utils/useLocale';
 import { clsx } from 'clsx';
 import Link from 'next/link';
-import styles from './footer.module.css';
+import styles from './footer.module.scss';
+import { GithubButton } from '../GithubButton';
 
 type CardProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -29,10 +30,15 @@ export function Footer(props: CardProps) {
           className={styles.danilkinkin}
           href="https://danilkinkin.com"
           target="_blank"
+          prefetch={false}
         >
           @danilkinkin
         </Link>
       </p>
+
+      <hr />
+
+      <GithubButton />
     </footer>
   );
 }

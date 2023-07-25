@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import styles from './langSwitcher.module.scss';
+import LanguageIcon from '@/assets/icons/language.svg';
 
 type LangSwitcherProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -59,7 +60,7 @@ export function LangSwitcher(props: LangSwitcherProps) {
         className={clsx(styles.currentLanguage, open && styles.hideCurrent)}
         onClick={() => setOpen(true)}
       >
-        {localesMap[router.locale || 'en']}
+        <LanguageIcon /> {localesMap[router.locale || 'en']}
       </span>
       <div
         ref={selectorRef}

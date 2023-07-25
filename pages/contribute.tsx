@@ -13,6 +13,7 @@ import HelpUkraineCard from '@/modules/contribute/helpUkraineCard';
 import Link from 'next/link';
 import { locales } from '@/modules/contribute/locales';
 import ShareCard from '@/modules/contribute/shareCard';
+import { GithubButton } from '@/components/GithubButton';
 
 export default function ContributePage() {
   const router = useRouter();
@@ -26,6 +27,7 @@ export default function ContributePage() {
       </Head>
       <header className={styles.header}>
         <div className={styles.langSwitcher}>
+          <GithubButton />
           <LangSwitcher />
         </div>
         <Link href="/" style={{ marginRight: 'auto' }}>

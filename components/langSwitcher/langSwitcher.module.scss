@@ -5,9 +5,16 @@
 
 .currentLanguage {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 560;
   cursor: pointer;
-  color: var(--on-background-secondary)
+  color: var(--on-background-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &:hover {
+    color: var(--on-background);
+  }
 }
 
 .selector {
