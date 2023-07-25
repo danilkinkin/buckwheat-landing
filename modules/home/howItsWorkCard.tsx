@@ -13,7 +13,7 @@ const locales: LocalesMap = {
       'Записывая каждую трату, вы отрезвляете разум и даете представление о том, сколько и как вы можете потратить.',
   },
   en: {
-    title: 'How its work?',
+    title: 'How it works?',
     description:
       'Writing down each spending sobers the mind and gives you an idea of how much and how you can spend',
   },
