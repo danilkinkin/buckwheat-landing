@@ -38,16 +38,16 @@ export default function HowItsWorkCard() {
       <div className={styles.mockupPhoneContiner}>
         <Image
           className={clsx(styles.mockupPhone, '--light-image')}
-          height={800}
-          width={975}
+          height={1200}
+          width={1708}
           placeholder="blur"
           alt=""
           src={phoneMockupLightImage}
         />
         <Image
           className={clsx(styles.mockupPhone, '--dark-image')}
-          height={800}
-          width={975}
+          height={1200}
+          width={1708}
           placeholder="blur"
           alt=""
           src={phoneMockupDarkImage}
