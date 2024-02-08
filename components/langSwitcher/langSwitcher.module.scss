@@ -68,23 +68,6 @@
   opacity: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  .selector {
-    background-color: #171717;
-    border-color: #333;
-
-    ul {
-      li {
-        color: #c8c8c8;
-  
-        &:hover {
-          background-color: #262626;
-        }
-      }
-    }
-  }
-}
-
 @media screen and (max-width: 540px) {
   .selector {
     width: calc(100vw - 48px);

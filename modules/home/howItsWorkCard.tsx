@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import phoneMockupLightImage from '@/assets/images/phone-mockup-light.png';
-import phoneMockupDarkImage from '@/assets/images/phone-mockup-dark.png';
 import screenshotEnImage from '@/assets/images/screenshot-en.png';
 import screenshotRuImage from '@/assets/images/screenshot-ru.png';
 import styles from './howItsWorkCard.module.css';
@@ -37,20 +36,12 @@ export default function HowItsWorkCard() {
     >
       <div className={styles.mockupPhoneContiner}>
         <Image
-          className={clsx(styles.mockupPhone, '--light-image')}
+          className={clsx(styles.mockupPhone)}
           height={1200}
           width={1708}
           placeholder="blur"
           alt=""
           src={phoneMockupLightImage}
-        />
-        <Image
-          className={clsx(styles.mockupPhone, '--dark-image')}
-          height={1200}
-          width={1708}
-          placeholder="blur"
-          alt=""
-          src={phoneMockupDarkImage}
         />
         <Image
           className={styles.screenshotMain}

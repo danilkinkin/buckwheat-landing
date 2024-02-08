@@ -58,35 +58,6 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .card {
-    --on-background: #75B8FF;
-    --on-background-secondary: #d5ca92;
-    --background: #463B00;
-  }
-  .link {
-    --background: rgb(176, 148, 0);
-
-    &:hover {
-      --background: rgb(236, 198, 0);
-    }
-  }
-  .ukraineMap {
-    color: #5e4f00;
-  }
-  .captionLink {
-    color: #979797;
-
-    svg {
-      color: #d7d7d7;
-    }
-  
-    a {
-      color: #f08360;
-    }
-  }
-}
-
 @media screen and (max-width: 760px) {
   .ukraineMap {
     right: 0;

@@ -38,14 +38,6 @@
   padding-top: 6px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .card {
-    --on-background: #935c41;
-    --on-background-secondary: #9d8a80;
-    --background: #1c1717;
-  }
-}
-
 @media screen and (max-width: 800px) {
   .card {
     height: 550px;

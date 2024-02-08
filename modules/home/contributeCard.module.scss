@@ -47,17 +47,3 @@
   border-radius: 50%;
   background-color: #FFBAD7;
 }
-
-@media (prefers-color-scheme: dark) {
-  .card {
-    --on-background: #dd8cae;
-    --on-background-secondary: #bb94a6;
-    --background: #240F17;
-  }
-  .circlesBackground {
-    background-color: #3E1B28;
-  }
-  .circlesFroreground {
-    background-color: #512233;
-  }
-}

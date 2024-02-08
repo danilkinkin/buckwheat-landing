@@ -3,7 +3,6 @@ import { Card } from '@/components/card';
 import clsx from 'clsx';
 import Image from 'next/image';
 import heartLightImage from '@/assets/images/heart-light.png';
-import heartDarkImage from '@/assets/images/heart-dark.png';
 import useLocale, { LocalesMap } from '@/utils/useLocale';
 
 const locales: LocalesMap = {
@@ -50,20 +49,12 @@ export default function ShareCard() {
     >
       <div className={styles.heartContiner}>
         <Image
-          className={clsx(styles.heartImage, '--light-image')}
+          className={clsx(styles.heartImage)}
           height={800}
           width={851}
           placeholder="blur"
           alt=""
           src={heartLightImage}
-        />
-        <Image
-          className={clsx(styles.heartImage, '--dark-image')}
-          height={800}
-          width={851}
-          placeholder="blur"
-          alt=""
-          src={heartDarkImage}
         />
       </div>
     </Card>

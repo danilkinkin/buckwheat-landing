@@ -23,16 +23,7 @@ export default function Document(props: DocumentProps) {
     <Html>
       <Head>
         <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
-        <meta
-          name="theme-color"
-          media="(prefers-color-scheme: light)"
-          content="#FA5A00"
-        />
-        <meta
-          name="theme-color"
-          media="(prefers-color-scheme: dark)"
-          content="#000"
-        />
+        <meta name="theme-color" content="#FA5A00" />
 
         {/* Primary Meta Tags */}
         <meta name="title" content="buckwheat - budget manager" />

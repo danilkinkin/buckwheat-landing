@@ -46,30 +46,6 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .card {
-    --background: #1c1c1c;
-  }
-  .link {
-    --background: #d7d7d7;
-
-    &:hover {
-      --background: #fff;
-    }
-  }
-  .captionLink {
-    color: #979797;
-
-    svg {
-      color: #d7d7d7;
-    }
-  
-    a {
-      color: #f08360;
-    }
-  }
-}
-
 @media screen and (max-width: 980px) {
   .captionLink {
     position: relative;

@@ -90,24 +90,6 @@
   gap: 48px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .description {
-    color: rgb(193, 193, 193);
-
-    .bold {
-      color: #fff;
-    }
-  }
-  .reviewCard {
-    --on-background: #191c00;
-    --on-background-secondary: #171a00;
-    --background: #7d880e;
-  }
-  .homeLink {
-    --background-hover: #ffffff1f;
-  }
-}
-
 @media screen and (max-width: 980px) {
   .cardsRow {
     flex-direction: column;

@@ -50,28 +50,6 @@
   margin-right: 8px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .card {
-    background-color: #1e1e1e;
-
-    &:hover {
-      background-color: #282828;
-    }
-  }
-  .qrCode {
-    color: #e8e8e8;
-  }
-  .linkIcon {
-    color: #bfbfbf;
-  }
-  .getText {
-    color: #797979;
-  }
-  .storeNameText {
-    color: #e8e8e8;
-  }
-}
-
 @media screen and (max-width: 620px) {
   .card {
     padding: 16px;
