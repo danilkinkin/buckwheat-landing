@@ -19,8 +19,12 @@ const nextConfig = plugins.reduce((acc, next) => next(acc), {
             svgoConfig: {
               plugins: [
                 {
-                  name: 'removeViewBox',
-                  active: false,
+                  name: 'preset-default',
+                  params: {
+                    overrides: {
+                      removeViewBox: false,
+                    },
+                  },
                 },
               ],
             },
