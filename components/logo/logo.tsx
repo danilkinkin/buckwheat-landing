@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import styles from './logo.module.css';
-import LogoSVG from '@/assets/images/logo.svg';
+import LogoSVG from '@/assets/images/logo-alt.svg';
 import useLocale, { LocalesMap } from '@/utils/useLocale';
 
 export enum LogoType {

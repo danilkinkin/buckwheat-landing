@@ -5,15 +5,15 @@
 
 .currentLanguage {
   font-size: 1rem;
-  font-weight: 560;
+  font-weight: 700;
   cursor: pointer;
-  color: var(--on-background-secondary);
+  color: var(--on-background);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
 
   &:hover {
-    color: var(--on-background);
+    color: var(--on-background-secondary);
   }
 }
 

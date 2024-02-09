@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import styles from '@/modules/home/home.module.css';
+import styles from '@/modules/home/home.module.scss';
 import { Footer } from '@/components/footer';
 import useLocale from '@/utils/useLocale';
 import { locales } from '@/modules/home/locales';

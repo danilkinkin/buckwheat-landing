@@ -3,9 +3,9 @@
 }
 
 .linkIcon {
-  color: var(--on-background-secondary);
+  color: var(--on-background);
 
   &:hover {
-    color: var(--on-background);
+    color: var(--on-background-secondary);
   }
 }

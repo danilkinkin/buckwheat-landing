@@ -2,7 +2,7 @@ import useLocale, { LocalesMap } from '@/utils/useLocale';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import styles from './footer.module.scss';
-import { GithubButton } from '../GithubButton';
+import { GithubButton } from '../githubButton';
 
 type CardProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,

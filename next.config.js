@@ -12,7 +12,7 @@ const nextConfig = plugins.reduce((acc, next) => next(acc), {
       test: /\.svg$/i,
       use: [
         options.defaultLoaders.babel,
-        {
+        ({ resource }) => ({
           loader: '@svgr/webpack',
           options: {
             babel: false,
@@ -26,10 +26,16 @@ const nextConfig = plugins.reduce((acc, next) => next(acc), {
                     },
                   },
                 },
+                {
+                  name: 'prefixIds',
+                  params: {
+                    prefix: `${hashCode(resource)}`,
+                  },
+                },
               ],
             },
           },
-        },
+        }),
       ],
     });
 
@@ -38,3 +44,11 @@ const nextConfig = plugins.reduce((acc, next) => next(acc), {
 });
 
 module.exports = nextConfig;
+
+const hashCode = function (s) {
+  var h = 0,
+    l = s.length,
+    i = 0;
+  if (l > 0) while (i < l) h = ((h << 5) - h + s.charCodeAt(i++)) | 0;
+  return h;
+};

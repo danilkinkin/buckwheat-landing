@@ -13,7 +13,7 @@ import HelpUkraineCard from '@/modules/contribute/helpUkraineCard';
 import Link from 'next/link';
 import { locales } from '@/modules/contribute/locales';
 import ShareCard from '@/modules/contribute/shareCard';
-import { GithubButton } from '@/components/GithubButton';
+import { GithubButton } from '@/components/githubButton';
 
 export default function ContributePage() {
   const router = useRouter();
