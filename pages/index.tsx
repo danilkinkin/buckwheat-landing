@@ -8,6 +8,7 @@ import HowItsWorkCard from '@/modules/home/howItsWorkCard';
 import Header from '@/modules/home/header';
 import ContributeCard from '@/modules/home/contributeCard';
 import { GooglePlayButton } from '@/components/googlePlayButton';
+import { GithubCardButton } from '@/components/githubCardButton';
 
 export default function HomePage() {
   const t = useLocale(locales);
@@ -22,7 +23,12 @@ export default function HomePage() {
       <main className={styles.main}>
         <HowItsWorkCard />
         <div className={styles.cardsRow}>
-          <GooglePlayButton className={styles.googlePlayButton} />
+          <div className={styles.storesBlock}>
+            <GooglePlayButton className={styles.googlePlayButton} />
+            <div>
+              <GithubCardButton/>
+            </div>
+          </div>
           <ContributeCard />
         </div>
       </main>

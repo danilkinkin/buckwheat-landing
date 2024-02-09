@@ -12,35 +12,15 @@
 .content {
   display: flex;
   flex-direction: row;
-  padding: 28px;
-}
-
-.qrCode {
-  width: 240px;
-  height: 240px;
-  margin-right: 20px;
-  flex-shrink: 0;
-}
-
-.textContainer {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+  padding: 16px;
+  padding-left: 32px;
+  padding-right: 28px;
 }
 
 .linkIcon {
   width: 42px;
   height: 42px;
   margin-left: auto;
-}
-
-.getText {
-  color: #838383;
-  font-weight: 700;
-  font-size: 1.25rem;
-  margin-top: auto;
-  margin-bottom: -6px;
-  margin-right: 8px;
 }
 
 .storeNameText {
@@ -54,17 +34,9 @@
   .card {
     padding: 16px;
   }
-  .qrCode {
-    width: 180px;
-    height: 180px;
-  }
 }
 
-
 @media screen and (max-width: 480px) {
-  .qrCode {
-    display: none;
-  }
   .card {
     padding: 36px;
   }

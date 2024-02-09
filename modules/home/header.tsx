@@ -3,7 +3,7 @@ import useLocale from '@/utils/useLocale';
 import { LocalesMap } from '@/utils/useLocale';
 import { LangSwitcher } from '@/components/langSwitcher';
 import { Logo, LogoType } from '@/components/logo';
-import { GithubButton } from '@/components/githubButton';
+import { GithubLink } from '@/components/githubLink';
 import clsx from 'clsx';
 import { anonymousPro, ibmPlexMono, caveat } from '@/styles/fonts';
 import GradientGreen from '@/assets/images/header-gradient-green.svg';
@@ -71,7 +71,7 @@ export default function Header() {
       <div className={styles.topBar}>
         <Logo className={styles.logo} variant={LogoType.Full} />
         <GooglePlayLink />
-        <GithubButton />
+        <GithubLink />
         <LangSwitcher />
       </div>
       <h1 className={clsx(styles.slogan, ibmPlexMono.className)}>

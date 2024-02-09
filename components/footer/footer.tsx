@@ -2,7 +2,7 @@ import useLocale, { LocalesMap } from '@/utils/useLocale';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import styles from './footer.module.scss';
-import { GithubButton } from '../githubButton';
+import { GithubLink } from '../githubLink';
 
 type CardProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -38,7 +38,7 @@ export function Footer(props: CardProps) {
 
       <hr />
 
-      <GithubButton />
+      <GithubLink />
     </footer>
   );
 }
