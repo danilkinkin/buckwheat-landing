@@ -8,8 +8,20 @@ const nextConfig = plugins.reduce((acc, next) => next(acc), {
     defaultLocale: 'en',
   },
   webpack: (config, options) => {
+    const fileLoaderRule = config.module.rules.find((rule) =>
+      rule.test?.test?.('.svg')
+    );
+
+    config.module.rules.push({
+      ...fileLoaderRule,
+      test: /\.svg$/i,
+      resourceQuery: /url/, // *.svg?url
+    });
+
     config.module.rules.push({
       test: /\.svg$/i,
+      issuer: fileLoaderRule.issuer,
+      resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
       use: [
         options.defaultLoaders.babel,
         ({ resource }) => ({

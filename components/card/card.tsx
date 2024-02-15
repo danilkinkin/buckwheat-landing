@@ -1,5 +1,6 @@
 import { clsx } from 'clsx';
 import styles from './card.module.css';
+import { ibmPlexMono } from '@/styles/fonts';
 
 type CardProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -25,13 +26,22 @@ export function Card(props: CardProps) {
   return (
     <div className={clsx(styles.card, restClassName)} {...restProps}>
       <div className={clsx(styles.textWrapper)}>
-        <h3 className={styles.title}>
+        <h3
+          className={clsx(ibmPlexMono.className, styles.title, classes.title)}
+        >
           <span className={clsx(backdropOnText && styles.backdropOnText)}>
             {title}
           </span>
         </h3>
         {backdropOnText && (
-          <h3 className={clsx(styles.title, styles.backdropTextHelper)}>
+          <h3
+            className={clsx(
+              ibmPlexMono.className,
+              styles.title,
+              classes.title,
+              styles.backdropTextHelper
+            )}
+          >
             <span className={clsx(backdropOnText && styles.backdropOnText)}>
               {title}
             </span>

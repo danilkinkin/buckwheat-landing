@@ -54,7 +54,7 @@ export default function ContributeCard() {
         className={styles.card}
         title={t('title')}
         subtitle={t('description')}
-        classes={{ content: styles.cardContent }}
+        classes={{ content: styles.cardContent, title: styles.title}}
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
       >

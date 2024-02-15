@@ -32,7 +32,7 @@ export default function HowItsWorkCard() {
       title={t('title')}
       subtitle={t('description')}
       backdropOnText
-      classes={{ subtitle: styles.description }}
+      classes={{ subtitle: styles.description, title: styles.title }}
     >
       <div className={styles.mockupPhoneContiner}>
         <Image

@@ -2,7 +2,7 @@ import useLocale, { LocalesMap } from '@/utils/useLocale';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import styles from './footer.module.scss';
-import { GithubLink } from '../githubLink';
+import FatLittleStar from '@/assets/images/fat-little-star.svg';
 
 type CardProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -24,6 +24,9 @@ export function Footer(props: CardProps) {
 
   return (
     <footer className={clsx(restClassName, styles.footer)} {...restProps}>
+      <div className={styles.fatLittleStar}>
+        <FatLittleStar />
+      </div>
       <p className={styles.author}>
         {`${t('madeBy')} `}
         <Link
@@ -35,10 +38,6 @@ export function Footer(props: CardProps) {
           @danilkinkin
         </Link>
       </p>
-
-      <hr />
-
-      <GithubLink />
     </footer>
   );
 }

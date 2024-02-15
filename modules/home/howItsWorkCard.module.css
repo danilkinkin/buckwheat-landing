@@ -31,6 +31,10 @@
   z-index: 1;
 }
 
+.title {
+  font-size: 3rem !important;
+}
+
 .description {
   padding: 8px;
   margin: -8px;

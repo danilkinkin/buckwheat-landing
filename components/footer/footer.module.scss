@@ -1,18 +1,25 @@
 .footer {
-  margin-top: auto;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 48px;
+  padding: 0px 48px 48px;
+  max-width: 1500px;
+  margin: auto;
+}
 
-  hr {
-    height: 20px;
-    margin: 0 16px;
-    border-color: var(--on-background-secondary);
-    opacity: 0.3;
-    border-width: 0.5px;
-    border-style: solid;
+.fatLittleStar {
+  position: relative;
+  margin-right: auto;
+  transform: translate(30px, 10px);
+  color: #33db2c;
+  z-index: -1;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -21,5 +28,5 @@
 }
 
 .danilkinkin {
-  color: #FF006B;
+  color: #ff006b;
 }

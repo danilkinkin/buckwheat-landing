@@ -1,20 +1,21 @@
 .card {
   border-radius: 36px;
   overflow: hidden;
-  background-color: #f5f5f5;
+  background-color: #a4a4a41c;
   transition: 0.3s ease;
+  backdrop-filter: blur(18px);
 
   &:hover {
-    background-color: #ebeaea;
+    background-color: #3d3d3d1c;
   }
 }
 
 .content {
   display: flex;
   flex-direction: row;
-  padding: 16px;
-  padding-left: 32px;
-  padding-right: 28px;
+  padding: 14px;
+  padding-left: 28px;
+  padding-right: 22px;
 }
 
 .linkIcon {

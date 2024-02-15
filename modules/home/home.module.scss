@@ -1,15 +1,16 @@
 .noiseOverlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -500px;
+  left: -500px;
+  width: calc(100% + 1000px);
+  height: calc(100% + 1000px);
   z-index: 10000;
   opacity: 1;
   mix-blend-mode: color-burn;
   background-repeat: repeat;
   background-size: 1024px;
   pointer-events: none;
+  will-change: auto;
 }
 
 .header {
@@ -33,7 +34,7 @@
   color: var(--on-background);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 56px;
 
   .line1,
   .line2 {
@@ -52,7 +53,7 @@
     vertical-align: super;
     height: 0;
     display: inline-block;
-    transform: translateY(-12px);
+    transform: translateY(-12px) translateX(-3px);
 
     svg {
       position: absolute;
@@ -62,7 +63,7 @@
 
   .spendWord {
     font-weight: 600;
-    color: #72B73C;
+    color: #72b73c;
   }
 
   .wiselyWord {
@@ -101,18 +102,60 @@
   margin-right: auto;
 }
 
+.thickRoundStar6 {
+  position: absolute;
+  top: 20vh;
+  left: -125px;
+  z-index: 1;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: 50%;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+  }
+}
+
+.thickRoundStar5 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 1500px;
+  width: 100%;
+  margin: auto;
+  z-index: 100000;
+
+  svg {
+    position: absolute;
+    top: -50px;
+    right: 50px;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    color: #FF8642;
+  }
+}
+
 .gradientContainer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -100;
 
   .greenGradient,
   .orangeGradient {
     position: absolute;
-    filter: blur(80px);
+    width: 1300px;
+    height: 1300px;
+    //filter: blur(80px);
   }
 
   .greenGradient {
@@ -124,6 +167,17 @@
     left: 0%;
     bottom: 0%;
   }
+}
+
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: -1000;
 }
 
 .main {
