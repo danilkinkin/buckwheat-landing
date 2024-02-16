@@ -13,6 +13,11 @@ const nextConfig = plugins.reduce((acc, next) => next(acc), {
     );
 
     config.module.rules.push({
+      use: 'raw-loader',
+      resourceQuery: /raw/, // *.svg?url
+    });
+
+    config.module.rules.push({
       ...fileLoaderRule,
       test: /\.svg$/i,
       resourceQuery: /url/, // *.svg?url
