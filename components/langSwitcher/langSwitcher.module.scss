@@ -68,6 +68,12 @@
   opacity: 0;
 }
 
+@media screen and (max-width: 570px) {
+  .currentLangLabel {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 540px) {
   .selector {
     width: calc(100vw - 48px);

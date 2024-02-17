@@ -60,7 +60,7 @@ export function LangSwitcher(props: LangSwitcherProps) {
         className={clsx(styles.currentLanguage, open && styles.hideCurrent)}
         onClick={() => setOpen(true)}
       >
-        <LanguageIcon /> {localesMap[router.locale || 'en']}
+        <LanguageIcon /> <span className={styles.currentLangLabel}>{localesMap[router.locale || 'en']}</span>
       </span>
       <div
         ref={selectorRef}

@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 import Link from 'next/link';
 import styles from './footer.module.scss';
 import FatLittleStar from '@/assets/images/fat-little-star.svg';
+import { useEffect, useRef } from 'react';
 
 type CardProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -21,10 +22,27 @@ const localesMap: LocalesMap = {
 export function Footer(props: CardProps) {
   const { className: restClassName, ...restProps } = props;
   const t = useLocale(localesMap);
+  const fatLittleStarRef = useRef(null);
+
+  useEffect(() => {
+    const scrollHandler = () => {
+      const scrollOffset = window.document.scrollingElement.scrollHeight - window.innerHeight - window.scrollY;
+
+      if (fatLittleStarRef.current) {
+        fatLittleStarRef.current.style.transform = `translate(30px, ${scrollOffset / -2 + 10}px)`;
+      }
+    };
+
+    addEventListener('scroll', scrollHandler);
+
+    return () => {
+      removeEventListener('scroll', scrollHandler);
+    };
+  }, []);
 
   return (
     <footer className={clsx(restClassName, styles.footer)} {...restProps}>
-      <div className={styles.fatLittleStar}>
+      <div ref={fatLittleStarRef} className={styles.fatLittleStar}>
         <FatLittleStar />
       </div>
       <p className={styles.author}>

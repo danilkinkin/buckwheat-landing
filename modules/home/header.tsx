@@ -13,7 +13,7 @@ import buckwheatFlat from '@/assets/images/buckwheat-flat.png';
 import { GooglePlayLink } from '@/components/googlePlayLink';
 import Image from 'next/image';
 import Gradients from '../gradients/gradient';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const locales: LocalesMap = {
   ru: {
@@ -23,12 +23,12 @@ const locales: LocalesMap = {
         <span>приложение,</span>
         <span>которое</span>
         <span>поможет</span>
-        <span>
-          вам
-          <span className={styles.thinStarBig}>
+        <div>
+          <span>вам</span>
+          <div className={styles.thinStarBig}>
             <ThinStarBig />
-          </span>
-        </span>
+          </div>
+        </div>
       </>
     ),
     slogan_line_2: (
@@ -48,12 +48,12 @@ const locales: LocalesMap = {
         <span>app</span>
         <span>that</span>
         <span>helps</span>
-        <span>
-          you
-          <span className={styles.thinStarBig}>
+        <div>
+          <span>you</span>
+          <div className={styles.thinStarBig}>
             <ThinStarBig />
-          </span>
-        </span>
+          </div>
+        </div>
       </>
     ),
     slogan_line_2: (
@@ -70,31 +70,34 @@ const locales: LocalesMap = {
 
 export default function Header() {
   const t = useLocale(locales);
-  const transitionToBackgoundRef = useRef<HTMLDivElement>(null);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const scrollHandler = () => {
-      transitionToBackgoundRef.current.style.height = `${window.scrollY + 300}px`;
+      setScrollY(window.scrollY);
     };
 
     addEventListener('scroll', scrollHandler);
 
     return () => {
       removeEventListener('scroll', scrollHandler);
-    }
+    };
   }, []);
 
   return (
     <header className={styles.header}>
-      <div className={styles.topBar}>
+      <div className={styles.topBar} style={{ transform: `translateY(${scrollY * -0.5}px)` }}>
         <Logo className={styles.logo} variant={LogoType.Full} />
-        <GooglePlayLink />
+        <GooglePlayLink className={styles.googlePlayLink} />
         <GithubLink />
         <LangSwitcher />
       </div>
       <div
         className={styles.thickRoundStar6}
-        style={{ maskImage: `url(${thickRoundStar6Url.src})` }}
+        style={{
+          maskImage: `url(${thickRoundStar6Url.src})`,
+          transform: `translateY(${scrollY / 2}px)`,
+        }}
       >
         <Image
           height={400}
@@ -104,7 +107,10 @@ export default function Header() {
           src={buckwheatFlat}
         />
       </div>
-      <h1 className={clsx(styles.slogan, ibmPlexMono.className)}>
+      <h1
+        style={{ transform: `translateY(${scrollY / 4}px)` }}
+        className={clsx(styles.slogan, ibmPlexMono.className)}
+      >
         <span className={styles.line1}>{t('slogan_line_1')}</span>
         <span className={styles.line2}>{t('slogan_line_2')}</span>
       </h1>
@@ -112,7 +118,10 @@ export default function Header() {
         <ThickRoundStar5 />
       </div>
       <div className={styles.gradientContainer}>
-        <div ref={transitionToBackgoundRef} className={styles.transitionToBackgound} />
+        <div
+          style={{ height: `${scrollY + 300}px` }}
+          className={styles.transitionToBackgound}
+        />
         <Gradients />
       </div>
     </header>

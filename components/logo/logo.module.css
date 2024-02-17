@@ -17,3 +17,15 @@
   font-weight: 800;
   font-size: 1.75rem;
 }
+
+@media screen and (max-width: 640px) {
+  .logo {
+    gap: 8px;
+  }
+  .icon {
+    width: 40px;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
+}
