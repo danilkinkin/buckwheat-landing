@@ -13,7 +13,7 @@ uniform float uTime;
 
 void main() {
   vec2 uv = vUv;
-  float height = vHeight * 8.0;
+  float height = vHeight * 2.0 + 0.9;
 
   float time = uTime * 0.001;
 

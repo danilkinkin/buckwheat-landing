@@ -16,6 +16,7 @@ import noise from '@/assets/images/noise.png';
 import { GooglePlayLink } from '@/components/googlePlayLink';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import Gradients from '../gradients/gradient';
 
 const locales: LocalesMap = {
   ru: {
@@ -130,12 +131,7 @@ export default function Header() {
         }}
       />
       <div className={styles.gradientContainer}>
-        <div className={styles.greenGradient}>
-          <img src={gradientGreenUrl.src} alt="" />
-          <img src={noise.src} alt="" />
-          <div/>
-        </div>
-        <GradientOrange className={styles.orangeGradient} />
+        <Gradients />
       </div>
       <div className={styles.backdrop} />
     </header>
