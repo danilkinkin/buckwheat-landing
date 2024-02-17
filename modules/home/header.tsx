@@ -13,6 +13,7 @@ import buckwheatFlat from '@/assets/images/buckwheat-flat.png';
 import { GooglePlayLink } from '@/components/googlePlayLink';
 import Image from 'next/image';
 import Gradients from '../gradients/gradient';
+import { useEffect, useRef } from 'react';
 
 const locales: LocalesMap = {
   ru: {
@@ -69,6 +70,19 @@ const locales: LocalesMap = {
 
 export default function Header() {
   const t = useLocale(locales);
+  const transitionToBackgoundRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const scrollHandler = () => {
+      transitionToBackgoundRef.current.style.height = `${window.scrollY + 300}px`;
+    };
+
+    addEventListener('scroll', scrollHandler);
+
+    return () => {
+      removeEventListener('scroll', scrollHandler);
+    }
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -98,6 +112,7 @@ export default function Header() {
         <ThickRoundStar5 />
       </div>
       <div className={styles.gradientContainer}>
+        <div ref={transitionToBackgoundRef} className={styles.transitionToBackgound} />
         <Gradients />
       </div>
     </header>

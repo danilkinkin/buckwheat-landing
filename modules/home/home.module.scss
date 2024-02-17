@@ -149,17 +149,17 @@
   width: 100%;
   height: calc(100% + 300px);
   z-index: -100;
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 300px;
-    background: linear-gradient(180deg, #ffffff00 0%, #ffffff 100%);
-  }
 }
 
+.transitionToBackgound {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(180deg, #ffffff00 0%, #ffffff 300px);
+}
 
 .backdrop {
   position: absolute;

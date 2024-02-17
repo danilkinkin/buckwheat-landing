@@ -49,18 +49,12 @@ float perlin(vec2 p, float dim, float time) {
 
 // Generate small noise waves
 float snoiseFoam(vec3 pos) {
-  float normal = perlin(vec2(pos.y * 0.1, pos.x * 0.1), 6.0, 0.0);
-  float small = perlin(vec2(pos.y * 0.1, pos.x * 0.1), 12.0, 0.0);
-
-  return normal * 0.3 + small * 0.7;
+  return perlin(vec2(pos.y * 0.1, pos.x * 0.1), 9.0, 0.0);
 }
 
 // Generate big noise waves
 float snoiseWater(vec3 pos) {
-  float huge = perlin(vec2(pos.y * 0.08, pos.x * 0.08), 4.0, 0.0);
-  float big = perlin(vec2(pos.y * 0.08, pos.x * 0.08), 8.0, 0.0);
-
-  return huge * 0.6 + big * 0.4;
+  return perlin(vec2(pos.y * 0.08, pos.x * 0.08), 6.0, 0.0);
 }
 
 mat2 rotate2d(float _angle) {
@@ -83,12 +77,11 @@ void main() {
   float waveBig = (snoiseWater(noisePosBig) * 0.4);
   float waveMiddle = (snoiseFoam(noisePosMiddle) * 0.3);
   float waveSmall = (snoiseFoam(noisePosSmall) * 0.3);
-  float displace = (waveBig + waveSmall + waveMiddle);
 
   vColor = waveMiddle;
   vStrength = waveMiddle;
 
-  vHeight = displace * noiseAmp * 1.0;
+  vHeight = (waveBig + waveSmall + waveMiddle) * noiseAmp;
   pos.z += vHeight / SCALE;
 
   vec3 finalPos = position;
