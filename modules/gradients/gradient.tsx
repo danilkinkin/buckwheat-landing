@@ -1,127 +1,78 @@
-import * as THREE from 'three';
-
 import { useEffect, useRef, useState } from 'react';
 
-import gradientFragmentShader from '@/modules/gradients/gradient.fragmentShader.glsl?raw';
-import gradientVertexShader from '@/modules/gradients/gradient.vertexShader.glsl?raw';
-import { makeItGrain } from '@/modules/gradients/grain';
+import styles from './gradients.module.css';
 import { initGrainFilter } from './grainPostProcessing';
+import { InitThreeOptions, initThree } from './initThree';
+import { initScene } from './initScene';
+import { initGradient } from './initGradients';
 
-function initThree(canvas: HTMLCanvasElement) {
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setPixelRatio(window.devicePixelRatio);
+const threeCanvas = (
+  canvas: HTMLCanvasElement,
+  viewportSize: InitThreeOptions,
+  initTimeOffset: number = 0
+) => {
+  const { renderer, clock } = initThree(canvas, viewportSize);
+  const { scene, camera, updateSize: updateCameraSize } = initScene(renderer);
+  const { render: renderGradient, updateSize: updateGradientSize } =
+    initGradient(scene, renderer);
+  const { render: renderFrame } = initGrainFilter(renderer, scene, camera);
 
-  const clock = new THREE.Clock();
+  const animate = () => {
+    const elapsedTime = clock.elapsedTime + initTimeOffset;
+    const delta = clock.getDelta();
 
-  return { renderer, clock };
-}
+    renderGradient(elapsedTime, delta);
+    renderFrame(elapsedTime, delta);
 
-function initScene() {
-  const scene = new THREE.Scene();
-
-  scene.background = new THREE.Color(0xffffff);
-
-  const camera = new THREE.OrthographicCamera(-1, -1, -1, -1, -100000, 100000);
-  camera.position.z = 5;
-  camera.position.y = 8;
-  camera.lookAt(scene.position);
-
-  return { scene, camera };
-}
-
-function setCameraSize(camera: THREE.OrthographicCamera) {
-  camera.left = -window.innerWidth / 2;
-  camera.right = window.innerWidth / 2;
-  camera.top = window.innerHeight / 2;
-  camera.bottom = -window.innerHeight / 2;
-  camera.updateProjectionMatrix();
-}
-
-function initGradient(scene: THREE.Scene) {
-  const size = {
-    x: Math.round(window.innerWidth),
-    y: Math.round(window.innerHeight * 3),
-  };
-  const quality = 0.04;
-  console.log(size, size.x * quality,
-    size.y * quality)
-  const geometry = new THREE.PlaneGeometry(
-    size.x,
-    size.y,
-    size.x * quality,
-    size.y * quality
-  );
-  var uniforms = {
-    ...THREE.ShaderLib['standard'].uniforms,
-    resolution: {
-      value: new THREE.Vector2(),
-    },
-    uTime: {
-      value: 0,
-    },
-  };
-  var material = new THREE.ShaderMaterial({
-    uniforms: THREE.UniformsUtils.merge([
-      THREE.UniformsLib['lights'],
-      uniforms,
-    ]),
-    vertexShader: gradientVertexShader,
-    fragmentShader: gradientFragmentShader,
-    //wireframe: true,
-    lights: true,
-  });
-  const plane = new THREE.Mesh(geometry, material);
-  //plane.position.y = (window.innerHeight * 3) / 2;
-  scene.add(plane);
-
-  const animate = (elapsed: number, delta: number) => {
-    material.uniforms.uTime.value = elapsed;
+    requestAnimationFrame(animate);
   };
 
-  return { animate };
-}
+  const resizeCanvas = (width: number, height: number) => {
+    renderer.setSize(width, height);
+    updateCameraSize();
+    updateGradientSize();
+  };
+
+  animate();
+  resizeCanvas(viewportSize.width, viewportSize.height);
+
+  return {
+    resizeCanvas,
+  };
+};
 
 export default function Gradients() {
+  const rootRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [timeOffset] = useState(Math.random() * 1000);
 
   useEffect(() => {
-    const { renderer, clock } = initThree(
-      canvasRef.current as HTMLCanvasElement
+    const canvas = threeCanvas(
+      canvasRef.current as HTMLCanvasElement,
+      {
+        width: rootRef.current?.clientWidth || 0,
+        height: rootRef.current?.clientHeight || 0,
+      },
+      timeOffset
     );
-    const { scene, camera } = initScene();
-    setCameraSize(camera);
-    const { animate: animateGradient } = initGradient(scene);
-    //const { animate: animateGrain } = makeItGrain(scene, camera);
-    const { render } = initGrainFilter(renderer, scene, camera);
 
-    const animate = () => {
-      const elapsedTime = clock.elapsedTime + timeOffset;
-      const delta = clock.getDelta();
-
-      animateGradient(elapsedTime, delta);
-      //animateGrain(elapsedTime, delta);
-
-      render(elapsedTime, delta);
-      //renderer.render(scene, camera);
-      requestAnimationFrame(animate);
+    const resize = () => {
+      canvas.resizeCanvas(
+        rootRef.current?.clientWidth || 0,
+        rootRef.current?.clientHeight || 0
+      );
     };
 
-    animate();
-
-    // Resize canvas on window resize
-    const resizeCanvas = () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      setCameraSize(camera);
-    };
-
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', resize);
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', resize);
     };
   }, []);
 
-  return <canvas ref={canvasRef}></canvas>;
+  return (
+    <div className={styles.root} ref={rootRef}>
+      <canvas className={styles.canvas} ref={canvasRef}></canvas>
+    </div>
+  );
 }

@@ -6,16 +6,12 @@ import { Logo, LogoType } from '@/components/logo';
 import { GithubLink } from '@/components/githubLink';
 import clsx from 'clsx';
 import { anonymousPro, ibmPlexMono, caveat } from '@/styles/fonts';
-import gradientGreenUrl from '@/assets/images/header-gradient-green.svg?url';
-import GradientOrange from '@/assets/images/header-gradient-orange.svg';
 import ThinStarBig from '@/assets/images/thin-star-big.svg';
 import ThickRoundStar5 from '@/assets/images/thick-round-star-5.svg';
 import thickRoundStar6Url from '@/assets/images/thick-round-star-6.svg?url';
 import buckwheatFlat from '@/assets/images/buckwheat-flat.png';
-import noise from '@/assets/images/noise.png';
 import { GooglePlayLink } from '@/components/googlePlayLink';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
 import Gradients from '../gradients/gradient';
 
 const locales: LocalesMap = {
@@ -73,28 +69,6 @@ const locales: LocalesMap = {
 
 export default function Header() {
   const t = useLocale(locales);
-  const noiseRef = useRef<HTMLDivElement>(null);
-  const [noiseOffset, setNoiseOffset] = useState({ x: 0, y: 0 });
-
-  console.log('thickRoundStar6Url', { thickRoundStar6Url });
-
-  useEffect(() => {
-    let active = true;
-
-    const frame = () => {
-      //noiseRef.current.style.transform = `translate3D(${Math.floor(Math.random() * 500)}px, ${Math.floor(Math.random() * 500)}px, 0px)`;
-
-      if (active) {
-        requestAnimationFrame(frame);
-      }
-    };
-
-    requestAnimationFrame(frame);
-
-    return () => {
-      active = false;
-    };
-  }, []);
 
   return (
     <header className={styles.header}>
@@ -123,17 +97,9 @@ export default function Header() {
       <div className={styles.thickRoundStar5}>
         <ThickRoundStar5 />
       </div>
-      <div
-        ref={noiseRef}
-        className={styles.noiseOverlay}
-        style={{
-          backgroundImage: `url(/api/noise)`,
-        }}
-      />
       <div className={styles.gradientContainer}>
         <Gradients />
       </div>
-      <div className={styles.backdrop} />
     </header>
   );
 }

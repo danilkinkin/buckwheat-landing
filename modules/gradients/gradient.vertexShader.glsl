@@ -4,7 +4,8 @@ precision mediump float;
 #endif
 
 #define PI 3.14159265359
-#define SCALE 0.0005
+#define SCALE 0.0002
+#define SPEED 0.5
 
 varying vec2 vUv;
 varying float vHeight;
@@ -68,9 +69,9 @@ mat2 rotate2d(float _angle) {
 
 void main() {
   vUv = uv;// * rotate2d(PI * (-20.0 / 180.0));
-  vec2 rTimeSpeed = vec2(uTime) * rotate2d(PI * ((70.0) / 180.0)) * 0.15;
-  vec2 rTimeSlow = vec2(uTime) * rotate2d(PI * ((250.0) / 180.0)) * 0.1;
-  vec2 rTimeMiddle = vec2(uTime + 100.0) * rotate2d(PI * ((300.0) / 180.0)) * 0.12;
+  vec2 rTimeSpeed = vec2(uTime) * rotate2d(PI * ((70.0) / 180.0)) * 0.15 * SPEED;
+  vec2 rTimeSlow = vec2(uTime) * rotate2d(PI * ((250.0) / 180.0)) * 0.1 * SPEED;
+  vec2 rTimeMiddle = vec2(uTime + 100.0) * rotate2d(PI * ((300.0) / 180.0)) * 0.12 * SPEED;
 
   vec3 pos = position * SCALE;
   float noiseFreq = 3.5;
@@ -84,7 +85,7 @@ void main() {
   float waveSmall = (snoiseFoam(noisePosSmall) * 0.3);
   float displace = (waveBig + waveSmall + waveMiddle);
 
-  vColor = waveBig;
+  vColor = waveMiddle;
   vStrength = waveMiddle;
 
   vHeight = displace * noiseAmp * 1.0;
