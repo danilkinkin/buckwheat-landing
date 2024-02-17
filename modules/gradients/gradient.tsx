@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import gradientFragmentShader from '@/modules/gradients/gradient.fragmentShader.glsl?raw';
 import gradientVertexShader from '@/modules/gradients/gradient.vertexShader.glsl?raw';
 import { makeItGrain } from '@/modules/gradients/grain';
+import { initGrainFilter } from './grainPostProcessing';
 
 function initThree(canvas: HTMLCanvasElement) {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
@@ -92,16 +93,18 @@ export default function Gradients() {
     const { scene, camera } = initScene();
     setCameraSize(camera);
     const { animate: animateGradient } = initGradient(scene);
-    const { animate: animateGrain } = makeItGrain(scene, camera);
+    //const { animate: animateGrain } = makeItGrain(scene, camera);
+    const { render } = initGrainFilter(renderer, scene, camera);
 
     const animate = () => {
       const elapsedTime = clock.elapsedTime + timeOffset;
       const delta = clock.getDelta();
 
       animateGradient(elapsedTime, delta);
-      animateGrain(elapsedTime, delta);
+      //animateGrain(elapsedTime, delta);
 
-      renderer.render(scene, camera);
+      render(elapsedTime, delta);
+      //renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
 
