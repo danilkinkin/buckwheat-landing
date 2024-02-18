@@ -14,6 +14,7 @@ import { GooglePlayLink } from '@/components/googlePlayLink';
 import Image from 'next/image';
 import Gradients from '../gradients/gradient';
 import { useEffect, useRef, useState } from 'react';
+import useScroll from '@/utils/useScroll';
 
 const locales: LocalesMap = {
   ru: {
@@ -70,23 +71,39 @@ const locales: LocalesMap = {
 
 export default function Header() {
   const t = useLocale(locales);
-  const [scrollY, setScrollY] = useState(0);
+  const sloganLine1Ref = useRef(null);
+  const sloganLine2Ref = useRef(null);
+  const transitionToBackgoundRef = useRef(null);
+  const topBarRef = useRef(null);
 
-  useEffect(() => {
-    const scrollHandler = () => {
-      setScrollY(window.scrollY);
-    };
+  useScroll((scrollY) => {
+    const childs = [
+      ...Array.from(sloganLine1Ref.current.children),
+      ...Array.from(sloganLine2Ref.current.children),
+    ];
 
-    addEventListener('scroll', scrollHandler);
+    childs.forEach((child, index) => {
+      const rawOffset = Math.min(-scrollY + index * 30, 0);
 
-    return () => {
-      removeEventListener('scroll', scrollHandler);
-    };
-  }, []);
+      const offset = -Math.pow(rawOffset / 30, 2); //-Math.expm1(-rawOffset / 80);
+
+      const rotateDirection = index % 2 === 0 ? 1 : -1;
+
+      child.style.transform = `translateY(${offset}px) rotate(${(offset / 10) * rotateDirection}deg)`;
+    });
+
+    if (transitionToBackgoundRef.current) {
+      transitionToBackgoundRef.current.style.height = `${scrollY + 300}px`;
+    }
+
+    if (topBarRef.current) {
+      topBarRef.current.style.transform = `translateY(${-Math.expm1(scrollY / 6)}px)`;
+    }
+  });
 
   return (
     <header className={styles.header}>
-      <div className={styles.topBar} style={{ transform: `translateY(${scrollY * -0.5}px)` }}>
+      <div className={styles.topBar} ref={topBarRef}>
         <Logo className={styles.logo} variant={LogoType.Full} />
         <GooglePlayLink className={styles.googlePlayLink} />
         <GithubLink />
@@ -96,7 +113,7 @@ export default function Header() {
         className={styles.thickRoundStar6}
         style={{
           maskImage: `url(${thickRoundStar6Url.src})`,
-          transform: `translateY(${scrollY / 2}px)`,
+          //transform: `translateY(${scrollY / 2}px)`,
         }}
       >
         <Image
@@ -108,21 +125,25 @@ export default function Header() {
         />
       </div>
       <h1
-        style={{ transform: `translateY(${scrollY / 4}px)` }}
+        //style={{ transform: `translateY(${scrollY / 4}px)` }}
         className={clsx(styles.slogan, ibmPlexMono.className)}
       >
-        <span className={styles.line1}>{t('slogan_line_1')}</span>
-        <span className={styles.line2}>{t('slogan_line_2')}</span>
+        <span ref={sloganLine1Ref} className={styles.line1}>
+          {t('slogan_line_1')}
+        </span>
+        <span ref={sloganLine2Ref} className={styles.line2}>
+          {t('slogan_line_2')}
+        </span>
       </h1>
       <div className={styles.thickRoundStar5}>
         <ThickRoundStar5 />
       </div>
       <div className={styles.gradientContainer}>
         <div
-          style={{ height: `${scrollY + 300}px` }}
+          ref={transitionToBackgoundRef}
           className={styles.transitionToBackgound}
         />
-        <Gradients />
+        {/* <Gradients /> */}
       </div>
     </header>
   );

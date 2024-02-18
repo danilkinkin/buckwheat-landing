@@ -9,9 +9,23 @@ import Header from '@/modules/home/header';
 import ContributeCard from '@/modules/home/contributeCard';
 import { GooglePlayButton } from '@/components/googlePlayButton';
 import { GithubCardButton } from '@/components/githubCardButton';
+import useScroll from '@/utils/useScroll';
+import { useRef } from 'react';
 
 export default function HomePage() {
   const t = useLocale(locales);
+  const howItsWorkCardRef = useRef(null);
+
+  useScroll((scrollY) => {
+
+
+    if (howItsWorkCardRef.current) {
+      const scrollOffset = -Math.min(scrollY - howItsWorkCardRef.current.offsetTop + window.innerHeight - 300, 0);
+
+      howItsWorkCardRef.current.style.transform = `translateY(${Math.expm1(scrollOffset / 60)}px) rotate(${-Math.expm1(scrollOffset / 120)}deg)`;
+      howItsWorkCardRef.current.style.transformOrigin = 'right top';
+    }
+  });
 
   return (
     <>
@@ -21,12 +35,14 @@ export default function HomePage() {
       </Head>
       <Header />
       <main className={styles.main}>
-        <HowItsWorkCard />
+        <div ref={howItsWorkCardRef}>
+          <HowItsWorkCard />
+        </div>
         <div className={styles.cardsRow}>
           <div className={styles.storesBlock}>
             <GooglePlayButton className={styles.googlePlayButton} />
             <div>
-              <GithubCardButton/>
+              <GithubCardButton />
             </div>
           </div>
           <ContributeCard />

@@ -1,6 +1,7 @@
 import { clsx } from 'clsx';
 import styles from './card.module.css';
 import { ibmPlexMono } from '@/styles/fonts';
+import { forwardRef } from 'react';
 
 type CardProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -12,7 +13,10 @@ type CardProps = React.DetailedHTMLProps<
   classes?: { [key: string]: string };
 };
 
-export function Card(props: CardProps) {
+const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
+  props: CardProps,
+  ref
+) {
   const {
     title,
     subtitle,
@@ -24,7 +28,7 @@ export function Card(props: CardProps) {
   } = props;
 
   return (
-    <div className={clsx(styles.card, restClassName)} {...restProps}>
+    <div ref={ref} className={clsx(styles.card, restClassName)} {...restProps}>
       <div className={clsx(styles.textWrapper)}>
         <h3
           className={clsx(ibmPlexMono.className, styles.title, classes.title)}
@@ -71,4 +75,6 @@ export function Card(props: CardProps) {
       <div className={clsx(styles.content, classes.content)}>{children}</div>
     </div>
   );
-}
+});
+
+export { Card };
