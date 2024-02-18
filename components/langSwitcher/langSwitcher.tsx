@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import styles from './langSwitcher.module.scss';
 import LanguageIcon from '@/assets/icons/language.svg';
+import CursorEffect from '../cursor/cursorEffect';
 
 type LangSwitcherProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -55,13 +56,23 @@ export function LangSwitcher(props: LangSwitcherProps) {
 
   return (
     <div className={clsx(styles.langSwitcher, restClassName)} {...restProps}>
-      <span
-        ref={buttonRef}
-        className={clsx(styles.currentLanguage, open && styles.hideCurrent)}
-        onClick={() => setOpen(true)}
+      <CursorEffect
+        effectDistance={48}
+        effectForce={4}
+        cursorPadding={8}
+        className={clsx(styles.langSwitcherRoot)}
       >
-        <LanguageIcon /> <span className={styles.currentLangLabel}>{localesMap[router.locale || 'en']}</span>
-      </span>
+        <button
+          ref={buttonRef}
+          className={clsx(styles.currentLanguage, open && styles.hideCurrent)}
+          onClick={() => setOpen(true)}
+        >
+          <LanguageIcon />{' '}
+          <span className={styles.currentLangLabel}>
+            {localesMap[router.locale || 'en']}
+          </span>
+        </button>
+      </CursorEffect>
       <div
         ref={selectorRef}
         className={clsx(styles.selector, open && styles.openSelector)}

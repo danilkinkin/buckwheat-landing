@@ -3,6 +3,7 @@ import Link, { LinkProps } from 'next/link';
 import LinkIcon from '@/assets/icons/link.svg';
 import useLocale, { LocalesMap } from '@/utils/useLocale';
 import clsx from 'clsx';
+import CursorEffect from '../cursor/cursorEffect';
 
 const locales: LocalesMap = {
   ru: {
@@ -20,13 +21,20 @@ export function GooglePlayLink(props: GooglePlayLinkProps) {
   const t = useLocale(locales);
 
   return (
-    <Link
-      {...restProps}
-      className={clsx(styles.root, restCalssName)}
-      target="_blank"
-      href="https://play.google.com/store/apps/details?id=com.danilkinkin.buckwheat&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+    <CursorEffect
+      effectDistance={48}
+      effectForce={4}
+      cursorPadding={8}
+      className={clsx(styles.rootWrapper, restCalssName)}
     >
-      {t('getText')} <LinkIcon />
-    </Link>
+      <Link
+        {...restProps}
+        className={clsx(styles.root)}
+        target="_blank"
+        href="https://play.google.com/store/apps/details?id=com.danilkinkin.buckwheat&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+      >
+        {t('getText')} <LinkIcon />
+      </Link>
+    </CursorEffect>
   );
 }

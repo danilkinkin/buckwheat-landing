@@ -1,11 +1,14 @@
+.linkWrapper {
+  display: inline-flex;
+  height: min-content;
+}
+
 .link {
   display: inline-flex;
+  padding: 10px;
+  cursor: none;
 }
 
 .linkIcon {
   color: var(--on-background);
-
-  &:hover {
-    color: var(--on-background-secondary);
-  }
 }

@@ -2,6 +2,7 @@ import styles from './githubCardButton.module.scss';
 import Link, { LinkProps } from 'next/link';
 import LinkIcon from '@/assets/icons/link.svg';
 import clsx from 'clsx';
+import CursorEffect from '../cursor/cursorEffect';
 
 type GithubCardButtonProps = Omit<LinkProps, 'href'> & { className?: string };
 
@@ -9,7 +10,8 @@ export function GithubCardButton(props: GithubCardButtonProps) {
   const { className: restCalssName, ...restProps } = props;
 
   return (
-    <div className={clsx(styles.card, restCalssName)}>
+    <CursorEffect>
+      <div className={clsx(styles.card, restCalssName)}>
       <Link
         {...restProps}
         target="_blank"
@@ -21,5 +23,6 @@ export function GithubCardButton(props: GithubCardButtonProps) {
         </div>
       </Link>
     </div>
+    </CursorEffect>
   );
 }

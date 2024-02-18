@@ -15,6 +15,7 @@ import Image from 'next/image';
 import Gradients from '../gradients/gradient';
 import { useEffect, useRef, useState } from 'react';
 import useScroll from '@/utils/useScroll';
+import CursorEffect from '@/components/cursor/cursorEffect';
 
 const locales: LocalesMap = {
   ru: {

@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import type { AppProps } from 'next/app';
 import styles from '@/styles/app.module.css';
 import Head from 'next/head';
+import Cursor from '@/components/cursor/cursor';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +12,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Component {...pageProps} />
+      <Cursor>
+        <Component {...pageProps} />
+      </Cursor>
     </div>
   );
 }

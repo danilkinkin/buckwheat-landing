@@ -5,6 +5,7 @@ import { LocalesMap } from '@/utils/useLocale';
 import Link from 'next/link';
 import { animated, useSpring } from '@react-spring/web';
 import { useRef } from 'react';
+import CursorEffect from '@/components/cursor/cursorEffect';
 
 const locales: LocalesMap = {
   ru: {
@@ -48,27 +49,29 @@ export default function ContributeCard() {
   };
 
   return (
-    <Link href="/contribute" className={styles.cardWrapper}>
-      <Card
-        ref={cardRef}
-        className={styles.card}
-        title={t('title')}
-        subtitle={t('description')}
-        classes={{ content: styles.cardContent, title: styles.title}}
-        onMouseEnter={handleEnter}
-        onMouseLeave={handleLeave}
-      >
-        <div className={styles.circlesContainer}>
-          <animated.div
-            className={styles.circlesBackground}
-            style={{ ...springsBackground }}
-          />
-          <animated.div
-            className={styles.circlesFroreground}
-            style={{ ...springsForeground }}
-          />
-        </div>
-      </Card>
-    </Link>
+    <CursorEffect className={styles.cardWrapper}>
+      <Link href="/contribute">
+        <Card
+          ref={cardRef}
+          className={styles.card}
+          title={t('title')}
+          subtitle={t('description')}
+          classes={{ content: styles.cardContent, title: styles.title }}
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+        >
+          <div className={styles.circlesContainer}>
+            <animated.div
+              className={styles.circlesBackground}
+              style={{ ...springsBackground }}
+            />
+            <animated.div
+              className={styles.circlesFroreground}
+              style={{ ...springsForeground }}
+            />
+          </div>
+        </Card>
+      </Link>
+    </CursorEffect>
   );
 }
