@@ -22,7 +22,7 @@ export function GooglePlayButton(props: GooglePlayButtonProps) {
   const t = useLocale(locales);
 
   return (
-    <CursorEffect>
+    <CursorEffect cursorBorderRadius={36} cursorPadding={12}>
       <div className={clsx(styles.card, restCalssName)}>
         <Link
           {...restProps}

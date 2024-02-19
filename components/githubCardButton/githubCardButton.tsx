@@ -10,7 +10,7 @@ export function GithubCardButton(props: GithubCardButtonProps) {
   const { className: restCalssName, ...restProps } = props;
 
   return (
-    <CursorEffect>
+    <CursorEffect cursorBorderRadius={36} cursorPadding={12}>
       <div className={clsx(styles.card, restCalssName)}>
       <Link
         {...restProps}

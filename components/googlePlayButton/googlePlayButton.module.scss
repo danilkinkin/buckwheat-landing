@@ -5,6 +5,10 @@
   transition: 0.3s ease;
   backdrop-filter: blur(18px);
 
+  &:hover {
+    background-color: #3d3d3d1c;
+  }
+
   a {
     cursor: none;
   }

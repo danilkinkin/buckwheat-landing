@@ -4,5 +4,18 @@
   left: 0;
   z-index: 1000000;
   pointer-events: none;
-  backdrop-filter: invert(1) hue-rotate(76deg);
+  overflow: hidden;
+}
+
+.rootShow {
+  backdrop-filter: invert(1);
+}
+
+.spot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-image: radial-gradient(#ffffffe6 0%, #ffffffbd 30%, #ffffff6e 50%, #ffffff00 70%);
+  opacity: 0.2;
 }

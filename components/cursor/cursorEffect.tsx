@@ -8,6 +8,7 @@ type CursorEffectProps = {
   effectDistance?: number;
   effectForce?: number;
   cursorPadding?: number;
+  cursorBorderRadius?: number;
 };
 
 const clamp = (value: number, min: number, max: number) => {
@@ -32,6 +33,7 @@ export default function CursorEffect(props: CursorEffectProps) {
     effectDistance = 128,
     effectForce = 6,
     cursorPadding = 16,
+    cursorBorderRadius = 0,
   } = props;
   const cursorAffectorRef = useRef(null);
   const cursorAffectoContainerrRef = useRef(null);
@@ -153,6 +155,7 @@ export default function CursorEffect(props: CursorEffectProps) {
         ref={cursorAffectorRef}
         style={{ width: '100%', height: '100%' }}
         data-cursor-padding={cursorPadding}
+        data-cursor-border-radius={cursorBorderRadius}
       >
         {children}
       </div>

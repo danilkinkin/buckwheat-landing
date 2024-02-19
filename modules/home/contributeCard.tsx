@@ -49,7 +49,7 @@ export default function ContributeCard() {
   };
 
   return (
-    <CursorEffect className={styles.cardWrapper}>
+    <CursorEffect className={styles.cardWrapper} cursorBorderRadius={36} cursorPadding={12}>
       <Link href="/contribute">
         <Card
           ref={cardRef}
