@@ -76,8 +76,11 @@ export default function Header() {
   const sloganLine2Ref = useRef(null);
   const transitionToBackgoundRef = useRef(null);
   const topBarRef = useRef(null);
+  const thickRoundStar6MaskRef = useRef(null);
+  const thickRoundStar6ImageRef = useRef(null);
+  const thickRoundStar5 = useRef(null);
 
-  useScroll((scrollY) => {
+  useScroll((scrollY, deltaTime, time) => {
     const childs = [
       ...Array.from(sloganLine1Ref.current.children),
       ...Array.from(sloganLine2Ref.current.children),
@@ -100,6 +103,18 @@ export default function Header() {
     if (topBarRef.current) {
       topBarRef.current.style.transform = `translateY(${-Math.expm1(scrollY / 6)}px)`;
     }
+
+    if (thickRoundStar6MaskRef.current) {
+      thickRoundStar6MaskRef.current.style.transform = `translateY(${scrollY / 6}px) rotate(${scrollY / 8 + (time * 0.01) % 360}deg)`;
+    }
+
+    if (thickRoundStar6ImageRef.current) {
+      thickRoundStar6ImageRef.current.style.transform = `rotate(${-scrollY / 8 - (time * 0.01) % 360}deg)`;
+    }
+
+    if (thickRoundStar5.current) {
+      thickRoundStar5.current.style.transform = `translate(-50%, -50%) rotate(${-scrollY / 6 - 10}deg)`;
+    }
   });
 
   return (
@@ -112,12 +127,14 @@ export default function Header() {
       </div>
       <div
         className={styles.thickRoundStar6}
+        ref={thickRoundStar6MaskRef}
         style={{
           maskImage: `url(${thickRoundStar6Url.src})`,
           //transform: `translateY(${scrollY / 2}px)`,
         }}
       >
         <Image
+          ref={thickRoundStar6ImageRef}
           height={400}
           width={400}
           placeholder="blur"
@@ -137,7 +154,9 @@ export default function Header() {
         </span>
       </h1>
       <div className={styles.thickRoundStar5}>
-        <ThickRoundStar5 />
+        <div ref={thickRoundStar5}>
+          <ThickRoundStar5 />
+        </div>
       </div>
       <div className={styles.gradientContainer}>
         <div
