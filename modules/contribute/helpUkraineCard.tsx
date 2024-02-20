@@ -25,6 +25,7 @@ export default function HelpUkraineCard() {
           hrefTitle="supportukrainenow.org"
           href="https://supportukrainenow.org/"
         />
+
         <UkraineMapSvg className={styles.ukraineMap} />
       </Card>
       <p className={styles.captionLink}>

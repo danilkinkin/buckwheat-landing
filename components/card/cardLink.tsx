@@ -1,8 +1,9 @@
 import { clsx } from 'clsx';
 import Link from 'next/link';
-import styles from './card.module.css';
+import styles from './card.module.scss';
 import LinkIcon from '@/assets/icons/link.svg';
 import { animated, useSpring } from '@react-spring/web';
+import CursorEffect from '../cursor/cursorEffect';
 
 type CardProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -39,19 +40,21 @@ export function CardLink(props: CardProps) {
   };
 
   return (
-    <animated.div
-      className={clsx(styles.cardLink, restClassName)}
-      style={{ ...springs }}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-    >
-      <Link href={href} target="_blank">
-        <div className={styles.cardLinkContent}>
-          <h3 className={styles.title}>{title}</h3>
-          <p className={styles.subtitle}>{hrefTitle}</p>
-        </div>
-        <LinkIcon className={styles.icon} />
-      </Link>
-    </animated.div>
+    <CursorEffect className={styles.cardLinkWrapper} cursorBorderRadius={16} cursorPadding={6}>
+      <animated.div
+        className={clsx(styles.cardLink, restClassName)}
+        style={{ ...springs }}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+      >
+        <Link href={href} target="_blank">
+          <div className={styles.cardLinkContent}>
+            <h3 className={styles.title}>{title}</h3>
+            <p className={styles.subtitle}>{hrefTitle}</p>
+          </div>
+          <LinkIcon className={styles.icon} />
+        </Link>
+      </animated.div>
+    </CursorEffect>
   );
 }

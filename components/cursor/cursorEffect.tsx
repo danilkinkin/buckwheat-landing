@@ -50,7 +50,7 @@ export default function CursorEffect(props: CursorEffectProps) {
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       let targetRect =
-        cursorAffectoContainerrRef.current.getBoundingClientRect();
+        cursorAffectoContainerrRef.current?.getBoundingClientRect();
 
       mousePosition.current = {
         x: event.clientX,
@@ -61,7 +61,7 @@ export default function CursorEffect(props: CursorEffectProps) {
 
     const handleScroll = () => {
       let targetRect =
-        cursorAffectoContainerrRef.current.getBoundingClientRect();
+        cursorAffectoContainerrRef.current?.getBoundingClientRect();
 
       mousePosition.current = {
         ...mousePosition.current,
@@ -146,7 +146,9 @@ export default function CursorEffect(props: CursorEffectProps) {
 
     prevCursorState.current = { x, y };
 
-    cursorAffectorRef.current.style.transform = `translate(${x}px, ${y}px)`;
+    if (cursorAffectorRef.current) {
+      cursorAffectorRef.current.style.transform = `translate(${x}px, ${y}px)`;
+    }
   });
 
   return (

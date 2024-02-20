@@ -65,12 +65,21 @@
   margin-top: 48px;
 }
 
-.cardLink {
+.cardLinkWrapper {
   margin-top: 16px;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  max-width: 360px;
+}
+
+.cardLink {
   border-radius: 16px;
   background-color: var(--background);
-  max-width: 360px;
-  position: relative;
+
+  a {
+    cursor: none !important;
+  }
 }
 
 .cardLink:first-child {

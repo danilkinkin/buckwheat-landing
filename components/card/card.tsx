@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import styles from './card.module.css';
+import styles from './card.module.scss';
 import { ibmPlexMono } from '@/styles/fonts';
 import { forwardRef } from 'react';
 

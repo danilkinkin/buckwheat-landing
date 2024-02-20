@@ -48,11 +48,16 @@
   ul {
     list-style: none;
   
-    li {
+    button {
+      font: inherit;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
       font-size: 1rem;
       font-weight: 600;
       padding: 6px 16px;
-      cursor: pointer;
+      cursor: none !important;
       border-radius: 8px;
       transition: 0.3s ease;
   

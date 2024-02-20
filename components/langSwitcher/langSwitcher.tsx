@@ -80,9 +80,11 @@ export function LangSwitcher(props: LangSwitcherProps) {
         <h5 className={styles.header}>{t('chooseHeader')}</h5>
         <ul>
           {Object.keys(localesMap).map((locale) => (
-            <li key={locale} onClick={handleSetLanguage(locale)}>
+            <CursorEffect effectForce={2} effectDistance={36} cursorPadding={2} cursorBorderRadius={8}>
+              <button key={locale} onClick={handleSetLanguage(locale)}>
               {localesMap[locale]}
-            </li>
+            </button>
+            </CursorEffect>
           ))}
         </ul>
       </div>
