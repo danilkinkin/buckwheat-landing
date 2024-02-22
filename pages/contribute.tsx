@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { locales } from '@/modules/contribute/locales';
 import ShareCard from '@/modules/contribute/shareCard';
 import { GithubLink } from '@/components/githubLink';
+import CursorEffect from '@/components/cursor/cursorEffect';
 
 export default function ContributePage() {
   const router = useRouter();
@@ -26,13 +27,15 @@ export default function ContributePage() {
         <meta name="description" content={t('pageDescription')} />
       </Head>
       <header className={styles.header}>
-        <div className={styles.langSwitcher}>
+        <div className={styles.topBar}>
+          <CursorEffect cursorPadding={6} className={styles.logoWrapper}>
+            <Link href="/" className={styles.homeLink}>
+              <Logo className={styles.logo} variant={LogoType.Full} />
+            </Link>
+          </CursorEffect>
           <GithubLink />
           <LangSwitcher />
         </div>
-        <Link href="/" className={styles.homeLink}>
-          <Logo className={styles.logo} variant={LogoType.Full} />
-        </Link>
         <p className={styles.description}>
           <b className={styles.bold}>{t('appName')}</b> {t('description')}
         </p>
