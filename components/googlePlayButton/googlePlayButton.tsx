@@ -4,7 +4,7 @@ import QRCodeSvg from '@/assets/images/download-gp-qr-code.svg';
 import LinkIcon from '@/assets/icons/link.svg';
 import useLocale, { LocalesMap } from '@/utils/useLocale';
 import clsx from 'clsx';
-import CursorEffect from '../cursor/cursorEffect';
+import { CursorEffect } from '@/components/cursor';
 
 const locales: LocalesMap = {
   ru: {

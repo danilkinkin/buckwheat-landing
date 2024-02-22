@@ -1,41 +1,30 @@
 import Head from 'next/head';
 import styles from '@/modules/contribute/contribute.module.scss';
-import { Logo, LogoType } from '@/components/logo';
 import { GooglePlayButton } from '@/components/googlePlayButton';
 import { Card } from '@/components/card';
 import { Footer } from '@/components/footer';
 import clsx from 'clsx';
-import { LangSwitcher } from '@/components/langSwitcher';
 import useLocale from '@/utils/useLocale';
 import { useRouter } from 'next/router';
-import DonateToFunsCard from '@/modules/contribute/donateToFundsCard';
-import HelpUkraineCard from '@/modules/contribute/helpUkraineCard';
-import Link from 'next/link';
+import { DonateToFunsCard } from '@/modules/contribute/donateToFundsCard';
+import { HelpUkraineCard } from '@/modules/contribute/helpUkraineCard';
 import { locales } from '@/modules/contribute/locales';
-import ShareCard from '@/modules/contribute/shareCard';
-import { GithubLink } from '@/components/githubLink';
-import CursorEffect from '@/components/cursor/cursorEffect';
+import { ShareCard } from '@/modules/contribute/shareCard';
+import { Fragment } from 'react';
+import { TopBar } from '@/components/topBar';
 
 export default function ContributePage() {
   const router = useRouter();
   const t = useLocale(locales);
 
   return (
-    <>
+    <Fragment>
       <Head>
         <title>{t('pageTitle')}</title>
         <meta name="description" content={t('pageDescription')} />
       </Head>
       <header className={styles.header}>
-        <div className={styles.topBar}>
-          <CursorEffect cursorPadding={6} className={styles.logoWrapper}>
-            <Link href="/" className={styles.homeLink}>
-              <Logo className={styles.logo} variant={LogoType.Full} />
-            </Link>
-          </CursorEffect>
-          <GithubLink />
-          <LangSwitcher />
-        </div>
+        <TopBar />
         <p className={styles.description}>
           <b className={styles.bold}>{t('appName')}</b> {t('description')}
         </p>
@@ -56,6 +45,6 @@ export default function ContributePage() {
         </Card>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 }

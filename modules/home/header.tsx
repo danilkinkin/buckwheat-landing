@@ -1,21 +1,17 @@
 import styles from '@/modules/home/home.module.scss';
 import useLocale from '@/utils/useLocale';
 import { LocalesMap } from '@/utils/useLocale';
-import { LangSwitcher } from '@/components/langSwitcher';
-import { Logo, LogoType } from '@/components/logo';
-import { GithubLink } from '@/components/githubLink';
 import clsx from 'clsx';
-import { anonymousPro, ibmPlexMono, caveat } from '@/styles/fonts';
+import { ibmPlexMono, caveat } from '@/styles/fonts';
 import ThinStarBig from '@/assets/images/thin-star-big.svg';
 import ThickRoundStar5 from '@/assets/images/thick-round-star-5.svg';
 import thickRoundStar6Url from '@/assets/images/thick-round-star-6.svg?url';
 import buckwheatFlat from '@/assets/images/buckwheat-flat.png';
-import { GooglePlayLink } from '@/components/googlePlayLink';
 import Image from 'next/image';
-import Gradients from '../gradients/gradient';
-import { useEffect, useRef, useState } from 'react';
+import { Gradients } from '@/components/gradients';
+import { useRef } from 'react';
 import useScroll from '@/utils/useScroll';
-import CursorEffect from '@/components/cursor/cursorEffect';
+import { TopBar } from '@/components/topBar';
 
 const locales: LocalesMap = {
   ru: {
@@ -75,7 +71,6 @@ export default function Header() {
   const sloganLine1Ref = useRef(null);
   const sloganLine2Ref = useRef(null);
   const transitionToBackgoundRef = useRef(null);
-  const topBarRef = useRef(null);
   const thickRoundStar6MaskRef = useRef(null);
   const thickRoundStar6ImageRef = useRef(null);
   const thickRoundStar5 = useRef(null);
@@ -100,10 +95,6 @@ export default function Header() {
       transitionToBackgoundRef.current.style.height = `${scrollY + 300}px`;
     }
 
-    if (topBarRef.current) {
-      topBarRef.current.style.transform = `translateY(${-Math.expm1(scrollY / 6)}px)`;
-    }
-
     if (thickRoundStar6MaskRef.current) {
       thickRoundStar6MaskRef.current.style.transform = `translateY(${scrollY / 6}px) rotate(${scrollY / 8 + (time * 0.01) % 360}deg)`;
     }
@@ -119,12 +110,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.topBar} ref={topBarRef}>
-        <Logo className={styles.logo} variant={LogoType.Full} />
-        <GooglePlayLink className={styles.googlePlayLink} />
-        <GithubLink />
-        <LangSwitcher />
-      </div>
+      <TopBar />
       <div
         className={styles.thickRoundStar6}
         ref={thickRoundStar6MaskRef}

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './card.module.scss';
 import LinkIcon from '@/assets/icons/link.svg';
 import { animated, useSpring } from '@react-spring/web';
-import CursorEffect from '../cursor/cursorEffect';
+import { CursorEffect } from '@/components/cursor';
 
 type CardProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,

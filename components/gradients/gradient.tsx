@@ -41,7 +41,7 @@ const threeCanvas = (
   };
 };
 
-export default function Gradients() {
+export function Gradients() {
   const rootRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [timeOffset] = useState(Math.random() * 1000);

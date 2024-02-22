@@ -22,7 +22,7 @@ const locales: LocalesMap = {
   },
 };
 
-export default function ShareCard() {
+export function ShareCard() {
   const t = useLocale(locales);
 
   return (

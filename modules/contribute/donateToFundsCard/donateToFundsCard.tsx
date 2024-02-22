@@ -1,10 +1,10 @@
-import styles from '@/modules/contribute/donateToFundsCard.module.scss';
+import styles from './donateToFundsCard.module.scss';
 import { Card, CardLink } from '@/components/card';
 import clsx from 'clsx';
 import Link from 'next/link';
 import InfoIcon from '@/assets/icons/info.svg';
 
-export default function DonateToFunsCard() {
+export function DonateToFunsCard() {
   return (
     <div className={styles.cardContainer}>
       <Card

@@ -1,11 +1,11 @@
-import styles from '@/modules/home/contributeCard.module.scss';
+import styles from './contributeCard.module.scss';
 import { Card } from '@/components/card';
 import useLocale from '@/utils/useLocale';
 import { LocalesMap } from '@/utils/useLocale';
 import Link from 'next/link';
 import { animated, useSpring } from '@react-spring/web';
 import { useRef } from 'react';
-import CursorEffect from '@/components/cursor/cursorEffect';
+import { CursorEffect } from '@/components/cursor';
 
 const locales: LocalesMap = {
   ru: {
@@ -18,7 +18,7 @@ const locales: LocalesMap = {
   },
 };
 
-export default function ContributeCard() {
+export function ContributeCard() {
   const t = useLocale(locales);
   const cardRef = useRef(null);
 

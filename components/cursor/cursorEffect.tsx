@@ -26,7 +26,7 @@ const inRect = (x: number, y: number, rect: DOMRect, gap: number = 0) => {
   );
 };
 
-export default function CursorEffect(props: CursorEffectProps) {
+export function CursorEffect(props: CursorEffectProps) {
   const {
     children,
     className,

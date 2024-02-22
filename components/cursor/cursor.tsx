@@ -7,7 +7,7 @@ type CursorProps = {
   children: React.ReactNode;
 };
 
-export default function Cursor(props: CursorProps) {
+export function Cursor(props: CursorProps) {
   const { children } = props;
   const mousePosition = useRef({
     x: 0,

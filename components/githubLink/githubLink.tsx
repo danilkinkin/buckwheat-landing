@@ -2,7 +2,7 @@ import styles from './githubLink.module.scss';
 import Link, { LinkProps } from 'next/link';
 import GithubIcon from '@/assets/icons/github.svg';
 import clsx from 'clsx';
-import CursorEffect from '../cursor/cursorEffect';
+import { CursorEffect } from '@/components/cursor';
 
 type GithubLinkProps = Omit<LinkProps, 'href'> & { className?: string };
 

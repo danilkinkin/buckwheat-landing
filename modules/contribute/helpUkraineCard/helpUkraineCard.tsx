@@ -1,11 +1,11 @@
-import styles from '@/modules/contribute/helpUkraineCard.module.scss';
+import styles from './helpUkraineCard.module.scss';
 import { Card, CardLink } from '@/components/card';
 import clsx from 'clsx';
 import UkraineMapSvg from '@/assets/images/ukraine-map.svg';
 import Link from 'next/link';
 import InfoIcon from '@/assets/icons/info.svg';
 
-export default function HelpUkraineCard() {
+export function HelpUkraineCard() {
   return (
     <div className={styles.cardContainer}>
       <Card

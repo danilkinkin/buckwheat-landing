@@ -23,7 +23,7 @@ const locales: LocalesMap = {
   },
 };
 
-export default forwardRef<HTMLDivElement, {}>(
+export const HowItsWorkCard = forwardRef<HTMLDivElement, {}>(
   function HowItsWorkCard(props, ref) {
     const router = useRouter();
     const t = useLocale(locales);

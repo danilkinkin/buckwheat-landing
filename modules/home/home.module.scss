@@ -88,25 +88,6 @@
   color: var(--on-background-secondary);
 }
 
-.topBar {
-  position: absolute;
-  max-width: 1400px;
-  left: 0;
-  top: 100px;
-  right: 0;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 48px;
-  gap: 16px;
-}
-
-.logo {
-  margin-right: auto;
-}
-
 .thickRoundStar6 {
   position: absolute;
   top: 20vh;
@@ -240,10 +221,6 @@
   .cardsRow {
     gap: 24px;
   }
-
-  .googlePlayLink {
-    display: none !important;
-  }
 }
 
 @media screen and (max-width: 730px) {
@@ -257,12 +234,6 @@
 }
 
 @media screen and (max-width: 640px) {
-  .topBar {
-    top: 20px;
-    padding: 0 36px;
-    gap: 36px;
-  }
-
   .thickRoundStar6 {
     width: 125px;
     height: 125px;

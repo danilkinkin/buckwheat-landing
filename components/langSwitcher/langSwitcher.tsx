@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import styles from './langSwitcher.module.scss';
 import LanguageIcon from '@/assets/icons/language.svg';
-import CursorEffect from '../cursor/cursorEffect';
+import { CursorEffect } from '@/components/cursor';
 
 type LangSwitcherProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -40,7 +40,7 @@ export function LangSwitcher(props: LangSwitcherProps) {
     const handleClose = (event: any) => {
       setOpen(
         event.composedPath().includes(selectorRef.current) ||
-          event.composedPath().includes(buttonRef.current)
+        event.composedPath().includes(buttonRef.current)
       );
     };
 
@@ -82,8 +82,8 @@ export function LangSwitcher(props: LangSwitcherProps) {
           {Object.keys(localesMap).map((locale) => (
             <CursorEffect effectForce={2} effectDistance={36} cursorPadding={2} cursorBorderRadius={8}>
               <button key={locale} onClick={handleSetLanguage(locale)}>
-              {localesMap[locale]}
-            </button>
+                {localesMap[locale]}
+              </button>
             </CursorEffect>
           ))}
         </ul>

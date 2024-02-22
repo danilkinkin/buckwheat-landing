@@ -1,0 +1,42 @@
+.root {
+    position: absolute;
+    max-width: 1400px;
+    left: 0;
+    top: 100px;
+    right: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 48px;
+    gap: 16px;
+}
+
+.homeLink {
+    padding: 8px;
+    padding-right: 24px;
+    border-radius: 20px;
+    display: block;
+    margin-right: auto;
+    margin-left: -8px;
+    cursor: none !important;
+}
+
+.logo {
+    margin-right: auto;
+}
+
+@media screen and (max-width: 800px) {
+    .googlePlayLink {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .topBar {
+        top: 20px;
+        padding: 0 36px;
+        gap: 36px;
+    }
+}
