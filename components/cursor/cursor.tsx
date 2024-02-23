@@ -94,8 +94,6 @@ export function Cursor(props: CursorProps) {
     };
 
     const handleMouseLeave = () => {
-      console.log('mouse leave');
-
       isReadyForHide = true;
 
       setTimeout(() => {
@@ -118,6 +116,7 @@ export function Cursor(props: CursorProps) {
     };
 
     const handleMouseDown = (event: MouseEvent) => {
+      updateTargetFromPath(event.composedPath());
       mousePosition.current = {
         ...mousePosition.current,
         pressed: true,
@@ -125,6 +124,7 @@ export function Cursor(props: CursorProps) {
     };
 
     const handleMouseUp = (event: MouseEvent) => {
+      updateTargetFromPath(event.composedPath());
       mousePosition.current = {
         ...mousePosition.current,
         pressed: false,
@@ -136,6 +136,7 @@ export function Cursor(props: CursorProps) {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mouseup', handleMouseUp);
+
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);

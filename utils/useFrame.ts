@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function useFrame(callback: (delta: number) => void) {
+export default function useFrame(callback: (delta: number, time: number) => void) {
   useEffect(() => {
     let isMounted = true;
     let lastScrollY = 0;
@@ -13,7 +13,7 @@ export default function useFrame(callback: (delta: number) => void) {
 
       lastScrollY = scrollY;
 
-      callback(time - lastTime);
+      callback(time - lastTime, time);
 
       lastTime = time;
 

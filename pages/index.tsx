@@ -5,6 +5,10 @@ import { ContributeCard } from '@/modules/home/contributeCard';
 import Header from '@/modules/home/header';
 import styles from '@/modules/home/home.module.scss';
 import { HowItsWorkCard } from '@/modules/home/howItsWorkCard';
+import { FreeCard } from '@/modules/home/freeCard';
+import { WidgetsCard } from '@/modules/home/widgetsCard';
+import { HistoryCard } from '@/modules/home/historyCard';
+import { AnalyticsCard } from '@/modules/home/analyticsCard';
 import { locales } from '@/modules/home/locales';
 import useLocale from '@/utils/useLocale';
 import useScroll from '@/utils/useScroll';
@@ -36,6 +40,14 @@ export default function HomePage() {
       <main className={styles.main}>
         <div ref={howItsWorkCardRef}>
           <HowItsWorkCard />
+        </div>
+        <div className={styles.cardsRow}>
+          <FreeCard />
+          <WidgetsCard />
+        </div>
+        <div className={styles.cardsRow}>
+          <HistoryCard />
+          <AnalyticsCard />
         </div>
         <div className={styles.cardsRow}>
           <div className={styles.storesBlock}>
