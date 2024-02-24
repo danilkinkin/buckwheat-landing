@@ -10,6 +10,7 @@ import maskUrl from '@/assets/images/widgets-star-mask.svg?url';
 import buckwheatImage from '@/assets/images/widgets-backdrop.png';
 import Image from 'next/image';
 import useFrame from '@/utils/useFrame';
+import useScroll from '@/utils/useScroll';
 
 const locales: LocalesMap = {
   ru: {
@@ -25,8 +26,24 @@ const locales: LocalesMap = {
 };
 
 function SmallWidgetsLine() {
+  const rootRef = useRef(null);
+
+  const widgetWidth = 293.87;
+  const swapWidth = widgetWidth * 1;
+
+  useScroll((scrollY, delta, time) => {
+
+    const offset = -(scrollY / 2) - (time / 20);
+
+    if (rootRef.current) {
+      rootRef.current.style.transform = `rotate(4deg) translateX(${offset % swapWidth + widgetWidth}px)`;
+    }
+  });
+
   return (
-    <div className={styles.smallWidgetsLine}>
+    <div ref={rootRef} className={styles.smallWidgetsLine}>
+      <WidgetSmallEn />
+      <WidgetSmallEn />
       <WidgetSmallEn />
       <WidgetSmallEn />
       <WidgetSmallEn />
@@ -37,8 +54,23 @@ function SmallWidgetsLine() {
 }
 
 function BigWidgetsLine() {
+  const rootRef = useRef(null);
+
+  const widgetWidth = 332.32 + 9;
+  const swapWidth = widgetWidth * 1;
+
+  useScroll((scrollY, delta, time) => {
+
+    const offset = (scrollY / 2) + (time / 20);
+
+    if (rootRef.current) {
+      rootRef.current.style.transform = `rotate(356deg) translateX(${offset % swapWidth}px)`;
+    }
+  });
+
   return (
-    <div className={styles.bigWidgetsLine}>
+    <div ref={rootRef} className={styles.bigWidgetsLine}>
+      <WidgetBigEn />
       <WidgetBigEn />
       <WidgetBigEn />
       <WidgetBigEn />
