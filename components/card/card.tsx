@@ -1,14 +1,14 @@
 import { clsx } from 'clsx';
 import styles from './card.module.scss';
 import { ibmPlexMono } from '@/styles/fonts';
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 
 type CardProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 > & {
-  title?: string;
-  subtitle?: string;
+  title?: React.ReactNode;
+  subtitle?: React.ReactNode;
   backdropOnText?: boolean;
   classes?: { [key: string]: string };
 };
@@ -52,27 +52,31 @@ const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
           </h3>
         )}
       </div>
-      <div className={clsx(styles.textWrapper)}>
-        <p className={clsx(styles.subtitle, classes.subtitle)}>
-          <span className={clsx(backdropOnText && styles.backdropOnText)}>
-            {subtitle}
-          </span>
-        </p>
-        {backdropOnText && (
-          <p
-            className={clsx(
-              styles.subtitle,
-              classes.subtitle,
-              styles.backdropTextHelper
-            )}
-          >
+      {subtitle && (
+        <div className={clsx(styles.textWrapper)}>
+          <p className={clsx(styles.subtitle, classes.subtitle)}>
             <span className={clsx(backdropOnText && styles.backdropOnText)}>
               {subtitle}
             </span>
           </p>
-        )}
-      </div>
-      <div className={clsx(styles.content, classes.content)}>{children}</div>
+          {backdropOnText && (
+            <p
+              className={clsx(
+                styles.subtitle,
+                classes.subtitle,
+                styles.backdropTextHelper
+              )}
+            >
+              <span className={clsx(backdropOnText && styles.backdropOnText)}>
+                {subtitle}
+              </span>
+            </p>
+          )}
+        </div>
+      )}
+      {children && (
+        <div className={clsx(styles.content, classes.content)}>{children}</div>
+      )}
     </div>
   );
 });

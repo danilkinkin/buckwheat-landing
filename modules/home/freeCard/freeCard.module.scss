@@ -1,0 +1,85 @@
+.root {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.freeForever, .wihthoutAds {
+    --on-background: #000000;
+    --background: #F3FF6C;
+    width: 100%;
+    position: relative;
+    border-radius: 100px;
+    z-index: -1;
+    flex-shrink: 0;
+}
+
+.freeForever {
+    padding: 56px 16px;
+    overflow: unset;
+}
+
+
+.wihthoutAds {
+    --on-background: #861118;
+    --background: #FFEEF2;
+    padding: 22px 16px;
+}
+
+
+.freeForeverTitle, .wihthoutAdsTitle {
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.freeForeverTitleExclamationPoint {
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: -46px;
+        left: 20px;
+    }
+}
+
+.wihthoutAdsTitleOutline {
+    position: relative;
+
+    svg {
+        position: absolute;
+        top: -46px;
+        left: -260px;
+    }
+}
+
+.imageCard {
+    background-color: #FFF0E8;
+    border-radius: 36px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.backdropImage, .screenshotImage, .shadowImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 550px;
+    height: auto;
+}
+
+.screenshotImage {
+    z-index: 2;
+}
+
+.shadowImage {
+    z-index: 0;
+    mix-blend-mode: multiply;
+}
