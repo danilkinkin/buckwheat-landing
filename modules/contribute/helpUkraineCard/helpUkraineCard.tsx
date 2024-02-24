@@ -15,7 +15,7 @@ export function HelpUkraineCard() {
         className={styles.card}
         backdropOnText
         title="Support Ukraine"
-        subtitle="For over a year, a peaceful nation has been under threat of destruction by the Russian authorities. They are fighting to hold on, but it's not easy. Please help Ukraine defend their freedom."
+        subtitle="For over two years, a peaceful nation has been under threat of destruction by the Russian authorities. They are fighting to hold on, but it's not easy. Please help Ukraine defend their freedom"
       >
         <CardLink
           className={clsx(styles.link, styles.topOffset)}

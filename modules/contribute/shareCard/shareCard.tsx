@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import heartLightImage from '@/assets/images/heart-light.png';
 import useLocale, { LocalesMap } from '@/utils/useLocale';
+import { CursorEffect } from '@/components/cursor';
 
 const locales: LocalesMap = {
   ru: {
@@ -25,7 +26,7 @@ const locales: LocalesMap = {
 export function ShareCard() {
   const t = useLocale(locales);
 
-  return (
+  const ShareCard = (
     <Card
       className={clsx(styles.card)}
       title={t('title')}
@@ -59,4 +60,13 @@ export function ShareCard() {
       </div>
     </Card>
   );
+  if (typeof window !== 'undefined' && navigator.share) {
+    return (
+      <CursorEffect cursorPadding={8} cursorBorderRadius={36}>
+        {ShareCard}
+      </CursorEffect>
+    );
+  } else {
+    return ShareCard;
+  }
 }

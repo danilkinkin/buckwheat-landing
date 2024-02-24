@@ -156,6 +156,7 @@ export function CursorEffect(props: CursorEffectProps) {
       <div
         ref={cursorAffectorRef}
         style={{ width: '100%', height: '100%' }}
+        data-cursor-effect
         data-cursor-padding={cursorPadding}
         data-cursor-border-radius={cursorBorderRadius}
       >

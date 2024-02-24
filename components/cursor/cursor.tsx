@@ -15,7 +15,7 @@ export function Cursor(props: CursorProps) {
     cursorPadding: 0,
     cursorBorderRadius: 0,
     targetRect: null,
-    target: { link: false, button: false },
+    target: { link: false, button: false, cursorEffector: false },
     pressed: false,
     active: false,
   });
@@ -36,6 +36,9 @@ export function Cursor(props: CursorProps) {
     const updateTargetFromPath = (path: any[]) => {
       const isLink = path.find((el) => el?.tagName === 'A');
       const isButton = path.find((el) => el?.tagName === 'BUTTON');
+      const isCursorEffector = path.find(
+        (el) => el?.getAttribute?.('data-cursor-effect')
+      );
       const cursorPadding = +(
         path
           .find((el) => el?.getAttribute?.('data-cursor-padding') !== null)
@@ -60,6 +63,10 @@ export function Cursor(props: CursorProps) {
         targetRect = isButton.getBoundingClientRect();
       }
 
+      if (isCursorEffector) {
+        targetRect = isCursorEffector.getBoundingClientRect();
+      }
+
       mousePosition.current = {
         ...mousePosition.current,
         cursorPadding,
@@ -68,6 +75,7 @@ export function Cursor(props: CursorProps) {
         target: {
           link: Boolean(isLink),
           button: Boolean(isButton),
+          cursorEffector: Boolean(isCursorEffector),
         },
       };
     };
@@ -163,7 +171,8 @@ export function Cursor(props: CursorProps) {
       borderRadius = 15;
     } else if (
       mousePosition.current.target.link ||
-      mousePosition.current.target.button
+      mousePosition.current.target.button ||
+      mousePosition.current.target.cursorEffector
     ) {
       const targetCenterX = targetRect.left + targetRect.width / 2;
       const targetCenterY = targetRect.top + targetRect.height / 2;
