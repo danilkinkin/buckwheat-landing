@@ -11,8 +11,15 @@ import ContributeArrow from '@/assets/images/contribute-arrow.svg';
 export const locales: LocalesMap = {
   ru: {
     appName: 'Гречка',
-    description:
-      '— это мой хобби-проект, и на данный момент я не планирую на нем зарабатывать. Если вы действительно хотите помочь, то вот несколько вариантов, которые можно рассмотреть. Спасибо',
+    description: (
+      <>
+        <span className={styles.appName}>Гречка</span> — это <span className={styles.hobbyProject}>хобби-проект</span>{' '}
+        и я <span className={styles.notPlanEarnMoney}><span>не планирую на нём зарабатывать</span></span>,{' '}
+        если вы хотите помочь, вот несколько способов, как это сделать<span className={styles.contributeArrow}><ContributeArrow /></span>
+      </>
+    ),
+    openSource: 'Open source',
+    madeWithLove: 'Сделано с',
   },
   en: {
     appName: 'Buckwheat',
@@ -20,7 +27,7 @@ export const locales: LocalesMap = {
       <>
         <span className={styles.appName}>Buckwheat</span> is <span className={styles.hobbyProject}>a hobby project</span>{' '}
         and I <span className={styles.notPlanEarnMoney}><span>do not plan to earn money on it</span></span>,{' '}
-        but if you want to help, here are a few ways how to do it<span className={styles.contributeArrow}><ContributeArrow /></span>
+        if you want to help, here are a few ways how to do it<span className={styles.contributeArrow}><ContributeArrow /></span>
       </>
     ),
     openSource: 'Open source',

@@ -1,11 +1,12 @@
 import styles from './helpUkraineCard.module.scss';
 import { Card, CardLink } from '@/components/card';
 import clsx from 'clsx';
-import UkraineMapSvg from '@/assets/images/ukraine-map.svg';
 import Link from 'next/link';
 import InfoIcon from '@/assets/icons/info.svg';
 import noWarImage from '@/assets/images/no-war.png';
 import Image from 'next/image';
+import LinkIcon from '@/assets/icons/link.svg';
+import { CursorEffect } from '@/components/cursor';
 
 export function HelpUkraineCard() {
   return (
@@ -40,12 +41,15 @@ export function HelpUkraineCard() {
       <p className={styles.captionLink}>
         <InfoIcon />
         If you have decided to donate, please fill out{' '}
-        <Link
-          href="https://docs.google.com/forms/d/e/1FAIpQLSejBz_dbR15jJ33bAwxt-gKimhnX1VzqpDZJLADYubBR7bVbg/viewform"
-          target="_blank"
-        >
-          a short anonymous form
-        </Link>
+        <CursorEffect cursorPadding={6} cursorBorderRadius={6} effectForce={4} effectDistance={24} className={styles.linkCursorEffect}>
+          <Link
+            href="https://docs.google.com/forms/d/e/1FAIpQLSejBz_dbR15jJ33bAwxt-gKimhnX1VzqpDZJLADYubBR7bVbg/viewform"
+            target="_blank"
+          >
+            a short anonymous form
+            <LinkIcon />
+          </Link>
+        </CursorEffect>
         . This will help me understand how many people were inspired to help.
       </p>
     </div>
