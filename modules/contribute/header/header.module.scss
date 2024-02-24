@@ -15,16 +15,19 @@
 
 .content {
   display: flex;
-  flex-direction: crow;
+  flex-direction: row;
   align-items: center;
   width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 .description {
   font-weight: 600;
   font-size: 2rem;
-  max-width: 740px;
+  max-width: 780px;
   color: #4F3527;
+  line-height: 150%;
 
   .appName {
     font-weight: 700;
@@ -35,6 +38,25 @@
   }
 
   .notPlanEarnMoney {
+    margin: 0px 26px;
+
+    span {
+        box-shadow: -20px 0px 0px 2px #FF005C, 20px 0px 0px 2px #FF005C;
+        background-color: #FF005C;
+        color: #fff;
+        box-decoration-break: clone;
+        border-radius: 34px;
+    }
+  }
+
+  .contributeArrow {
+      position: relative;
+
+      svg {
+          position: absolute;
+          top: 13px;
+          left: 26px;
+      }
   }
 }
 

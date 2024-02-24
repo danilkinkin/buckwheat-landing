@@ -6,6 +6,7 @@ import { clsx } from 'clsx';
 import LoveIcon from '@/assets/icons/love.svg';
 import OpenSourceIcon from '@/assets/icons/open-source.svg';
 import { Gradients } from '@/components/gradients';
+import ContributeArrow from '@/assets/images/contribute-arrow.svg';
 
 export const locales: LocalesMap = {
   ru: {
@@ -17,7 +18,9 @@ export const locales: LocalesMap = {
     appName: 'Buckwheat',
     description: (
       <>
-        <span className={styles.appName}>Buckwheat</span> is <span className={styles.hobbyProject}>a hobby project</span> and I <span className={styles.notPlanEarnMoney}>do not plan to earn money on it</span>, but if you want to help, here are a few ways how to do it
+        <span className={styles.appName}>Buckwheat</span> is <span className={styles.hobbyProject}>a hobby project</span>{' '}
+        and I <span className={styles.notPlanEarnMoney}><span>do not plan to earn money on it</span></span>,{' '}
+        but if you want to help, here are a few ways how to do it<span className={styles.contributeArrow}><ContributeArrow /></span>
       </>
     ),
     openSource: 'Open source',
@@ -46,7 +49,6 @@ function Chip(props: ChipProps) {
 export function Header() {
   const t = useLocale(locales);
   return (
-
     <header className={styles.header}>
       <TopBar notHide />
       <div className={styles.content}>
