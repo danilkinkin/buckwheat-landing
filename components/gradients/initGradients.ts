@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
-import gradientFragmentShader from '@/modules/gradients/gradient.fragmentShader.glsl?raw';
-import gradientVertexShader from '@/modules/gradients/gradient.vertexShader.glsl?raw';
+import gradientFragmentShader from './gradient.fragmentShader.glsl?raw';
+import gradientVertexShader from './gradient.vertexShader.glsl?raw';
 
 function getMaterial() {
   var uniforms = {

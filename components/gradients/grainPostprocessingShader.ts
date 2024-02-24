@@ -1,4 +1,4 @@
-import grainFragmentShader from '@/modules/gradients/grain.fragmentShader.glsl?raw';
+import grainFragmentShader from './grain.fragmentShader.glsl?raw';
 
 /**
  * Full-screen textured quad shader

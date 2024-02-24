@@ -13,7 +13,7 @@ import { VerticalBlurShader } from 'three/examples/jsm/shaders/VerticalBlurShade
 import { SepiaShader } from 'three/examples/jsm/shaders/SepiaShader';
 import { VignetteShader } from 'three/examples/jsm/shaders/VignetteShader';
 import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectionShader';
-import { GrainShader } from '@/modules/gradients/grainPostprocessingShader';
+import { GrainShader } from './grainPostprocessingShader';
 
 
 export function initGrainFilter(renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.OrthographicCamera) {
