@@ -9,11 +9,20 @@ import { CursorEffect } from '@/components/cursor';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export function TopBar() {
+type TopBarProps = {
+  notHide?: boolean;
+}
+
+export function TopBar(props: TopBarProps) {
+  const { notHide = false } = props;
   const router = useRouter();
   const rootRef = useRef<HTMLDivElement>(null);
 
   useScroll((scrollY, deltaTime, time) => {
+    if (notHide) {
+      return;
+    }
+
     if (rootRef.current) {
       rootRef.current.style.transform = `translateY(${-Math.expm1(scrollY / 6)}px)`;
     }

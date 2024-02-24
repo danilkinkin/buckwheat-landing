@@ -1,0 +1,90 @@
+.header {
+  min-height: 30vh;
+  padding: 220px 48px;
+  padding-top: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: crow;
+  align-items: center;
+  width: 100%;
+}
+
+.description {
+  margin-top: 36px;
+  font-weight: 600;
+  font-size: 2rem;
+  max-width: 700px;
+  color: #4F3527;
+
+  .appName {
+    font-weight: 700;
+    color: #361400;
+  }
+
+  .hobbyProject {
+  }
+
+  .notPlanEarnMoney {
+  }
+}
+
+.chipsContainer {
+    flex-grow: 1;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    transform: rotate(-25deg);
+}
+
+.chip {
+    padding: 12px 32px;
+    padding-right: 22px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 9px;
+    font-size: 1.62rem;
+    font-weight: 600;
+    width: fit-content;
+
+    .icon {
+        display: flex;
+    }
+}
+
+.openSourceChip {
+    background-color: #DDF9D0;
+    color: #339704;
+    transform: translateX(-50px);
+
+    svg {
+        color: #339704;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+.madeWithLoveChip {
+    background-color: #FFEEF2;
+    color: #861118;
+    transform: translateX(50px);
+
+    svg {
+        color: #FF003D;
+        width: 35px;
+        height: 35px;
+    }
+}

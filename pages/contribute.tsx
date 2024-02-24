@@ -12,7 +12,7 @@ import { HelpUkraineCard } from '@/modules/contribute/helpUkraineCard';
 import { locales } from '@/modules/contribute/locales';
 import { ShareCard } from '@/modules/contribute/shareCard';
 import { Fragment } from 'react';
-import { TopBar } from '@/components/topBar';
+import { Header } from '@/modules/contribute/header';
 
 export default function ContributePage() {
   const router = useRouter();
@@ -24,12 +24,7 @@ export default function ContributePage() {
         <title>{t('pageTitle')}</title>
         <meta name="description" content={t('pageDescription')} />
       </Head>
-      <header className={styles.header}>
-        <TopBar />
-        <p className={styles.description}>
-          <b className={styles.bold}>{t('appName')}</b> {t('description')}
-        </p>
-      </header>
+      <Header />
       <main className={styles.main}>
         <div className={styles.cardsRow}>
           {router.locale !== 'ru' && <HelpUkraineCard />}
