@@ -28,7 +28,7 @@ const locales: LocalesMap = {
 function SmallWidgetsLine() {
   const rootRef = useRef(null);
 
-  const widgetWidth = 293.87;
+  const widgetWidth = 220;
   const swapWidth = widgetWidth * 1;
 
   useScroll((scrollY, delta, time) => {
@@ -56,7 +56,7 @@ function SmallWidgetsLine() {
 function BigWidgetsLine() {
   const rootRef = useRef(null);
 
-  const widgetWidth = 332.32 + 9;
+  const widgetWidth = 260 + 9;
   const swapWidth = widgetWidth * 1;
 
   useScroll((scrollY, delta, time) => {

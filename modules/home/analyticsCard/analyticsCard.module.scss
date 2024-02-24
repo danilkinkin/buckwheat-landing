@@ -2,7 +2,7 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    width: 565px;
+    width: 510px;
     flex-shrink: 0;
     position: relative;
 }
@@ -15,6 +15,8 @@
     position: relative;
     border-radius: 100px;
     z-index: -1;
+    flex-shrink: 0;
+    padding: 26px 36px;
 }
 
 .textCardTitle, .textCardDescription {
@@ -36,9 +38,8 @@
 .backdropImage, .screenshotImage, .shadowImage {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
+    right: -50px;
+    width: 565px;
     height: auto;
 }
 
