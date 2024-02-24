@@ -6,3 +6,79 @@
     height: 650px;
     position: relative;
 }
+
+.mockupPhoneContiner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+}
+
+.backdropImage {
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: auto;
+    height: 650px;
+}
+
+.buchwheatImageMask {
+    z-index: 1;
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: 50%;
+    bottom: -140px;
+    right: -140px;
+}
+
+.buchwheatImageAnchor {
+    bottom: 350px;
+    left: 350px;
+    position: absolute;
+
+}
+
+.buchwheatImage {
+    z-index: 1;
+    bottom: -400px;
+    left: -400px;
+    position: absolute;
+    width: 800px;
+    height: 800px;
+}
+
+.screenshot {
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: auto;
+    height: 650px;
+}
+
+.smallWidgetsLine {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    right: -50px;
+    bottom: 280px;
+    transform-origin: right center;
+    transform: rotate(4deg);
+}
+
+.bigWidgetsLine {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    right: -280px;
+    bottom: 80px;
+    transform-origin: right center;
+    transform: rotate(356deg);
+    gap: 9px;
+}

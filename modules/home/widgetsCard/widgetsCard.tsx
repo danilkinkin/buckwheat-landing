@@ -1,8 +1,15 @@
+import { useRef } from 'react';
 import styles from './widgetsCard.module.scss';
 import clsx from 'clsx';
 import { Card } from '@/components/card';
 import useLocale from '@/utils/useLocale';
 import { LocalesMap } from '@/utils/useLocale';
+import WidgetSmallEn from '@/assets/images/widget-small-en.svg';
+import WidgetBigEn from '@/assets/images/widget-big-en.svg';
+import maskUrl from '@/assets/images/widgets-star-mask.svg?url';
+import buckwheatImage from '@/assets/images/widgets-backdrop.png';
+import Image from 'next/image';
+import useFrame from '@/utils/useFrame';
 
 const locales: LocalesMap = {
   ru: {
@@ -17,8 +24,41 @@ const locales: LocalesMap = {
   },
 };
 
+function SmallWidgetsLine() {
+  return (
+    <div className={styles.smallWidgetsLine}>
+      <WidgetSmallEn />
+      <WidgetSmallEn />
+      <WidgetSmallEn />
+      <WidgetSmallEn />
+      <WidgetSmallEn />
+    </div>
+  );
+}
+
+function BigWidgetsLine() {
+  return (
+    <div className={styles.bigWidgetsLine}>
+      <WidgetBigEn />
+      <WidgetBigEn />
+      <WidgetBigEn />
+      <WidgetBigEn />
+      <WidgetBigEn />
+    </div>
+  );
+}
+
 export function WidgetsCard() {
   const t = useLocale(locales);
+  const buchwheatImageMaskRef = useRef(null);
+  const buchwheatImageRef = useRef(null);
+
+  useFrame((delta, time) => {
+    if (buchwheatImageMaskRef.current && buchwheatImageRef.current) {
+      buchwheatImageMaskRef.current.style.transform = `rotate(${-(time * 0.005) % 360}deg)`;
+      buchwheatImageRef.current.style.transform = `rotate(${(time * 0.005) % 360}deg)`;
+    }
+  });
 
   return (
     <Card
@@ -29,22 +69,25 @@ export function WidgetsCard() {
       classes={{ subtitle: styles.description, title: styles.title }}
     >
       <div className={styles.mockupPhoneContiner}>
-        {/*<Image
-          className={clsx(styles.mockupPhone)}
-          height={1200}
-          width={1708}
-          placeholder="blur"
-          alt=""
-          src={phoneMockupLightImage}
-        />
-        <Image
-          className={styles.screenshotMain}
-          height={2340}
-          width={1080}
-          placeholder="blur"
-          alt=""
-          src={router.locale !== 'ru' ? screenshotEnImage : screenshotRuImage}
-        />*/}
+        <div
+          className={styles.buchwheatImageMask}
+          ref={buchwheatImageMaskRef}
+          style={{
+            maskImage: `url(${maskUrl.src})`,
+          }}>
+          <div ref={buchwheatImageRef} className={styles.buchwheatImageAnchor}>
+            <Image
+              className={styles.buchwheatImage}
+              height={800}
+              width={800}
+              placeholder="blur"
+              alt=""
+              src={buckwheatImage}
+            />
+          </div>
+        </div>
+        <SmallWidgetsLine />
+        <BigWidgetsLine />
       </div>
     </Card>
   );
