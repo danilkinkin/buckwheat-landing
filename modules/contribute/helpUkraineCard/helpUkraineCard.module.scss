@@ -7,7 +7,7 @@
   --on-background: #015BBB;
   --on-background-secondary: #584A00;
   --background: #FED500;
-  min-height: 500px;
+  min-height: 580px;
   width: 100%;
   position: relative;
 }
@@ -24,14 +24,10 @@
   }
 }
 
-.ukraineMap {
+.noWarImage {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  right: 6%;
-  color: #f6ce00;
-  height: 80%;
+    top: 120px;
+    right: 6%;
 }
 
 .captionLink {

@@ -4,12 +4,15 @@ import clsx from 'clsx';
 import UkraineMapSvg from '@/assets/images/ukraine-map.svg';
 import Link from 'next/link';
 import InfoIcon from '@/assets/icons/info.svg';
+import noWarImage from '@/assets/images/no-war.png';
+import Image from 'next/image';
 
 export function HelpUkraineCard() {
   return (
     <div className={styles.cardContainer}>
       <Card
         className={styles.card}
+        backdropOnText
         title="Support Ukraine"
         subtitle="For over a year, a peaceful nation has been under threat of destruction by the Russian authorities. They are fighting to hold on, but it's not easy. Please help Ukraine defend their freedom."
       >
@@ -26,7 +29,13 @@ export function HelpUkraineCard() {
           href="https://supportukrainenow.org/"
         />
 
-        <UkraineMapSvg className={styles.ukraineMap} />
+        <Image
+          src={noWarImage}
+          alt="No war"
+          className={styles.noWarImage}
+          width={340}
+          height={340}
+        />
       </Card>
       <p className={styles.captionLink}>
         <InfoIcon />

@@ -76,6 +76,21 @@
   gap: 48px;
 }
 
+.stores {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.additionalStores {
+    display: flex;
+    flex-direction: row;
+
+    &>*:first-child {
+      flex-grow: 1;
+    }
+}
+
 @media screen and (max-width: 980px) {
   .cardsRow {
     flex-direction: column;

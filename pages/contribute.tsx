@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styles from '@/modules/contribute/contribute.module.scss';
 import { GooglePlayButton } from '@/components/googlePlayButton';
+import { GithubCardButton } from '@/components/githubCardButton';
 import { Card } from '@/components/card';
 import { Footer } from '@/components/footer';
 import clsx from 'clsx';
@@ -35,14 +36,19 @@ export default function ContributePage() {
           {router.locale === 'ru' && <DonateToFunsCard />}
           <ShareCard />
         </div>
-        <Card
-          className={clsx(styles.card, styles.reviewCard)}
-          title={t('reviewTitle')}
-          subtitle={t('reviewDescription')}
-          classes={{ content: styles.reviewCardContent }}
-        >
-          <GooglePlayButton className={styles.googlePlayButton} />
-        </Card>
+        <div className={styles.stores}>
+          <Card
+            className={clsx(styles.card, styles.reviewCard)}
+            title={t('reviewTitle')}
+            subtitle={t('reviewDescription')}
+            classes={{ content: styles.reviewCardContent }}
+          >
+            <GooglePlayButton className={styles.googlePlayButton} />
+          </Card>
+          <div className={styles.additionalStores}>
+            <GithubCardButton />
+          </div>
+        </div>
       </main>
       <Footer />
     </Fragment>

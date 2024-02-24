@@ -77,8 +77,8 @@ export default function Header() {
 
   useScroll((scrollY, deltaTime, time) => {
     const childs = [
-      ...Array.from(sloganLine1Ref.current.children),
-      ...Array.from(sloganLine2Ref.current.children),
+      ...Array.from(sloganLine1Ref.current?.children || []),
+      ...Array.from(sloganLine2Ref.current?.children || []),
     ];
 
     childs.forEach((child, index) => {

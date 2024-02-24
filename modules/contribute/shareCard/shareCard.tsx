@@ -16,7 +16,7 @@ const locales: LocalesMap = {
   en: {
     appName: 'Buckwheat',
     slogan: 'App that helps you spend money wisely',
-    title: 'Tell your friends about the application',
+    title: 'Tell your friends',
     description:
       'It is very important to me that my projects bring benefits. If you tell your friends about your experience using this application and how it helped you, I will be very grateful to you.',
   },
