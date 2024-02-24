@@ -3,6 +3,10 @@ import clsx from 'clsx';
 import { Card } from '@/components/card';
 import useLocale from '@/utils/useLocale';
 import { LocalesMap } from '@/utils/useLocale';
+import Image from 'next/image';
+import backdropImage from '@/assets/images/analytics-backdrop.png';
+import screenshotEnImage from '@/assets/images/analytics-screenshot-en.png';
+import shadowImage from '@/assets/images/analytics-shadow.png';
 
 const locales: LocalesMap = {
   ru: {
@@ -21,31 +25,36 @@ export function AnalyticsCard() {
   const t = useLocale(locales);
 
   return (
-    <Card
-      className={styles.card}
-      title={t('title')}
-      subtitle={t('description')}
-      backdropOnText
-      classes={{ subtitle: styles.description, title: styles.title }}
-    >
-      <div className={styles.mockupPhoneContiner}>
-        {/*<Image
-          className={clsx(styles.mockupPhone)}
-          height={1200}
-          width={1708}
-          placeholder="blur"
-          alt=""
-          src={phoneMockupLightImage}
-        />
+    <div className={styles.root}>
+      <Image
+        className={clsx(styles.screenshotImage)}
+        width={465}
+        placeholder="blur"
+        alt=""
+        src={screenshotEnImage}
+      />
+      <div className={styles.imageCard}>
         <Image
-          className={styles.screenshotMain}
-          height={2340}
-          width={1080}
+          className={clsx(styles.backdropImage)}
+          width={465}
           placeholder="blur"
           alt=""
-          src={router.locale !== 'ru' ? screenshotEnImage : screenshotRuImage}
-        />*/}
+          src={backdropImage}
+        />
       </div>
-    </Card>
+      <Image
+        className={clsx(styles.shadowImage)}
+        width={465}
+        placeholder="blur"
+        alt=""
+        src={shadowImage}
+      />
+      <Card
+        className={styles.textCard}
+        title={t('title')}
+        subtitle={t('description')}
+        classes={{ subtitle: styles.textCardDescription, title: styles.textCardTitle }}
+      />
+    </div>
   );
 }

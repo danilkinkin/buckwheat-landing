@@ -1,0 +1,52 @@
+.root {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    width: 565px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.textCard {
+    --on-background: #000000;
+    --on-background-secondary: rgba(0, 0, 0, 0.80);
+    --background: #F3FF6C;
+    width: 100%;
+    position: relative;
+    border-radius: 100px;
+    z-index: -1;
+}
+
+.textCardTitle, .textCardDescription {
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.imageCard {
+    background-color: #FFF0E8;
+    border-radius: 36px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.backdropImage, .screenshotImage, .shadowImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+}
+
+.screenshotImage {
+    z-index: 2;
+}
+
+.shadowImage {
+    z-index: 0;
+    mix-blend-mode: multiply;
+}
