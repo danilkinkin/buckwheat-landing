@@ -173,11 +173,6 @@ export function Cursor(props: CursorProps) {
 
       x = x * 0.05 + targetCenterX * 0.95 - width / 2;
       y = y * 0.05 + targetCenterY * 0.95 - height / 2;
-      if (mousePosition.current.cursorBorderRadius) {
-        borderRadius = mousePosition.current.cursorBorderRadius + gapHover;
-      } else {
-        borderRadius = Math.min(width / 2, height / 2);
-      }
     } else {
       width = 30;
       height = 30;
@@ -191,7 +186,15 @@ export function Cursor(props: CursorProps) {
       height -= 10;
       x += 5;
       y += 5;
+      gapHover -= 5;
     }
+
+    if (mousePosition.current.cursorBorderRadius) {
+      borderRadius = mousePosition.current.cursorBorderRadius + gapHover;
+    } else {
+      borderRadius = Math.min(width / 2, height / 2);
+    }
+
     x = smooth(prevCursorState.current.x, x, 0.02 * delta);
     y = smooth(prevCursorState.current.y, y, 0.02 * delta);
     width = smooth(prevCursorState.current.width, width, 0.02 * delta);
