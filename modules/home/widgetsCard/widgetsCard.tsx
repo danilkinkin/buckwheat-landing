@@ -1,22 +1,24 @@
 import { useRef } from 'react';
 import styles from './widgetsCard.module.scss';
-import clsx from 'clsx';
 import { Card } from '@/components/card';
 import useLocale from '@/utils/useLocale';
 import { LocalesMap } from '@/utils/useLocale';
 import WidgetSmallEn from '@/assets/images/widget-small-en.svg';
 import WidgetBigEn from '@/assets/images/widget-big-en.svg';
+import WidgetSmallRu from '@/assets/images/widget-small-ru.svg';
+import WidgetBigRu from '@/assets/images/widget-big-ru.svg';
 import maskUrl from '@/assets/images/widgets-star-mask.svg?url';
 import buckwheatImage from '@/assets/images/widgets-backdrop.png';
 import Image from 'next/image';
 import useFrame from '@/utils/useFrame';
 import useScroll from '@/utils/useScroll';
+import { useRouter } from 'next/router';
 
 const locales: LocalesMap = {
   ru: {
-    title: 'Как это работает?',
+    title: 'Следите за своим бюджетом',
     description:
-      'Записывая каждую трату, вы отрезвляете разум и даете представление о том, сколько и как вы можете потратить.',
+      'Виджеты на главном экране помогут вам не забывать добавлять расходы и всегда видеть, сколько вам осталось потратить',
   },
   en: {
     title: 'Keep track of your budget',
@@ -26,6 +28,7 @@ const locales: LocalesMap = {
 };
 
 function SmallWidgetsLine() {
+  const router = useRouter();
   const rootRef = useRef(null);
 
   const widgetWidth = 220;
@@ -40,20 +43,23 @@ function SmallWidgetsLine() {
     }
   });
 
+  const Widget = router.locale === 'ru' ? WidgetSmallRu : WidgetSmallEn;
+
   return (
     <div ref={rootRef} className={styles.smallWidgetsLine}>
-      <WidgetSmallEn />
-      <WidgetSmallEn />
-      <WidgetSmallEn />
-      <WidgetSmallEn />
-      <WidgetSmallEn />
-      <WidgetSmallEn />
-      <WidgetSmallEn />
+      <Widget />
+      <Widget />
+      <Widget />
+      <Widget />
+      <Widget />
+      <Widget />
+      <Widget />
     </div>
   );
 }
 
 function BigWidgetsLine() {
+  const router = useRouter();
   const rootRef = useRef(null);
 
   const widgetWidth = 260 + 9;
@@ -68,14 +74,16 @@ function BigWidgetsLine() {
     }
   });
 
+  const Widget = router.locale === 'ru' ? WidgetBigRu : WidgetBigEn;
+
   return (
     <div ref={rootRef} className={styles.bigWidgetsLine}>
-      <WidgetBigEn />
-      <WidgetBigEn />
-      <WidgetBigEn />
-      <WidgetBigEn />
-      <WidgetBigEn />
-      <WidgetBigEn />
+      <Widget />
+      <Widget />
+      <Widget />
+      <Widget />
+      <Widget />
+      <Widget />
     </div>
   );
 }

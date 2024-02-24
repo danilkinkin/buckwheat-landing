@@ -8,24 +8,52 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import backdropImage from '@/assets/images/history-backdrop.png';
 import screenshotEnImage from '@/assets/images/history-screenshot-en.png';
+import screenshotRuImage from '@/assets/images/history-screenshot-ru.png';
 import buchwheatImage from '@/assets/images/history-buckwheat.png';
 import maskUrl from '@/assets/images/history-star-mask.svg?url';
 import useFrame from '@/utils/useFrame';
+import EditIcon from '@/assets/icons/edit.svg';
+import DeleteIcon from '@/assets/icons/delete.svg';
 
 
 
 const locales: LocalesMap = {
   ru: {
-    title: 'Как это работает?',
+    title: 'История всегда под рукой',
     description:
-      'Записывая каждую трату, вы отрезвляете разум и даете представление о том, сколько и как вы можете потратить.',
+      'Расходы можно быстро просмотреть, отредактировать, а также удалить ошибочные',
+    price: '500',
+    date: '15:32',
+    category: 'Продукты',
   },
   en: {
     title: 'History is always at hand',
     description:
       'Spending can be quickly viewed, edited, and also deleted erroneous',
+    price: '€14.2',
+    date: '15:32',
+    category: 'Groceries',
   },
 };
+
+function TutorialRow() {
+  const t = useLocale(locales);
+
+  return (
+    <div className={styles.tutorialRow}>
+      <div className={styles.editBackground}><EditIcon /></div>
+      <div className={styles.deleteBackground}><DeleteIcon /></div>
+      <div className={styles.contentContainer}>
+        <div className={styles.content}>
+          <div className={styles.price}>{t('price')}</div>
+          <div className={styles.date}>{t('date')}</div>
+          <div className={styles.category}>{t('category')}</div>
+        </div>
+        <div className={styles.backdrop} />
+      </div>
+    </div>
+  );
+}
 
 export function HistoryCard() {
   const router = useRouter();
@@ -49,6 +77,7 @@ export function HistoryCard() {
       classes={{ subtitle: styles.description, title: styles.title }}
     >
       <div className={styles.mockupPhoneContiner}>
+        <TutorialRow />
         <Image
           className={clsx(styles.backdropImage)}
           height={650}
@@ -78,7 +107,7 @@ export function HistoryCard() {
           height={650}
           placeholder="blur"
           alt=""
-          src={router.locale !== 'ru' ? screenshotEnImage : screenshotEnImage}
+          src={router.locale === 'ru' ? screenshotRuImage : screenshotEnImage}
         />
       </div>
     </Card>

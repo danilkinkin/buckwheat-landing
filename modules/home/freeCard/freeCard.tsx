@@ -6,24 +6,26 @@ import { LocalesMap } from '@/utils/useLocale';
 import Image from 'next/image';
 import backdropImage from '@/assets/images/free-backdrop.png';
 import screenshotEnImage from '@/assets/images/free-screenshot-en.png';
+import screenshotRuImage from '@/assets/images/free-screenshot-ru.png';
 import shadowImage from '@/assets/images/free-shadow.png';
 import ExclamationPoint from '@/assets/images/free-exclamation-point.svg';
 import Outline from '@/assets/images/free-outline.svg';
 import { Fragment } from 'react';
+import { useRouter } from 'next/router';
 
 const locales: LocalesMap = {
   ru: {
-    title: 'Как это работает?',
-    description:
-      'Записывая каждую трату, вы отрезвляете разум и даете представление о том, сколько и как вы можете потратить.',
+    freeForever: 'Бесплатно навсегда',
+    wihthoutAds: 'Без рекламы',
   },
   en: {
     freeForever: 'Free forever',
-    wihthoutAds: 'Wihthout ads',
+    wihthoutAds: 'Without ads',
   },
 };
 
 export function FreeCard() {
+  const router = useRouter();
   const t = useLocale(locales);
 
   return (
@@ -33,7 +35,7 @@ export function FreeCard() {
         width={695}
         placeholder="blur"
         alt=""
-        src={screenshotEnImage}
+        src={router.locale === 'ru' ? screenshotRuImage : screenshotEnImage}
       />
       <div className={styles.imageCard}>
         <Image

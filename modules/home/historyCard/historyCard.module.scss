@@ -22,7 +22,7 @@
 
 .backdropImage {
     z-index: 1;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     position: absolute;
     width: auto;
@@ -30,7 +30,7 @@
 }
 .buchwheatImageMask {
     z-index: 1;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     position: absolute;
     width: 640px;
@@ -59,9 +59,168 @@
 
 .screenshot {
     z-index: 1;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     position: absolute;
     width: auto;
     height: 560px;
+}
+
+.tutorialRow {
+    position: relative;
+    height: 64px;
+    width: 281.5px;
+    z-index: 10;
+    bottom: 124px;
+    left: 85px;
+
+    .contentContainer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        animation: slide 5s infinite alternate cubic-bezier(0.75, 0, 0.15, 1);
+
+        .backdrop {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #FFFCFB;
+            animation: slideBackdrop 5s infinite alternate cubic-bezier(0.75, 0, 0.15, 1);
+        }
+        .content {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+
+            .price {
+                color: #000000;
+                left: 24px;
+                position: absolute;
+                top: 10px;
+                font-weight: 800;
+                font-size: 1.4rem;
+            }
+            .date {
+                color: rgb(0 0 0 / 23%);
+                right: 22px;
+                position: absolute;
+                top: 12px;
+                font-weight: 600;
+                font-size: 0.5rem;
+            }
+            .category {
+                color: rgba(0, 0, 0, 0.37);
+                left: 23px;
+                position: absolute;
+                top: 41px;
+                font-weight: 600;
+                font-size: 0.6rem;
+            }
+        }
+    }
+
+    .editBackground, .deleteBackground {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px 24px;
+
+        svg {
+            width: 23px;
+            height: 23px;
+        }
+    }
+
+    .editBackground {
+        background-color: #D8E7FF;
+        color: #1C283C;
+    }
+    .deleteBackground {
+        background-color: #ffb3ad;
+        color: #681804;
+        justify-content: flex-end;
+        animation: slideDelete 5s infinite alternate cubic-bezier(0.75, 0, 0.15, 1);
+    }
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-74px);
+    }
+    20% {
+        transform: translateX(0);
+    }
+    80% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(74px);
+    }
+}
+
+
+@keyframes slideBackdrop {
+    0% {
+        border-radius: 12px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1098039216);
+        width: calc(100% - 8px);
+        height: calc(100% - 8px);
+        left: 4px;
+        top: 4px;
+    }
+    20% {
+        border-radius: 0px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+    }
+    80% {
+        border-radius: 0px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+    }
+    100% {
+        border-radius: 12px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1098039216);
+        width: calc(100% - 8px);
+        height: calc(100% - 8px);
+        left: 4px;
+        top: 4px;
+    }
+}
+
+@keyframes slideDelete {
+    0% {
+        display: flex;
+    }
+    40% {
+        display: flex;
+    }
+    60% {
+        display: none;
+    }
+    100% {
+        display: none;
+    }
 }

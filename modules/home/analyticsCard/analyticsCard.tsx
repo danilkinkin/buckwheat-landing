@@ -6,13 +6,15 @@ import { LocalesMap } from '@/utils/useLocale';
 import Image from 'next/image';
 import backdropImage from '@/assets/images/analytics-backdrop.png';
 import screenshotEnImage from '@/assets/images/analytics-screenshot-en.png';
+import screenshotRuImage from '@/assets/images/analytics-screenshot-ru.png';
 import shadowImage from '@/assets/images/analytics-shadow.png';
+import { useRouter } from 'next/router';
 
 const locales: LocalesMap = {
   ru: {
-    title: 'Как это работает?',
+    title: 'Анализ',
     description:
-      'Записывая каждую трату, вы отрезвляете разум и даете представление о том, сколько и как вы можете потратить.',
+      'По итогам каждого периода вы будете получать аналитику, позволяющую понять, как вы потратили деньги и что можно изменить',
   },
   en: {
     title: 'Analyze',
@@ -22,6 +24,7 @@ const locales: LocalesMap = {
 };
 
 export function AnalyticsCard() {
+  const router = useRouter();
   const t = useLocale(locales);
 
   return (
@@ -31,7 +34,7 @@ export function AnalyticsCard() {
         width={465}
         placeholder="blur"
         alt=""
-        src={screenshotEnImage}
+        src={router.locale === 'ru' ? screenshotRuImage : screenshotEnImage}
       />
       <div className={styles.imageCard}>
         <Image
