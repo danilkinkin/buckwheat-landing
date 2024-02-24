@@ -5,6 +5,7 @@ import { LocalesMap } from '@/utils/useLocale';
 import { clsx } from 'clsx';
 import LoveIcon from '@/assets/icons/love.svg';
 import OpenSourceIcon from '@/assets/icons/open-source.svg';
+import { Gradients } from '@/components/gradients';
 
 export const locales: LocalesMap = {
   ru: {
@@ -54,6 +55,12 @@ export function Header() {
           <Chip className={styles.openSourceChip} label={t('openSource')} icon={(<OpenSourceIcon />)} />
           <Chip className={styles.madeWithLoveChip} label={t('madeWithLove')} icon={(<LoveIcon />)} />
         </div>
+      </div>
+      <div className={styles.gradientContainer}>
+        <div
+          className={styles.transitionToBackgound}
+        />
+        {/* <Gradients /> */}
       </div>
     </header>
   );

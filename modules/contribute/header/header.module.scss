@@ -1,7 +1,7 @@
 .header {
   min-height: 30vh;
   padding: 220px 48px;
-  padding-top: 290px;
+  padding-top: 330px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -21,10 +21,9 @@
 }
 
 .description {
-  margin-top: 36px;
   font-weight: 600;
   font-size: 2rem;
-  max-width: 700px;
+  max-width: 740px;
   color: #4F3527;
 
   .appName {
@@ -87,4 +86,23 @@
         width: 35px;
         height: 35px;
     }
+}
+
+.gradientContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 300px);
+  z-index: -100;
+}
+
+.transitionToBackgound {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(180deg, #ffffff00 0%, #ffffff 300px);
 }
