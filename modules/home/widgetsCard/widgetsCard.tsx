@@ -41,7 +41,7 @@ function SmallWidgetsLine() {
     const offset = -(scrollY / 6) - (time / 30);
 
     if (rootRef.current) {
-      rootRef.current.style.transform = `rotate(4deg) translateX(${offset % swapWidth + widgetWidth}px)`;
+      rootRef.current.style.transform = `rotate(4deg) translate3D(${offset % swapWidth + widgetWidth}px, 0px, 0px)`;
     }
   }, [widgetWidth]);
 
@@ -73,7 +73,7 @@ function BigWidgetsLine() {
     const offset = (scrollY / 6) + (time / 30);
 
     if (rootRef.current) {
-      rootRef.current.style.transform = `rotate(356deg) translateX(${offset % swapWidth}px)`;
+      rootRef.current.style.transform = `rotate(356deg) translate3D(${offset % swapWidth}px, 0px, 0px)`;
     }
   }, [widgetWidth]);
 
@@ -98,8 +98,8 @@ export function WidgetsCard() {
 
   useFrame((delta, time) => {
     if (buchwheatImageMaskRef.current && buchwheatImageRef.current) {
-      buchwheatImageMaskRef.current.style.transform = `rotate(${-(time * 0.005) % 360}deg)`;
-      buchwheatImageRef.current.style.transform = `rotate(${(time * 0.005) % 360}deg)`;
+      buchwheatImageMaskRef.current.style.transform = `rotate(${-(time * 0.005) % 360}deg) translate3D(0px, 0px, 0px)`;
+      buchwheatImageRef.current.style.transform = `rotate(${(time * 0.005) % 360}deg) translate3D(0px, 0px, 0px)`;
     }
   });
 

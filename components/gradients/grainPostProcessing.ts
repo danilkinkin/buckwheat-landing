@@ -68,11 +68,7 @@ export function initGrainFilter(
   composer2.setPixelRatio(window.devicePixelRatio);
 
   composer2.addPass(renderScenePass);
-  //composer2.addPass(gammaCorrection);
-  composer2.addPass(effectFilm);
-  //composer2.addPass(effectColorify1);
-  //composer2.addPass(effectColorify2);
-  //composer2.addPass(effectVignette);
+  //composer2.addPass(effectFilm);
 
   //window.addEventListener('resize', onWindowResize);
 

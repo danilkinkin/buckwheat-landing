@@ -88,7 +88,7 @@ export default function Header() {
 
       const rotateDirection = index % 2 === 0 ? 1 : -1;
 
-      child.style.transform = `translateY(${offset}px) rotate(${(offset / 10) * rotateDirection}deg)`;
+      child.style.transform = `translate3D(0px, ${offset}px, 0px) rotate(${(offset / 10) * rotateDirection}deg)`;
     });
 
     if (transitionToBackgoundRef.current) {
@@ -96,15 +96,15 @@ export default function Header() {
     }
 
     if (thickRoundStar6MaskRef.current) {
-      thickRoundStar6MaskRef.current.style.transform = `translateY(${scrollY / 6}px) rotate(${scrollY / 8 + (time * 0.01) % 360}deg)`;
+      thickRoundStar6MaskRef.current.style.transform = `translate3D(0px, ${scrollY / 6}px, 0px) rotate(${scrollY / 8 + (time * 0.01) % 360}deg)`;
     }
 
     if (thickRoundStar6ImageRef.current) {
-      thickRoundStar6ImageRef.current.style.transform = `rotate(${-scrollY / 8 - (time * 0.01) % 360}deg)`;
+      thickRoundStar6ImageRef.current.style.transform = `rotate(${-scrollY / 8 - (time * 0.01) % 360}deg) translate3d(0,0,0)`;
     }
 
     if (thickRoundStar5.current) {
-      thickRoundStar5.current.style.transform = `translate(-50%, -50%) rotate(${-scrollY / 6 - 10}deg)`;
+      thickRoundStar5.current.style.transform = `translate3D(-50%, -50%,0) rotate(${-scrollY / 6 - 10}deg)`;
     }
   });
 
@@ -149,7 +149,7 @@ export default function Header() {
           ref={transitionToBackgoundRef}
           className={styles.transitionToBackgound}
         />
-        {/* <Gradients /> */}
+        <Gradients />
       </div>
     </header>
   );

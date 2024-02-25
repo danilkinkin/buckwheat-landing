@@ -120,7 +120,7 @@ export function Header() {
         <div
           className={styles.transitionToBackgound}
         />
-        {/* <Gradients /> */}
+        <Gradients />
       </div>
     </header>
   );

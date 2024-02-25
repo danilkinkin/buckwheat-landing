@@ -24,7 +24,7 @@ export function TopBar(props: TopBarProps) {
     }
 
     if (rootRef.current) {
-      rootRef.current.style.transform = `translateY(${-Math.expm1(scrollY / 6)}px)`;
+      rootRef.current.style.transform = `translate3D(0, ${-Math.expm1(scrollY / 6)}px, 0)`;
     }
   });
 

@@ -38,7 +38,7 @@ export function Footer(props: CardProps) {
       scrollY;
 
     if (fatLittleStarRef.current) {
-      fatLittleStarRef.current.style.transform = `translate(30px, ${scrollOffset / -2 + 10}px) rotate(${scrollOffset / 10}deg)`;
+      fatLittleStarRef.current.style.transform = `translate3D(30px, ${scrollOffset / -2 + 10}px, 0) rotate(${scrollOffset / 10}deg)`;
     }
   });
 

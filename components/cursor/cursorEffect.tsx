@@ -176,7 +176,7 @@ export function CursorEffect(props: CursorEffectProps) {
     prevCursorState.current = { x, y };
 
     if (cursorAffectorRef.current) {
-      cursorAffectorRef.current.style.transform = `translate(${x}px, ${y}px)`;
+      cursorAffectorRef.current.style.transform = `translate3D(${x}px, ${y}px, 0)`;
     }
   });
 

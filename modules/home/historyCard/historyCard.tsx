@@ -63,8 +63,8 @@ export function HistoryCard() {
 
   useFrame((delta, time) => {
     if (buchwheatImageMaskRef.current && buchwheatImageRef.current) {
-      buchwheatImageMaskRef.current.style.transform = `rotate(${(time * 0.01) % 360}deg)`;
-      buchwheatImageRef.current.style.transform = `rotate(${-(time * 0.01) % 360}deg)`;
+      buchwheatImageMaskRef.current.style.transform = `rotate(${(time * 0.01) % 360}deg) translate3D(0px, 0px, 0px)`;
+      buchwheatImageRef.current.style.transform = `rotate(${-(time * 0.01) % 360}deg) translate3D(0px, 0px, 0px)`;
     }
   });
 

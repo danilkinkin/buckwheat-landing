@@ -5,6 +5,7 @@ import { initGrainFilter } from './grainPostProcessing';
 import { InitThreeOptions, initThree } from './initThree';
 import { initScene } from './initScene';
 import { initGradient } from './initGradients';
+import Stats from 'stats.js'
 
 const threeCanvas = (
   canvas: HTMLCanvasElement,
@@ -16,14 +17,25 @@ const threeCanvas = (
   const { render: renderGradient, updateSize: updateGradientSize } =
     initGradient(scene, renderer);
   const { render: renderFrame } = initGrainFilter(renderer, scene, camera);
+  const stats = new Stats()
+  // the number will decide which information will be displayed
+  // 0 => FPS Frames rendered in the last second. The higher the number the better.
+  // 1 => MS Milliseconds needed to render a frame. The lower the number the better.
+  // 2 => MB MBytes of allocated memory. (Run Chrome with --enable-precise-memory-info)
+  // 3 => CUSTOM User-defined panel support.
+  stats.showPanel(0)
+
+  document.body.appendChild(stats.dom)
 
   const animate = () => {
+    stats.begin();
     const elapsedTime = clock.elapsedTime + initTimeOffset;
     const delta = clock.getDelta();
 
     renderGradient(elapsedTime, delta);
     renderFrame(elapsedTime, delta);
 
+    stats.end();
     requestAnimationFrame(animate);
   };
 
@@ -47,27 +59,31 @@ export function Gradients() {
   const [timeOffset] = useState(Math.random() * 1000);
 
   useEffect(() => {
-    const canvas = threeCanvas(
-      canvasRef.current as HTMLCanvasElement,
-      {
-        width: rootRef.current?.clientWidth || 0,
-        height: rootRef.current?.clientHeight || 0,
-      },
-      timeOffset
-    );
-
-    const resize = () => {
-      canvas.resizeCanvas(
-        rootRef.current?.clientWidth || 0,
-        rootRef.current?.clientHeight || 0
+    try {
+      const canvas = threeCanvas(
+        canvasRef.current as HTMLCanvasElement,
+        {
+          width: rootRef.current?.clientWidth || 0,
+          height: rootRef.current?.clientHeight || 0,
+        },
+        timeOffset
       );
-    };
 
-    window.addEventListener('resize', resize);
+      const resize = () => {
+        canvas.resizeCanvas(
+          rootRef.current?.clientWidth || 0,
+          rootRef.current?.clientHeight || 0
+        );
+      };
 
-    return () => {
-      window.removeEventListener('resize', resize);
-    };
+      window.addEventListener('resize', resize);
+
+      return () => {
+        window.removeEventListener('resize', resize);
+      };
+    } catch (e) {
+      console.error(e);
+    }
   }, [timeOffset]);
 
   return (

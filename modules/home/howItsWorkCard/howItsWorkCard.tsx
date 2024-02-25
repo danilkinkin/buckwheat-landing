@@ -38,12 +38,12 @@ export function HowItsWorkCard() {
 
     const scrollOffsetCard = -Math.min(scrollY - rootNode.offsetTop + window.innerHeight - 300, 0);
 
-    rootNode.style.transform = `translateY(${Math.expm1(scrollOffsetCard / 60)}px) rotate(${-Math.expm1(scrollOffsetCard / 120)}deg)`;
+    rootNode.style.transform = `translate3D(0px, ${Math.expm1(scrollOffsetCard / 60)}px, 0px) rotate(${-Math.expm1(scrollOffsetCard / 120)}deg)`;
     rootNode.style.transformOrigin = 'right top';
 
     const scrollOffset = rootNode.offsetTop - scrollY;
 
-    imageNode.style.transform = `translateY(${-(scrollOffset / 16)}px)`;
+    imageNode.style.transform = `translate3D(0px, ${-(scrollOffset / 16)}px, 0px)`;
   });
 
   return (

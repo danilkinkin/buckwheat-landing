@@ -73,6 +73,7 @@
     z-index: 10;
     bottom: 124px;
     left: 85px;
+    transform: translate3D(0px, 0px, 0px);
 
     .contentContainer {
         position: absolute;
@@ -161,16 +162,16 @@
 
 @keyframes slide {
     0% {
-        transform: translateX(-74px);
+        transform: translate3D(-74px, 0px, 0px);
     }
     20% {
-        transform: translateX(0);
+        transform: translate3D(0px, 0px, 0px);
     }
     80% {
-        transform: translateX(0);
+        transform: translate3D(0px, 0px, 0px);
     }
     100% {
-        transform: translateX(74px);
+        transform: translate3D(74px, 0px, 0px);
     }
 }
 
