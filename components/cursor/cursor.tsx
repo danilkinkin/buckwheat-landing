@@ -36,14 +36,12 @@ export function Cursor(props: CursorProps) {
     width: number;
     height: number;
     borderRadius: number;
-    isRendered: boolean;
   }>({
     x: 0,
     y: 0,
     width: 0,
     height: 0,
     borderRadius: 0,
-    isRendered: false,
   });
 
   useEffect(() => {
@@ -125,6 +123,8 @@ export function Cursor(props: CursorProps) {
       setTimeout(() => {
         if (!isReadyForHide) return;
 
+        console.log('mouse leave');
+
         mousePosition.current = {
           ...mousePosition.current,
           active: false,
@@ -163,7 +163,7 @@ export function Cursor(props: CursorProps) {
     const handlePointerDown = (event: PointerEvent) => {
       isTouch = event.pointerType === 'touch';
 
-      handleMouseLeave();
+      if (isTouch) handleMouseLeave();
     };
 
     window.addEventListener('pointerdown', handlePointerDown);
@@ -193,16 +193,16 @@ export function Cursor(props: CursorProps) {
     let gapHover = mousePosition.current.cursorPadding;
     const targetRect = mousePosition.current.targetRect;
 
+    const isHovered = (mousePosition.current.target.link ||
+      mousePosition.current.target.button ||
+      mousePosition.current.target.cursorEffector) &&
+      targetRect !== null;
+
     if (!mousePosition.current.active) {
       width = 0;
       height = 0;
       borderRadius = 15;
-    } else if (
-      (mousePosition.current.target.link ||
-        mousePosition.current.target.button ||
-        mousePosition.current.target.cursorEffector) &&
-      targetRect !== null
-    ) {
+    } else if (isHovered) {
       const targetCenterX = targetRect.left + targetRect.width / 2;
       const targetCenterY = targetRect.top + targetRect.height / 2;
 
@@ -256,7 +256,7 @@ export function Cursor(props: CursorProps) {
     const cursorSpotNode = cursorSpotRef.current;
 
     if (cursorNode !== null && cursorSpotNode !== null) {
-      cursorNode.style.transform = `translate(${x}px, ${y}px)`;
+      cursorNode.style.transform = `translate3D(${x}px, ${y}px, 0)`;
       cursorNode.style.width = `${width}px`;
       cursorNode.style.height = `${height}px`;
       cursorNode.style.borderRadius = `${Math.min(borderRadius, 36 + gapHover)}px`;
@@ -267,14 +267,16 @@ export function Cursor(props: CursorProps) {
       cursorSpotNode.style.width = `${size}px`;
       cursorSpotNode.style.height = `${size}px`;
 
-      if (!prevCursorState.current.isRendered && mousePosition.current.active) {
-        prevCursorState.current.isRendered = true;
-
-        cursorNode.classList.add(styles.rootShow);
-      } else if (prevCursorState.current.isRendered && width < 0.1) {
-        prevCursorState.current.isRendered = false;
-
-        cursorNode.classList.remove(styles.rootShow);
+      if (isHovered) {
+        if (!cursorNode.classList.contains(styles.hovered)) {
+          cursorNode.classList.add(styles.hovered);
+          cursorNode.classList.remove(styles.idle);
+        }
+      } else {
+        if (!cursorNode.classList.contains(styles.idle)) {
+          cursorNode.classList.add(styles.idle);
+          cursorNode.classList.remove(styles.hovered);
+        }
       }
     }
   });

@@ -7,10 +7,16 @@
     overflow: hidden;
 }
 
-.rootShow {
-    /*backdrop-filter: invert(1);*/
+.hovered {
+    backdrop-filter: invert(1);
+}
+
+.idle {
     background-color: #000;
-    opacity: 0.8;
+
+    .spot {
+        opacity: 0;
+    }
 }
 
 .spot {

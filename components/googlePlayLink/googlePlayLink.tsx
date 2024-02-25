@@ -24,7 +24,7 @@ export function GooglePlayLink(props: GooglePlayLinkProps) {
     <CursorEffect
       effectDistance={48}
       effectForce={4}
-      cursorPadding={8}
+      cursorPadding={0}
       className={clsx(styles.rootWrapper, restCalssName)}
     >
       <Link

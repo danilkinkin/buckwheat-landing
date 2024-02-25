@@ -40,7 +40,7 @@ export function LangSwitcher(props: LangSwitcherProps) {
     const handleClose = (event: any) => {
       setOpen(
         event.composedPath().includes(selectorRef.current) ||
-          event.composedPath().includes(buttonRef.current)
+        event.composedPath().includes(buttonRef.current)
       );
     };
 
@@ -59,7 +59,7 @@ export function LangSwitcher(props: LangSwitcherProps) {
       <CursorEffect
         effectDistance={48}
         effectForce={4}
-        cursorPadding={8}
+        cursorPadding={0}
         className={clsx(styles.langSwitcherRoot)}
       >
         <button
