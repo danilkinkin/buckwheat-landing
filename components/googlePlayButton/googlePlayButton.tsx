@@ -15,15 +15,28 @@ const locales: LocalesMap = {
   },
 };
 
-type GooglePlayButtonProps = Omit<LinkProps, 'href'> & { className?: string };
+type GooglePlayButtonProps = Omit<LinkProps, 'href'> & {
+  className?: string;
+  disableGlass?: boolean;
+};
 
 export function GooglePlayButton(props: GooglePlayButtonProps) {
-  const { className: restCalssName, ...restProps } = props;
+  const {
+    className: restCalssName,
+    disableGlass = false,
+    ...restProps
+  } = props;
   const t = useLocale(locales);
 
   return (
     <CursorEffect cursorBorderRadius={36} cursorPadding={12}>
-      <div className={clsx(styles.card, restCalssName)}>
+      <div
+        className={clsx(
+          styles.card,
+          disableGlass && styles.disableGlass,
+          restCalssName
+        )}
+      >
         <Link
           {...restProps}
           target="_blank"

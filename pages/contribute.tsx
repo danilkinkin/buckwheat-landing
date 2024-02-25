@@ -38,7 +38,12 @@ export default function ContributePage() {
             subtitle={t('reviewDescription')}
             classes={{ content: styles.reviewCardContent }}
           >
-            <GooglePlayButton className={styles.googlePlayButton} />
+            <div className={styles.googlePlayButtonWrapper}>
+              <GooglePlayButton
+                className={styles.googlePlayButton}
+                disableGlass
+              />
+            </div>
           </Card>
           <div className={styles.additionalStores}>
             <GithubCardButton />

@@ -38,7 +38,7 @@ function SmallWidgetsLine() {
 
   useScroll((scrollY, delta, time) => {
 
-    const offset = -(scrollY / 2) - (time / 20);
+    const offset = -(scrollY / 6) - (time / 30);
 
     if (rootRef.current) {
       rootRef.current.style.transform = `rotate(4deg) translateX(${offset % swapWidth + widgetWidth}px)`;
@@ -70,7 +70,7 @@ function BigWidgetsLine() {
 
   useScroll((scrollY, delta, time) => {
 
-    const offset = (scrollY / 2) + (time / 20);
+    const offset = (scrollY / 6) + (time / 30);
 
     if (rootRef.current) {
       rootRef.current.style.transform = `rotate(356deg) translateX(${offset % swapWidth}px)`;

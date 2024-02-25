@@ -3,10 +3,10 @@ import styles from './card.module.scss';
 import { ibmPlexMono } from '@/styles/fonts';
 import React, { forwardRef } from 'react';
 
-type CardProps = Omit<React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->, 'title'> & {
+type CardProps = Omit<
+  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+  'title'
+> & {
   title?: React.ReactNode;
   subtitle?: React.ReactNode;
   backdropOnText?: boolean;
