@@ -8,7 +8,8 @@ import useLocale from '@/utils/useLocale';
 import { LocalesMap } from '@/utils/useLocale';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
-import { forwardRef } from 'react';
+import { useRef } from 'react';
+import useScroll from '@/utils/useScroll';
 
 const locales: LocalesMap = {
   ru: {
@@ -23,39 +24,55 @@ const locales: LocalesMap = {
   },
 };
 
-export const HowItsWorkCard = forwardRef<HTMLDivElement, {}>(
-  function HowItsWorkCard(props, ref) {
-    const router = useRouter();
-    const t = useLocale(locales);
+export function HowItsWorkCard() {
+  const router = useRouter();
+  const t = useLocale(locales);
+  const ref = useRef<any>();
+  const imageRef = useRef<any>();
 
-    return (
-      <Card
-        ref={ref}
-        className={styles.card}
-        title={t('title')}
-        subtitle={t('description')}
-        backdropOnText
-        classes={{ subtitle: styles.description, title: styles.title }}
-      >
-        <div className={styles.mockupPhoneContiner}>
-          <Image
-            className={clsx(styles.mockupPhone)}
-            height={1200}
-            width={1708}
-            placeholder="blur"
-            alt=""
-            src={phoneMockupLightImage}
-          />
-          <Image
-            className={styles.screenshotMain}
-            height={2340}
-            width={1080}
-            placeholder="blur"
-            alt=""
-            src={router.locale !== 'ru' ? screenshotEnImage : screenshotRuImage}
-          />
-        </div>
-      </Card>
-    );
-  }
-);
+  useScroll((scrollY) => {
+    if (!imageRef.current || !ref.current) return;
+
+    const rootNode = ref.current;
+    const imageNode = imageRef.current;
+
+    const scrollOffsetCard = -Math.min(scrollY - rootNode.offsetTop + window.innerHeight - 300, 0);
+
+    rootNode.style.transform = `translateY(${Math.expm1(scrollOffsetCard / 60)}px) rotate(${-Math.expm1(scrollOffsetCard / 120)}deg)`;
+    rootNode.style.transformOrigin = 'right top';
+
+    const scrollOffset = rootNode.offsetTop - scrollY;
+
+    imageNode.style.transform = `translateY(${-(scrollOffset / 16)}px)`;
+  });
+
+  return (
+    <Card
+      ref={ref}
+      className={styles.card}
+      title={t('title')}
+      subtitle={t('description')}
+      backdropOnText
+      classes={{ subtitle: styles.description, title: styles.title }}
+    >
+      <div ref={imageRef} className={styles.mockupPhoneContiner}>
+        <Image
+          className={clsx(styles.mockupPhone)}
+          height={1200}
+          width={1708}
+          placeholder="blur"
+          alt=""
+          src={phoneMockupLightImage}
+        />
+        <Image
+          className={styles.screenshotMain}
+          height={2340}
+          width={1080}
+          placeholder="blur"
+          alt=""
+          src={router.locale !== 'ru' ? screenshotEnImage : screenshotRuImage}
+        />
+      </div>
+    </Card>
+  );
+}

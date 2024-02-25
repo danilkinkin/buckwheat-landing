@@ -11,24 +11,11 @@ import { HistoryCard } from '@/modules/home/historyCard';
 import { AnalyticsCard } from '@/modules/home/analyticsCard';
 import { locales } from '@/modules/home/locales';
 import useLocale from '@/utils/useLocale';
-import useScroll from '@/utils/useScroll';
 import Head from 'next/head';
-import { Fragment, useRef } from 'react';
+import { Fragment } from 'react';
 
 export default function HomePage() {
   const t = useLocale(locales);
-  const howItsWorkCardRef = useRef<HTMLDivElement>();
-
-  useScroll((scrollY) => {
-    if (howItsWorkCardRef.current) {
-      const node = howItsWorkCardRef.current;
-
-      const scrollOffset = -Math.min(scrollY - node.offsetTop + window.innerHeight - 300, 0);
-
-      node.style.transform = `translateY(${Math.expm1(scrollOffset / 60)}px) rotate(${-Math.expm1(scrollOffset / 120)}deg)`;
-      node.style.transformOrigin = 'right top';
-    }
-  });
 
   return (
     <Fragment>
@@ -38,9 +25,7 @@ export default function HomePage() {
       </Head>
       <Header />
       <main className={styles.main}>
-        <div ref={howItsWorkCardRef}>
-          <HowItsWorkCard />
-        </div>
+        <HowItsWorkCard />
         <div className={styles.cardsRow}>
           <FreeCard />
           <WidgetsCard />
