@@ -87,8 +87,5 @@ void main() {
   vec3 finalPos = position;
   finalPos.z = pos.z;
 
-  #include <begin_vertex>
-  #include <project_vertex>
-
   gl_Position = projectionMatrix * modelViewMatrix * vec4(finalPos, 1.);
 }

@@ -1,6 +1,3 @@
-#include <packing>
-#include <common>
-
 #ifdef GL_ES
 precision mediump float;
 #endif

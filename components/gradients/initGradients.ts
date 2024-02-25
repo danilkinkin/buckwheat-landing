@@ -5,19 +5,12 @@ import gradientVertexShader from './gradient.vertexShader.glsl?raw';
 
 function getMaterial() {
   var uniforms = {
-    ...THREE.ShaderLib['standard'].uniforms,
-    resolution: {
-      value: new THREE.Vector2(),
-    },
     uTime: {
       value: 0,
     },
   };
   var material = new THREE.ShaderMaterial({
-    uniforms: THREE.UniformsUtils.merge([
-      THREE.UniformsLib['lights'],
-      uniforms,
-    ]),
+    uniforms: uniforms,
     vertexShader: gradientVertexShader,
     fragmentShader: gradientFragmentShader,
     //wireframe: true,
@@ -30,7 +23,7 @@ export function initGradient(
   scene: THREE.Scene,
   renderer: THREE.WebGLRenderer
 ) {
-  const quality = 0.04;
+  const quality = 0.02;
 
   const material = getMaterial();
 

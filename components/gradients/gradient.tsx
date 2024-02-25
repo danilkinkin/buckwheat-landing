@@ -16,7 +16,7 @@ const threeCanvas = (
   const { scene, camera, updateSize: updateCameraSize } = initScene(renderer);
   const { render: renderGradient, updateSize: updateGradientSize } =
     initGradient(scene, renderer);
-  const { render: renderFrame } = initGrainFilter(renderer, scene, camera);
+  const { render: renderFrame, resize: resizeFrame } = initGrainFilter(renderer, scene, camera);
   const stats = new Stats()
   // the number will decide which information will be displayed
   // 0 => FPS Frames rendered in the last second. The higher the number the better.
@@ -27,10 +27,13 @@ const threeCanvas = (
 
   document.body.appendChild(stats.dom)
 
+  let elapsedTime = 0;
+  let delta = 0;
+
   const animate = () => {
     stats.begin();
-    const elapsedTime = clock.elapsedTime + initTimeOffset;
-    const delta = clock.getDelta();
+    elapsedTime = clock.elapsedTime + initTimeOffset;
+    delta = clock.getDelta();
 
     renderGradient(elapsedTime, delta);
     renderFrame(elapsedTime, delta);
@@ -43,6 +46,7 @@ const threeCanvas = (
     renderer.setSize(width, height);
     updateCameraSize();
     updateGradientSize();
+    resizeFrame();
   };
 
   animate();
