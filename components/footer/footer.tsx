@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 import Link from 'next/link';
 import styles from './footer.module.scss';
 import FatLittleStar from '@/assets/images/fat-little-star.svg';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import useScroll from '@/utils/useScroll';
 
 type CardProps = React.DetailedHTMLProps<
@@ -23,14 +23,23 @@ const localesMap: LocalesMap = {
 export function Footer(props: CardProps) {
   const { className: restClassName, ...restProps } = props;
   const t = useLocale(localesMap);
-  const fatLittleStarRef = useRef(null);
+  const fatLittleStarRef = useRef<HTMLDivElement>(null);
 
   useScroll((scrollY) => {
-    const scrollOffset = window.document.scrollingElement.scrollHeight - window.innerHeight - scrollY;
+    if (
+      typeof window === 'undefined' ||
+      window.document.scrollingElement === null
+    )
+      return;
 
-      if (fatLittleStarRef.current) {
-        fatLittleStarRef.current.style.transform = `translate(30px, ${scrollOffset / -2 + 10}px) rotate(${scrollOffset / 10}deg)`;
-      }
+    const scrollOffset =
+      window.document.scrollingElement.scrollHeight -
+      window.innerHeight -
+      scrollY;
+
+    if (fatLittleStarRef.current) {
+      fatLittleStarRef.current.style.transform = `translate(30px, ${scrollOffset / -2 + 10}px) rotate(${scrollOffset / 10}deg)`;
+    }
   });
 
   return (

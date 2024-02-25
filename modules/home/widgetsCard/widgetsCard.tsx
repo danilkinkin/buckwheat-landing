@@ -30,7 +30,7 @@ const locales: LocalesMap = {
 
 function SmallWidgetsLine() {
   const router = useRouter();
-  const rootRef = useRef(null);
+  const rootRef = useRef<HTMLDivElement>(null);
   const breakpoint800 = useMediaQuery('(max-width: 800px)');
 
   const widgetWidth = breakpoint800 ? 170 : 220;
@@ -62,7 +62,7 @@ function SmallWidgetsLine() {
 
 function BigWidgetsLine() {
   const router = useRouter();
-  const rootRef = useRef(null);
+  const rootRef = useRef<HTMLDivElement>(null);
   const breakpoint800 = useMediaQuery('(max-width: 800px)');
 
   const widgetWidth = (breakpoint800 ? 200 : 260) + 9;
@@ -93,8 +93,8 @@ function BigWidgetsLine() {
 
 export function WidgetsCard() {
   const t = useLocale(locales);
-  const buchwheatImageMaskRef = useRef(null);
-  const buchwheatImageRef = useRef(null);
+  const buchwheatImageMaskRef = useRef<HTMLDivElement>(null);
+  const buchwheatImageRef = useRef<HTMLDivElement>(null);
 
   useFrame((delta, time) => {
     if (buchwheatImageMaskRef.current && buchwheatImageRef.current) {

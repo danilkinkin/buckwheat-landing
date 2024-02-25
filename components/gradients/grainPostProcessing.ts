@@ -15,9 +15,12 @@ import { VignetteShader } from 'three/examples/jsm/shaders/VignetteShader';
 import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectionShader';
 import { GrainShader } from './grainPostprocessingShader';
 
-
-export function initGrainFilter(renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.OrthographicCamera) {
-  let composerScene, composer2;
+export function initGrainFilter(
+  renderer: THREE.WebGLRenderer,
+  scene: THREE.Scene,
+  camera: THREE.OrthographicCamera
+) {
+  let composerScene;
   const width = window.innerWidth || 2;
   const height = window.innerHeight || 2;
 
@@ -57,7 +60,7 @@ export function initGrainFilter(renderer: THREE.WebGLRenderer, scene: THREE.Scen
 
   const renderScenePass = new RenderPass(scene, camera);
 
-  composer2 = new EffectComposer(
+  let composer2 = new EffectComposer(
     renderer,
     new THREE.WebGLRenderTarget(width, height, rtParameters)
   );
@@ -81,8 +84,7 @@ export function initGrainFilter(renderer: THREE.WebGLRenderer, scene: THREE.Scen
 
       effectFilm.uniforms['uTime'].value = elapsed;
     },
-
-  }
+  };
 }
 
 /* function onWindowResize() {

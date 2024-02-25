@@ -9,7 +9,16 @@ type CursorProps = {
 
 export function Cursor(props: CursorProps) {
   const { children } = props;
-  const mousePosition = useRef({
+  const mousePosition = useRef<{
+    x: number;
+    y: number;
+    cursorPadding: number;
+    cursorBorderRadius: number;
+    targetRect: DOMRect | null;
+    target: { link: boolean; button: boolean; cursorEffector: boolean };
+    pressed: boolean;
+    active: boolean;
+  }>({
     x: 0,
     y: 0,
     cursorPadding: 0,
@@ -19,9 +28,16 @@ export function Cursor(props: CursorProps) {
     pressed: false,
     active: false,
   });
-  const cursorRef = useRef(null);
-  const cursorSpotRef = useRef(null);
-  const prevCursorState = useRef({
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const cursorSpotRef = useRef<HTMLDivElement>(null);
+  const prevCursorState = useRef<{
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+    borderRadius: number;
+    isRendered: boolean;
+  }>({
     x: 0,
     y: 0,
     width: 0,
@@ -37,8 +53,8 @@ export function Cursor(props: CursorProps) {
     const updateTargetFromPath = (path: any[]) => {
       const isLink = path.find((el) => el?.tagName === 'A');
       const isButton = path.find((el) => el?.tagName === 'BUTTON');
-      const isCursorEffector = path.find(
-        (el) => el?.getAttribute?.('data-cursor-effect')
+      const isCursorEffector = path.find((el) =>
+        el?.getAttribute?.('data-cursor-effect')
       );
       const cursorPadding = +(
         path
@@ -150,16 +166,15 @@ export function Cursor(props: CursorProps) {
       handleMouseLeave();
     };
 
-    window.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener('pointerdown', handlePointerDown);
     window.addEventListener('mousemove', handleMouseMove);
     window.document.body.addEventListener('mouseleave', handleMouseLeave);
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mouseup', handleMouseUp);
 
-
     return () => {
-      window.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener('pointerdown', handlePointerDown);
       window.removeEventListener('mousemove', handleMouseMove);
       window.document.body.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('scroll', handleScroll);
@@ -183,9 +198,10 @@ export function Cursor(props: CursorProps) {
       height = 0;
       borderRadius = 15;
     } else if (
-      mousePosition.current.target.link ||
-      mousePosition.current.target.button ||
-      mousePosition.current.target.cursorEffector
+      (mousePosition.current.target.link ||
+        mousePosition.current.target.button ||
+        mousePosition.current.target.cursorEffector) &&
+      targetRect !== null
     ) {
       const targetCenterX = targetRect.left + targetRect.width / 2;
       const targetCenterY = targetRect.top + targetRect.height / 2;
@@ -236,25 +252,30 @@ export function Cursor(props: CursorProps) {
       borderRadius,
     };
 
-    cursorRef.current.style.transform = `translate(${x}px, ${y}px)`;
-    cursorRef.current.style.width = `${width}px`;
-    cursorRef.current.style.height = `${height}px`;
-    cursorRef.current.style.borderRadius = `${Math.min(borderRadius, 36 + gapHover)}px`;
+    const cursorNode = cursorRef.current;
+    const cursorSpotNode = cursorSpotRef.current;
 
-    const size = Math.max((width + height) / 2, 48);
+    if (cursorNode !== null && cursorSpotNode !== null) {
+      cursorNode.style.transform = `translate(${x}px, ${y}px)`;
+      cursorNode.style.width = `${width}px`;
+      cursorNode.style.height = `${height}px`;
+      cursorNode.style.borderRadius = `${Math.min(borderRadius, 36 + gapHover)}px`;
 
-    cursorSpotRef.current.style.transform = `translate(${mousePosition.current.x - x - size / 2}px, ${mousePosition.current.y - y - size / 2}px)`;
-    cursorSpotRef.current.style.width = `${size}px`;
-    cursorSpotRef.current.style.height = `${size}px`;
+      const size = Math.max((width + height) / 2, 48);
 
-    if (!prevCursorState.current.isRendered && mousePosition.current.active) {
-      prevCursorState.current.isRendered = true;
+      cursorSpotNode.style.transform = `translate(${mousePosition.current.x - x - size / 2}px, ${mousePosition.current.y - y - size / 2}px)`;
+      cursorSpotNode.style.width = `${size}px`;
+      cursorSpotNode.style.height = `${size}px`;
 
-      cursorRef.current.classList.add(styles.rootShow);
-    } else if (prevCursorState.current.isRendered && width < 0.1) {
-      prevCursorState.current.isRendered = false;
+      if (!prevCursorState.current.isRendered && mousePosition.current.active) {
+        prevCursorState.current.isRendered = true;
 
-      cursorRef.current.classList.remove(styles.rootShow);
+        cursorNode.classList.add(styles.rootShow);
+      } else if (prevCursorState.current.isRendered && width < 0.1) {
+        prevCursorState.current.isRendered = false;
+
+        cursorNode.classList.remove(styles.rootShow);
+      }
     }
   });
 

@@ -40,7 +40,7 @@ export function LangSwitcher(props: LangSwitcherProps) {
     const handleClose = (event: any) => {
       setOpen(
         event.composedPath().includes(selectorRef.current) ||
-        event.composedPath().includes(buttonRef.current)
+          event.composedPath().includes(buttonRef.current)
       );
     };
 
@@ -80,8 +80,14 @@ export function LangSwitcher(props: LangSwitcherProps) {
         <h5 className={styles.header}>{t('chooseHeader')}</h5>
         <ul>
           {Object.keys(localesMap).map((locale) => (
-            <CursorEffect effectForce={2} effectDistance={36} cursorPadding={2} cursorBorderRadius={8}>
-              <button key={locale} onClick={handleSetLanguage(locale)}>
+            <CursorEffect
+              key={locale}
+              effectForce={2}
+              effectDistance={36}
+              cursorPadding={2}
+              cursorBorderRadius={8}
+            >
+              <button onClick={handleSetLanguage(locale)}>
                 {localesMap[locale]}
               </button>
             </CursorEffect>

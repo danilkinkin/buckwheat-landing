@@ -58,8 +58,8 @@ function TutorialRow() {
 export function HistoryCard() {
   const router = useRouter();
   const t = useLocale(locales);
-  const buchwheatImageMaskRef = useRef(null);
-  const buchwheatImageRef = useRef(null);
+  const buchwheatImageMaskRef = useRef<HTMLDivElement>(null);
+  const buchwheatImageRef = useRef<HTMLDivElement>(null);
 
   useFrame((delta, time) => {
     if (buchwheatImageMaskRef.current && buchwheatImageRef.current) {

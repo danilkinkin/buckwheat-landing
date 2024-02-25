@@ -35,14 +35,21 @@ export function CursorEffect(props: CursorEffectProps) {
     cursorPadding = 16,
     cursorBorderRadius = 0,
   } = props;
-  const cursorAffectorRef = useRef(null);
-  const cursorAffectoContainerrRef = useRef(null);
-  const mousePosition = useRef({
+  const cursorAffectorRef = useRef<HTMLDivElement>(null);
+  const cursorAffectoContainerrRef = useRef<HTMLDivElement>(null);
+  const mousePosition = useRef<{
+    x: number;
+    y: number;
+    targetRect: DOMRect | null;
+  }>({
     x: 0,
     y: 0,
     targetRect: null,
   });
-  const prevCursorState = useRef({
+  const prevCursorState = useRef<{
+    x: number;
+    y: number;
+  }>({
     x: 0,
     y: 0,
   });
@@ -54,7 +61,7 @@ export function CursorEffect(props: CursorEffectProps) {
       if (isTouch) return;
 
       let targetRect =
-        cursorAffectoContainerrRef.current?.getBoundingClientRect();
+        cursorAffectoContainerrRef.current?.getBoundingClientRect() || null;
 
       mousePosition.current = {
         x: event.clientX,
@@ -67,7 +74,7 @@ export function CursorEffect(props: CursorEffectProps) {
       if (isTouch) return;
 
       let targetRect =
-        cursorAffectoContainerrRef.current?.getBoundingClientRect();
+        cursorAffectoContainerrRef.current?.getBoundingClientRect() || null;
 
       mousePosition.current = {
         ...mousePosition.current,
@@ -75,11 +82,11 @@ export function CursorEffect(props: CursorEffectProps) {
       };
     };
 
-    const handlePointerDown = (event) => {
+    const handlePointerDown = (event: PointerEvent) => {
       isTouch = event.pointerType === 'touch';
 
       let targetRect =
-        cursorAffectoContainerrRef.current?.getBoundingClientRect();
+        cursorAffectoContainerrRef.current?.getBoundingClientRect() || null;
 
       mousePosition.current = {
         ...mousePosition.current,
@@ -89,12 +96,12 @@ export function CursorEffect(props: CursorEffectProps) {
       };
     };
 
-    window.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener('pointerdown', handlePointerDown);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener('pointerdown', handlePointerDown);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
     };

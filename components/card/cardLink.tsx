@@ -40,7 +40,11 @@ export function CardLink(props: CardProps) {
   };
 
   return (
-    <CursorEffect className={clsx(styles.cardLinkWrapper, restClassName)} cursorBorderRadius={16} cursorPadding={6}>
+    <CursorEffect
+      className={clsx(styles.cardLinkWrapper, restClassName)}
+      cursorBorderRadius={16}
+      cursorPadding={6}
+    >
       <animated.div
         className={clsx(styles.cardLink)}
         style={{ ...springs }}

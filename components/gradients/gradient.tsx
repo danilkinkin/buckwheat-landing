@@ -68,7 +68,7 @@ export function Gradients() {
     return () => {
       window.removeEventListener('resize', resize);
     };
-  }, []);
+  }, [timeOffset]);
 
   return (
     <div className={styles.root} ref={rootRef}>

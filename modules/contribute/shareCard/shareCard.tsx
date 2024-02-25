@@ -60,7 +60,7 @@ export function ShareCard() {
       </div>
     </Card>
   );
-  if (typeof window !== 'undefined' && navigator.share) {
+  if (typeof window !== 'undefined' && (navigator.share as any)) {
     return (
       <CursorEffect cursorPadding={8} cursorBorderRadius={36}>
         {ShareCard}

@@ -55,22 +55,22 @@ export function FreeCard() {
       />
       <Card
         className={styles.freeForever}
-        title={(
+        title={
           <Fragment>
             {t('freeForever')}
             <span className={styles.freeForeverTitleExclamationPoint}><ExclamationPoint /></span>
           </Fragment>
-        )}
+        }
         classes={{ title: styles.freeForeverTitle }}
       />
       <Card
         className={styles.wihthoutAds}
-        title={(
+        title={
           <Fragment>
             {t('wihthoutAds')}
             <span className={styles.wihthoutAdsTitleOutline}><Outline /></span>
           </Fragment>
-        )}
+        }
         classes={{ title: styles.wihthoutAdsTitle }}
       />
     </div>

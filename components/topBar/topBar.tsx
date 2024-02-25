@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 
 type TopBarProps = {
   notHide?: boolean;
-}
+};
 
 export function TopBar(props: TopBarProps) {
   const { notHide = false } = props;
@@ -34,7 +34,11 @@ export function TopBar(props: TopBarProps) {
         <Logo className={styles.logo} variant={LogoType.Full} />
       )}
       {router.pathname !== '/' && (
-        <CursorEffect cursorPadding={4} cursorBorderRadius={26} className={styles.logo}>
+        <CursorEffect
+          cursorPadding={4}
+          cursorBorderRadius={26}
+          className={styles.logo}
+        >
           <Link href="/" className={styles.homeLink}>
             <Logo variant={LogoType.Full} />
           </Link>

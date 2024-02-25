@@ -24,6 +24,7 @@
     "typescript": "5.3.3"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^14.1.0",
     "@svgr/webpack": "^8.1.0",
     "@types/three": "^0.161.2",
     "eslint": "^8.57.0",

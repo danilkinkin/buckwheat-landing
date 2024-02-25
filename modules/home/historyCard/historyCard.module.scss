@@ -212,16 +212,16 @@
 
 @keyframes slideDelete {
     0% {
-        display: flex;
+        z-index: -1;
     }
     40% {
-        display: flex;
+        z-index: -1;
     }
     60% {
-        display: none;
+        z-index: 1;
     }
     100% {
-        display: none;
+        z-index: 1;
     }
 }
 

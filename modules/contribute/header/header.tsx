@@ -17,8 +17,8 @@ export const locales: LocalesMap = {
     description: (
       <>
         <span className={styles.appName}>Гречка</span> — это <span className={styles.hobbyProject}>хобби-проект</span>{' '}
-        и я <span className={styles.notPlanEarnMoney}><span>не планирую на нём зарабатывать</span></span>,{' '}
-        если вы хотите помочь, вот несколько способов, как это сделать<Arrow />
+        и я <span className={styles.notPlanEarnMoney}><span>не&nbsp;планирую на нём зарабатывать</span></span>,{' '}
+        если вы хотите помочь, вот несколько способов, как это <span className={styles.contributeArrowWrapper}>сделать<Arrow /></span>
       </>
     ),
     openSource: 'Open source',

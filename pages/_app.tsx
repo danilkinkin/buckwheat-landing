@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className={clsx(styles.main, manrope.className)}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#FFFFFF" />
       </Head>
       <Cursor>
         <Component {...pageProps} />

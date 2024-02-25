@@ -26,6 +26,7 @@
     }
   },
   "include": [
+    "custom-types.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"

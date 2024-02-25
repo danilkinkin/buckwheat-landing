@@ -68,18 +68,18 @@ const locales: LocalesMap = {
 
 export default function Header() {
   const t = useLocale(locales);
-  const sloganLine1Ref = useRef(null);
-  const sloganLine2Ref = useRef(null);
-  const transitionToBackgoundRef = useRef(null);
-  const thickRoundStar6MaskRef = useRef(null);
-  const thickRoundStar6ImageRef = useRef(null);
-  const thickRoundStar5 = useRef(null);
+  const sloganLine1Ref = useRef<HTMLSpanElement>(null);
+  const sloganLine2Ref = useRef<HTMLSpanElement>(null);
+  const transitionToBackgoundRef = useRef<HTMLDivElement>(null);
+  const thickRoundStar6MaskRef = useRef<HTMLDivElement>(null);
+  const thickRoundStar6ImageRef = useRef<HTMLImageElement>(null);
+  const thickRoundStar5 = useRef<HTMLDivElement>(null);
 
   useScroll((scrollY, deltaTime, time) => {
-    const childs = [
+    const childs: HTMLSpanElement[] = [
       ...Array.from(sloganLine1Ref.current?.children || []),
       ...Array.from(sloganLine2Ref.current?.children || []),
-    ];
+    ] as HTMLSpanElement[];
 
     childs.forEach((child, index) => {
       const rawOffset = Math.min(-scrollY + index * 30, 0);

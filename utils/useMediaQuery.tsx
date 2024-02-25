@@ -6,7 +6,7 @@ export default function useMediaQuery(mediaQuery: string): boolean {
   );
 
   useEffect(() => {
-    const onChange = (event) => {
+    const onChange = (event: MediaQueryListEvent) => {
       setIsMatch(event.matches);
     };
 
