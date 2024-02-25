@@ -55,21 +55,26 @@
   margin-right: 8px;
 }
 
-@media screen and (max-width: 620px) {
-  .card {
-    padding: 16px;
-  }
+@media screen and (max-width: 1180px) {
   .qrCode {
     width: 180px;
     height: 180px;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 980px) {
   .qrCode {
     display: none;
   }
-  .card {
+  .content {
+    padding-left: 32px;
+    padding-bottom: 26px;
+  }
+}
+
+
+@media screen and (max-width: 620px) {
+  .content {
     padding: 36px;
   }
 }

@@ -2,9 +2,8 @@
   border-radius: 36px;
   overflow: hidden;
   background-color: #a4a4a41c;
-  transition: 0.3s ease;
   backdrop-filter: blur(18px);
-  
+
   a {
     cursor: none;
   }
@@ -16,6 +15,7 @@
   padding: 14px;
   padding-left: 28px;
   padding-right: 22px;
+  transition: 0.3s ease;
 }
 
 .linkIcon {
@@ -32,13 +32,7 @@
 }
 
 @media screen and (max-width: 620px) {
-  .card {
-    padding: 16px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .card {
+  .content {
     padding: 36px;
   }
 }

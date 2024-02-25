@@ -32,6 +32,7 @@ export function Cursor(props: CursorProps) {
 
   useEffect(() => {
     let isReadyForHide = false;
+    let isTouch = false;
 
     const updateTargetFromPath = (path: any[]) => {
       const isLink = path.find((el) => el?.tagName === 'A');
@@ -81,6 +82,7 @@ export function Cursor(props: CursorProps) {
     };
 
     const handleMouseMove = (event: MouseEvent) => {
+      if (isTouch) return;
       updateTargetFromPath(event.composedPath());
 
       if (!mousePosition.current.active) {
@@ -115,6 +117,7 @@ export function Cursor(props: CursorProps) {
     };
 
     const handleScroll = () => {
+      if (isTouch) return;
       updateTargetFromPath(
         document.elementsFromPoint(
           mousePosition.current.x,
@@ -124,6 +127,7 @@ export function Cursor(props: CursorProps) {
     };
 
     const handleMouseDown = (event: MouseEvent) => {
+      if (isTouch) return;
       updateTargetFromPath(event.composedPath());
       mousePosition.current = {
         ...mousePosition.current,
@@ -132,6 +136,7 @@ export function Cursor(props: CursorProps) {
     };
 
     const handleMouseUp = (event: MouseEvent) => {
+      if (isTouch) return;
       updateTargetFromPath(event.composedPath());
       mousePosition.current = {
         ...mousePosition.current,
@@ -139,6 +144,13 @@ export function Cursor(props: CursorProps) {
       };
     };
 
+    const handlePointerDown = (event: PointerEvent) => {
+      isTouch = event.pointerType === 'touch';
+
+      handleMouseLeave();
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
     window.addEventListener('mousemove', handleMouseMove);
     window.document.body.addEventListener('mouseleave', handleMouseLeave);
     window.addEventListener('scroll', handleScroll);
@@ -147,6 +159,7 @@ export function Cursor(props: CursorProps) {
 
 
     return () => {
+      window.removeEventListener("pointerdown", handlePointerDown);
       window.removeEventListener('mousemove', handleMouseMove);
       window.document.body.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('scroll', handleScroll);

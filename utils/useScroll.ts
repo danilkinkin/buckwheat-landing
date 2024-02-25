@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function useScroll(callback: (scrollY: number, deltaTime: number, time: number) => void) {
+export default function useScroll(callback: (scrollY: number, deltaTime: number, time: number) => void, deps: any[] = []) {
   useEffect(() => {
     let isMounted = true;
     let lastScrollY = 0;
@@ -25,5 +25,5 @@ export default function useScroll(callback: (scrollY: number, deltaTime: number,
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, deps);
 }

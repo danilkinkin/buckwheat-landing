@@ -108,7 +108,7 @@
                 left: 24px;
                 position: absolute;
                 top: 10px;
-                font-weight: 800;
+                font-weight: 700;
                 font-size: 1.4rem;
             }
             .date {
@@ -222,5 +222,59 @@
     }
     100% {
         display: none;
+    }
+}
+
+@media (max-width: 1180px) {
+    .card {
+        height: 490px;
+    }
+    .backdropImage {
+        height: 490px;
+    }
+    .buchwheatImageMask {
+        width: 550px;
+        height: 550px;
+        bottom: -170px;
+        left: -110px;
+    }
+    .buchwheatImageAnchor {
+        bottom: 275px;
+        left: 275px;
+    }
+    .buchwheatImage {
+        bottom: -109px;
+        left: -165px;
+        width: 490px;
+        height: 490px;
+    }
+    .screenshot {
+        height: 490px;
+    }
+    .tutorialRow {
+        left: 57px;
+        bottom: 105px;
+        scale: 0.87;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .root {
+        width: 100%;
+    }
+    .backdropImage, .screenshotImage, .shadowImage {
+        right: 0px;
+    }
+}
+
+@media (max-width: 800px) {
+    .card {
+        height: 320px;
+    }
+    .buchwheatImageMask {
+        bottom: -140px;
+    }
+    .buchwheatImage {
+        bottom: -164px;
     }
 }

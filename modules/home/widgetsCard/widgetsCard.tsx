@@ -13,6 +13,7 @@ import Image from 'next/image';
 import useFrame from '@/utils/useFrame';
 import useScroll from '@/utils/useScroll';
 import { useRouter } from 'next/router';
+import useMediaQuery from '@/utils/useMediaQuery';
 
 const locales: LocalesMap = {
   ru: {
@@ -30,8 +31,9 @@ const locales: LocalesMap = {
 function SmallWidgetsLine() {
   const router = useRouter();
   const rootRef = useRef(null);
+  const breakpoint800 = useMediaQuery('(max-width: 800px)');
 
-  const widgetWidth = 220;
+  const widgetWidth = breakpoint800 ? 170 : 220;
   const swapWidth = widgetWidth * 1;
 
   useScroll((scrollY, delta, time) => {
@@ -41,7 +43,7 @@ function SmallWidgetsLine() {
     if (rootRef.current) {
       rootRef.current.style.transform = `rotate(4deg) translateX(${offset % swapWidth + widgetWidth}px)`;
     }
-  });
+  }, [widgetWidth]);
 
   const Widget = router.locale === 'ru' ? WidgetSmallRu : WidgetSmallEn;
 
@@ -61,8 +63,9 @@ function SmallWidgetsLine() {
 function BigWidgetsLine() {
   const router = useRouter();
   const rootRef = useRef(null);
+  const breakpoint800 = useMediaQuery('(max-width: 800px)');
 
-  const widgetWidth = 260 + 9;
+  const widgetWidth = (breakpoint800 ? 200 : 260) + 9;
   const swapWidth = widgetWidth * 1;
 
   useScroll((scrollY, delta, time) => {
@@ -72,7 +75,7 @@ function BigWidgetsLine() {
     if (rootRef.current) {
       rootRef.current.style.transform = `rotate(356deg) translateX(${offset % swapWidth}px)`;
     }
-  });
+  }, [widgetWidth]);
 
   const Widget = router.locale === 'ru' ? WidgetBigRu : WidgetBigEn;
 

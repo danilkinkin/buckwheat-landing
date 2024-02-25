@@ -13,6 +13,7 @@ export function HelpUkraineCard() {
     <div className={styles.cardContainer}>
       <Card
         className={styles.card}
+        classes={{ content: styles.cardActionsContent, textWrapper: styles.cardTextWrapper }}
         backdropOnText
         title="Support Ukraine"
         subtitle="For over two years, a peaceful nation has been under threat of destruction by the Russian authorities. They are fighting to hold on, but it's not easy. Please help Ukraine defend their freedom"

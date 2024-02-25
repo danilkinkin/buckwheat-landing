@@ -38,21 +38,26 @@
   }
 
   .notPlanEarnMoney {
-    margin: 0px 26px;
+    margin: 0px 20px;
 
     span {
-        box-shadow: -20px 0px 0px 2px #FF005C, 20px 0px 0px 2px #FF005C;
+        box-shadow: -16px 0px 0px 2px #FF005C, 16px 0px 0px 2px #FF005C;
         background-color: #FF005C;
         color: #fff;
         box-decoration-break: clone;
-        border-radius: 34px;
+        border-radius: 9px;
     }
+  }
+
+  .contributeArrowWrapper {
+    display: inline-block;
   }
 
   .contributeArrow {
       position: relative;
+      display: inline;
 
-      svg {
+      div {
           position: absolute;
           top: 13px;
           left: 26px;
@@ -66,6 +71,7 @@
     display: flex;
     flex-direction: column;
     transform: rotate(-25deg);
+    width: max-content;
 }
 
 .chip {
@@ -127,4 +133,86 @@
   width: 100%;
   height: 300px;
   background: linear-gradient(180deg, #ffffff00 0%, #ffffff 300px);
+}
+
+
+@media (max-width: 1250px) {
+    .chipsContainer {
+        position: absolute;
+        right: 0;
+        left: -60px;
+        margin: auto;
+        top: 230px;
+        flex-direction: row;
+        transform: rotate(356deg);
+        z-index: -1;
+    }
+    .openSourceChip {
+        transform: translate(90px, -20px) rotate(-15deg);
+    }
+    .madeWithLoveChip {
+        transform: translateX(0px);
+    }
+    .header {
+        padding-top: 390px;
+    }
+}
+
+@media (max-width: 940px) {
+    .header {
+        padding: 200px 48px;
+        padding-top: 360px;
+    }
+
+    .description {
+        text-align: justify;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .header {
+        padding: 130px 48px;
+        padding-top: 360px;
+    }
+
+    .description {
+        font-size: 1.5rem;
+        line-height: 170%;
+
+        .contributeArrow {
+            div {
+                top: 8px;
+            }
+            svg {
+                width: auto;
+                height: 150px;
+            }
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .header {
+        padding: 110px 36px;
+        padding-top: 360px;
+    }
+
+    .chipsContainer {
+        top: 200px;
+        scale: 0.7;
+    }
+
+    .description {
+        .contributeArrow {
+            div {
+                top: 10px;
+            }
+            svg {
+                width: auto;
+                height: 130px;
+            }
+        }
+    }
+
 }

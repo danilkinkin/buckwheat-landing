@@ -29,7 +29,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
 
   return (
     <div ref={ref} className={clsx(styles.card, restClassName)} {...restProps}>
-      <div className={clsx(styles.textWrapper)}>
+      <div className={clsx(styles.textWrapper, classes.textWrapper)}>
         <h3
           className={clsx(ibmPlexMono.className, styles.title, classes.title)}
         >
@@ -53,7 +53,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
         )}
       </div>
       {subtitle && (
-        <div className={clsx(styles.textWrapper)}>
+        <div className={clsx(styles.textWrapper, classes.textWrapper)}>
           <p className={clsx(styles.subtitle, classes.subtitle)}>
             <span className={clsx(backdropOnText && styles.backdropOnText)}>
               {subtitle}

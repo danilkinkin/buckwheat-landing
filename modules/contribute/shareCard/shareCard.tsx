@@ -32,7 +32,7 @@ export function ShareCard() {
       title={t('title')}
       subtitle={t('description')}
       backdropOnText
-      classes={{ subtitle: styles.description }}
+      classes={{ subtitle: styles.description, content: styles.content }}
       onClick={() => {
         if (navigator.share) {
           navigator

@@ -39,7 +39,6 @@
     bottom: 320px;
     left: 320px;
     position: absolute;
-
 }
 
 .buchwheatImage {
@@ -90,5 +89,44 @@
     svg {
         width: 260px;
         height: auto;
+    }
+}
+
+@media (max-width: 1180px) {
+    .card {
+        height: 490px;
+    }
+    .buchwheatImageMask {
+        width: 440px;
+        height: 440px;
+        bottom: -70px;
+        right: -110px;
+    }
+    .buchwheatImageAnchor {
+        bottom: 220px;
+        left: 220px;
+    }
+    .smallWidgetsLine {
+        bottom: 200px;
+    }
+    .bigWidgetsLine {
+        bottom: 50px;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .card {
+        height: 390px;
+    }
+    .smallWidgetsLine {
+        bottom: 160px;
+
+        svg {
+            width: 170px;
+        }
+    }
+    .bigWidgetsLine svg {
+        width: 200px;
     }
 }

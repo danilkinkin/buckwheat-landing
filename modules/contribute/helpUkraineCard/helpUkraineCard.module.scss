@@ -1,6 +1,8 @@
 .cardContainer {
   width: 100%;
   position: relative;
+  container-type: inline-size;
+  container-name: card;
 }
 
 .card {
@@ -68,6 +70,23 @@
     display: inline-block;
 }
 
+@media screen and (max-width: 980px) {
+    .card {
+        min-height: unset;
+        height: min-content;
+    }
+    .noWarImage {
+        width: 220px;
+        height: auto;
+        top: auto;
+        bottom: 20px;
+        right: 30px;
+    }
+  .captionLink {
+    position: relative;
+  }
+}
+
 @media screen and (max-width: 760px) {
   .ukraineMap {
     right: 0;
@@ -76,8 +95,56 @@
   }
 }
 
-@media screen and (max-width: 980px) {
-  .captionLink {
-    position: relative;
-  }
+@container (max-width: 870px) {
+    .noWarImage {
+        width: 220px;
+        height: auto;
+        top: auto;
+        bottom: 20px;
+        right: 30px;
+    }
+}
+
+@container (max-width: 680px) {
+    .noWarImage {
+        width: 170px;
+        height: auto;
+        top: auto;
+        bottom: 44px;
+        right: 20px;
+    }
+}
+
+@container (max-width: 600px) {
+    .cardTextWrapper {
+        width: calc(100% - 170px);
+    }
+    .cardActionsContent {
+        margin: -16px;
+        margin-top: 16px;
+    }
+    .noWarImage {
+        width: 170px;
+        height: auto;
+        top: 20px;
+        bottom: auto;
+        right: 20px;
+    }
+    .link {
+        width: 100%;
+        max-width: unset;
+    }
+}
+
+@container (max-width: 500px) {
+    .cardTextWrapper {
+        width: calc(100% - 130px);
+    }
+    .noWarImage {
+        width: 130px;
+        height: auto;
+        top: 20px;
+        bottom: auto;
+        right: 20px;
+    }
 }

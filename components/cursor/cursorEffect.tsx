@@ -48,7 +48,11 @@ export function CursorEffect(props: CursorEffectProps) {
   });
 
   useEffect(() => {
+    let isTouch = false;
+
     const handleMouseMove = (event: MouseEvent) => {
+      if (isTouch) return;
+
       let targetRect =
         cursorAffectoContainerrRef.current?.getBoundingClientRect();
 
@@ -60,6 +64,8 @@ export function CursorEffect(props: CursorEffectProps) {
     };
 
     const handleScroll = () => {
+      if (isTouch) return;
+
       let targetRect =
         cursorAffectoContainerrRef.current?.getBoundingClientRect();
 
@@ -69,10 +75,26 @@ export function CursorEffect(props: CursorEffectProps) {
       };
     };
 
+    const handlePointerDown = (event) => {
+      isTouch = event.pointerType === 'touch';
+
+      let targetRect =
+        cursorAffectoContainerrRef.current?.getBoundingClientRect();
+
+      mousePosition.current = {
+        ...mousePosition.current,
+        targetRect,
+        x: -9999999,
+        y: -9999999,
+      };
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('scroll', handleScroll);
 
     return () => {
+      window.removeEventListener("pointerdown", handlePointerDown);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
     };
