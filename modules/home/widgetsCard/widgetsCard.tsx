@@ -43,7 +43,7 @@ function SmallWidgetsLine() {
     if (rootRef.current) {
       rootRef.current.style.transform = `rotate(4deg) translate3D(${offset % swapWidth + widgetWidth}px, 0px, 0px)`;
     }
-  }, [widgetWidth]);
+  }, {}, [widgetWidth]);
 
   const Widget = router.locale === 'ru' ? WidgetSmallRu : WidgetSmallEn;
 
@@ -75,7 +75,7 @@ function BigWidgetsLine() {
     if (rootRef.current) {
       rootRef.current.style.transform = `rotate(356deg) translate3D(${offset % swapWidth}px, 0px, 0px)`;
     }
-  }, [widgetWidth]);
+  }, {}, [widgetWidth]);
 
   const Widget = router.locale === 'ru' ? WidgetBigRu : WidgetBigEn;
 

@@ -9,9 +9,10 @@ import thickRoundStar6Url from '@/assets/images/thick-round-star-6.svg?url';
 import buckwheatFlat from '@/assets/images/buckwheat-flat.png';
 import Image from 'next/image';
 import { Gradients } from '@/components/gradients';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import useScroll from '@/utils/useScroll';
 import { TopBar } from '@/components/topBar';
+import useFrame from '@/utils/useFrame';
 
 const locales: LocalesMap = {
   ru: {
@@ -83,9 +84,7 @@ export default function Header() {
 
     childs.forEach((child, index) => {
       const rawOffset = Math.min(-scrollY + index * 30, 0);
-
-      const offset = -Math.pow(rawOffset / 30, 2); //-Math.expm1(-rawOffset / 80);
-
+      const offset = -Math.pow(rawOffset / 30, 2);
       const rotateDirection = index % 2 === 0 ? 1 : -1;
 
       child.style.transform = `translate3D(0px, ${offset}px, 0px) rotate(${(offset / 10) * rotateDirection}deg)`;

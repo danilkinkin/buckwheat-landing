@@ -44,6 +44,8 @@ export function HowItsWorkCard() {
     const scrollOffset = rootNode.offsetTop - scrollY;
 
     imageNode.style.transform = `translate3D(0px, ${-(scrollOffset / 16)}px, 0px)`;
+  }, {
+    accelerator: 0.5,
   });
 
   return (

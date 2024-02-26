@@ -1,19 +1,28 @@
 import { useEffect } from 'react';
 
-export default function useScroll(callback: (scrollY: number, deltaTime: number, time: number) => void, deps: any[] = []) {
+type configType = {
+  accelerator?: number;
+};
+
+export default function useScroll(callback: (scrollY: number, deltaTime: number, time: number) => void, config: configType = {}, deps: any[] = []) {
   useEffect(() => {
     let isMounted = true;
     let lastScrollY = 0;
     let lastTime = 0;
+    let currentScrollY = 0;
 
     const frame = (time: number) => {
       if (!isMounted) return;
 
-      const scrollY = lastScrollY + (window.scrollY - lastScrollY) * 0.05;
+      if (Math.abs(window.scrollY - lastScrollY) < 0.0001) {
+        currentScrollY = window.scrollY;
+      } else {
+        currentScrollY = lastScrollY + (window.scrollY - lastScrollY) * (config.accelerator || 0.05);
+      }
 
-      lastScrollY = scrollY;
+      lastScrollY = currentScrollY;
 
-      callback(scrollY, time - lastTime, time);
+      callback(currentScrollY, time - lastTime, time);
 
       lastTime = time;
 
