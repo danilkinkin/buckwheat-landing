@@ -151,6 +151,7 @@
     .editBackground {
         background-color: #D8E7FF;
         color: #1C283C;
+        animation: slideEdit 5s infinite alternate cubic-bezier(0.75, 0, 0.15, 1);
     }
     .deleteBackground {
         background-color: #ffb3ad;
@@ -214,15 +215,41 @@
 @keyframes slideDelete {
     0% {
         z-index: 1;
+        opacity: 1;
     }
-    40% {
+    20% {
         z-index: 1;
+        opacity: 1;
     }
-    60% {
+    20.001% {
+        z-index: 1;
+        opacity: 0;
+    }
+    80% {
         z-index: -1;
+        opacity: 0;
     }
     100% {
         z-index: -1;
+        opacity: 0;
+    }
+}
+
+@keyframes slideEdit {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    79.999% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
     }
 }
 

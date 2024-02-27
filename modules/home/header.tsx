@@ -113,10 +113,7 @@ export default function Header() {
       <div
         className={styles.thickRoundStar6}
         ref={thickRoundStar6MaskRef}
-        style={{
-          maskImage: `url(${thickRoundStar6Url.src})`,
-          //transform: `translateY(${scrollY / 2}px)`,
-        }}
+        style={{ maskImage: `url(${thickRoundStar6Url.src})` }}
       >
         <Image
           ref={thickRoundStar6ImageRef}
@@ -127,10 +124,7 @@ export default function Header() {
           src={buckwheatFlat}
         />
       </div>
-      <h1
-        //style={{ transform: `translateY(${scrollY / 4}px)` }}
-        className={clsx(styles.slogan, ibmPlexMono.className)}
-      >
+      <h1 className={clsx(styles.slogan, ibmPlexMono.className)}>
         <span ref={sloganLine1Ref} className={styles.line1}>
           {t('slogan_line_1')}
         </span>
@@ -148,7 +142,7 @@ export default function Header() {
           ref={transitionToBackgoundRef}
           className={styles.transitionToBackgound}
         />
-        <Gradients />
+        {/* <Gradients /> */}
       </div>
     </header>
   );

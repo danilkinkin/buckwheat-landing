@@ -31,3 +31,21 @@
   color: #ff006b;
   cursor: none !important;
 }
+
+@media screen and (max-width: 1240px) {
+  .footer {
+    padding: 0px 36px 36px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .footer {
+    padding: 0px 24px 24px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer {
+    padding: 0px 16px 16px;
+  }
+}
