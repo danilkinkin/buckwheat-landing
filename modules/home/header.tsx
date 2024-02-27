@@ -142,7 +142,7 @@ export default function Header() {
           ref={transitionToBackgoundRef}
           className={styles.transitionToBackgound}
         />
-        {/* <Gradients /> */}
+        <Gradients />
       </div>
     </header>
   );

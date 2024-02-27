@@ -14,7 +14,7 @@ const threeCanvas = (
 ) => {
   const { renderer, clock } = initThree(canvas, viewportSize);
   const { scene, camera, updateSize: updateCameraSize } = initScene(renderer);
-  const { render: renderGradient, updateSize: updateGradientSize } =
+  const { render: renderGradient, updateSize: updateGradientSize, unload: unloadGradinet } =
     initGradient(scene, renderer);
   const { render: renderFrame, resize: resizeFrame } = initGrainFilter(renderer, scene, camera);
   const stats = new Stats()
@@ -29,8 +29,10 @@ const threeCanvas = (
 
   let elapsedTime = 0;
   let delta = 0;
+  let isActive = true;
 
   const animate = () => {
+    if (!isActive) return;
     stats.begin();
     elapsedTime = clock.elapsedTime + initTimeOffset;
     delta = clock.getDelta();
@@ -52,8 +54,15 @@ const threeCanvas = (
   animate();
   resizeCanvas(viewportSize.width, viewportSize.height);
 
+  const unload = () => {
+    isActive = false;
+    unloadGradinet();
+    renderer.dispose();
+  }
+
   return {
     resizeCanvas,
+    unload,
   };
 };
 
@@ -84,6 +93,8 @@ export function Gradients() {
 
       return () => {
         window.removeEventListener('resize', resize);
+
+        canvas.unload();
       };
     } catch (e) {
       console.error(e);

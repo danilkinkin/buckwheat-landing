@@ -47,5 +47,11 @@ export function initGradient(
 
   updateSize();
 
-  return { render, updateSize };
+  const unload = () => {
+    scene.remove(plane);
+    plane.geometry.dispose();
+    material.dispose();
+  }
+
+  return { render, updateSize, unload };
 }
