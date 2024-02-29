@@ -83,8 +83,8 @@ export default function Header() {
     ] as HTMLSpanElement[];
 
     childs.forEach((child, index) => {
-      const rawOffset = Math.min(-scrollY + index * 30, 0);
-      const offset = -Math.pow(rawOffset / 30, 2);
+      const rawOffset = Math.min(-scrollY * 2 + index * 30, 0);
+      const offset = Math.max(-Math.pow(rawOffset / 50, 2), -500);
       const rotateDirection = index % 2 === 0 ? 1 : -1;
 
       child.style.transform = `translate3D(0px, ${offset}px, 0px) rotate(${(offset / 10) * rotateDirection}deg)`;
@@ -105,7 +105,7 @@ export default function Header() {
     if (thickRoundStar5.current) {
       thickRoundStar5.current.style.transform = `translate3D(-50%, -50%,0) rotate(${-scrollY / 6 - 10}deg)`;
     }
-  });
+  }, { accelerator: 0.06 });
 
   return (
     <header className={styles.header}>
