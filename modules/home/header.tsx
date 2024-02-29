@@ -9,7 +9,7 @@ import thickRoundStar6Url from '@/assets/images/thick-round-star-6.svg?url';
 import buckwheatFlat from '@/assets/images/buckwheat-flat.png';
 import Image from 'next/image';
 import { Gradients } from '@/components/gradients';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, Fragment } from 'react';
 import useScroll from '@/utils/useScroll';
 import { TopBar } from '@/components/topBar';
 import useFrame from '@/utils/useFrame';
@@ -76,7 +76,7 @@ export default function Header() {
   const thickRoundStar6MaskRef = useRef<HTMLDivElement>(null);
   const thickRoundStar6ImageRef = useRef<HTMLImageElement>(null);
   const thickRoundStar5 = useRef<HTMLDivElement>(null);
-  const breakpoint600 = useMediaQuery('(max-width: 600px)');
+  const breakpoint600 = false;//useMediaQuery('(max-width: 600px)');
 
   useScroll((scrollY, deltaTime, time) => {
     const childs: HTMLSpanElement[] = [
@@ -85,7 +85,7 @@ export default function Header() {
     ] as HTMLSpanElement[];
 
     childs.forEach((child, index) => {
-      const rawOffset = Math.min(-scrollY * 2 + index * 30, 0);
+      const rawOffset = Math.min(-scrollY * 2 + index * 50, 0);
       const offset = Math.max(-Math.pow(rawOffset / 50, 2), -500);
       const rotateDirection = index % 2 === 0 ? 1 : -1;
 
@@ -110,42 +110,44 @@ export default function Header() {
   }, { accelerator: 0.06 });
 
   return (
-    <header className={styles.header}>
-      <TopBar />
-      <div
-        className={styles.thickRoundStar6}
-        ref={thickRoundStar6MaskRef}
-        style={{ maskImage: `url(${thickRoundStar6Url.src})` }}
-      >
-        <Image
-          ref={thickRoundStar6ImageRef}
-          height={400}
-          width={400}
-          placeholder="blur"
-          alt=""
-          src={buckwheatFlat}
-        />
-      </div>
-      <h1 className={clsx(styles.slogan, ibmPlexMono.className)}>
-        <span ref={sloganLine1Ref} className={styles.line1}>
-          {t('slogan_line_1')}
-        </span>
-        <span ref={sloganLine2Ref} className={styles.line2}>
-          {t('slogan_line_2')}
-        </span>
-      </h1>
+    <Fragment>
+      <header className={styles.header}>
+        <TopBar />
+        <div
+          className={styles.thickRoundStar6}
+          ref={thickRoundStar6MaskRef}
+          style={{ maskImage: `url(${thickRoundStar6Url.src})` }}
+        >
+          <Image
+            ref={thickRoundStar6ImageRef}
+            height={400}
+            width={400}
+            placeholder="blur"
+            alt=""
+            src={buckwheatFlat}
+          />
+        </div>
+        <h1 className={clsx(styles.slogan, ibmPlexMono.className)}>
+          <span ref={sloganLine1Ref} className={styles.line1}>
+            {t('slogan_line_1')}
+          </span>
+          <span ref={sloganLine2Ref} className={styles.line2}>
+            {t('slogan_line_2')}
+          </span>
+        </h1>
+        <div className={styles.gradientContainer}>
+          <div
+            ref={transitionToBackgoundRef}
+            className={styles.transitionToBackgound}
+          />
+          {!breakpoint600 && <Gradients />}
+        </div>
+      </header>
       <div className={styles.thickRoundStar5}>
         <div ref={thickRoundStar5}>
           <ThickRoundStar5 />
         </div>
       </div>
-      <div className={styles.gradientContainer}>
-        <div
-          ref={transitionToBackgoundRef}
-          className={styles.transitionToBackgound}
-        />
-        {!breakpoint600 && <Gradients />}
-      </div>
-    </header>
+    </Fragment>
   );
 }

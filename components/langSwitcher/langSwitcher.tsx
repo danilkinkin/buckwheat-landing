@@ -40,7 +40,7 @@ export function LangSwitcher(props: LangSwitcherProps) {
     const handleClose = (event: any) => {
       setOpen(
         event.composedPath().includes(selectorRef.current) ||
-        event.composedPath().includes(buttonRef.current)
+          event.composedPath().includes(buttonRef.current)
       );
     };
 

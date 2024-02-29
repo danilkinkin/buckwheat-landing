@@ -51,7 +51,7 @@ export function initGradient(
     scene.remove(plane);
     plane.geometry.dispose();
     material.dispose();
-  }
+  };
 
   return { render, updateSize, unload };
 }

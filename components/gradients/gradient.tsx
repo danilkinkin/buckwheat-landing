@@ -5,7 +5,7 @@ import { initGrainFilter } from './grainPostProcessing';
 import { InitThreeOptions, initThree } from './initThree';
 import { initScene } from './initScene';
 import { initGradient } from './initGradients';
-import Stats from 'stats.js'
+import Stats from 'stats.js';
 
 const threeCanvas = (
   canvas: HTMLCanvasElement,
@@ -14,18 +14,25 @@ const threeCanvas = (
 ) => {
   const { renderer, clock } = initThree(canvas, viewportSize);
   const { scene, camera, updateSize: updateCameraSize } = initScene(renderer);
-  const { render: renderGradient, updateSize: updateGradientSize, unload: unloadGradinet } =
-    initGradient(scene, renderer);
-  const { render: renderFrame, resize: resizeFrame } = initGrainFilter(renderer, scene, camera);
-  const stats = new Stats()
+  const {
+    render: renderGradient,
+    updateSize: updateGradientSize,
+    unload: unloadGradinet,
+  } = initGradient(scene, renderer);
+  const { render: renderFrame, resize: resizeFrame } = initGrainFilter(
+    renderer,
+    scene,
+    camera
+  );
+  const stats = new Stats();
   // the number will decide which information will be displayed
   // 0 => FPS Frames rendered in the last second. The higher the number the better.
   // 1 => MS Milliseconds needed to render a frame. The lower the number the better.
   // 2 => MB MBytes of allocated memory. (Run Chrome with --enable-precise-memory-info)
   // 3 => CUSTOM User-defined panel support.
-  stats.showPanel(0)
+  stats.showPanel(0);
 
-  document.body.appendChild(stats.dom)
+  document.body.appendChild(stats.dom);
 
   let elapsedTime = 0;
   let delta = 0;
@@ -58,7 +65,7 @@ const threeCanvas = (
     isActive = false;
     unloadGradinet();
     renderer.dispose();
-  }
+  };
 
   return {
     resizeCanvas,

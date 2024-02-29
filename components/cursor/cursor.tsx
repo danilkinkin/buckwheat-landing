@@ -193,9 +193,10 @@ export function Cursor(props: CursorProps) {
     let gapHover = mousePosition.current.cursorPadding;
     const targetRect = mousePosition.current.targetRect;
 
-    const isHovered = (mousePosition.current.target.link ||
-      mousePosition.current.target.button ||
-      mousePosition.current.target.cursorEffector) &&
+    const isHovered =
+      (mousePosition.current.target.link ||
+        mousePosition.current.target.button ||
+        mousePosition.current.target.cursorEffector) &&
       targetRect !== null;
 
     if (!mousePosition.current.active) {
