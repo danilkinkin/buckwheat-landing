@@ -13,6 +13,7 @@ import { useEffect, useRef } from 'react';
 import useScroll from '@/utils/useScroll';
 import { TopBar } from '@/components/topBar';
 import useFrame from '@/utils/useFrame';
+import useMediaQuery from '@/utils/useMediaQuery';
 
 const locales: LocalesMap = {
   ru: {
@@ -75,6 +76,7 @@ export default function Header() {
   const thickRoundStar6MaskRef = useRef<HTMLDivElement>(null);
   const thickRoundStar6ImageRef = useRef<HTMLImageElement>(null);
   const thickRoundStar5 = useRef<HTMLDivElement>(null);
+  const breakpoint600 = useMediaQuery('(max-width: 600px)');
 
   useScroll((scrollY, deltaTime, time) => {
     const childs: HTMLSpanElement[] = [
@@ -90,19 +92,19 @@ export default function Header() {
       child.style.transform = `translate3D(0px, ${offset}px, 0px) rotate(${(offset / 10) * rotateDirection}deg)`;
     });
 
-    if (transitionToBackgoundRef.current) {
+    if (transitionToBackgoundRef.current && scrollY + 300 < window.innerHeight) {
       transitionToBackgoundRef.current.style.height = `${scrollY + 300}px`;
     }
 
-    if (thickRoundStar6MaskRef.current) {
+    if (thickRoundStar6MaskRef.current && scrollY - 300 < window.innerHeight) {
       thickRoundStar6MaskRef.current.style.transform = `translate3D(0px, ${scrollY / 6}px, 0px) rotate(${scrollY / 8 + (time * 0.01) % 360}deg)`;
     }
 
-    if (thickRoundStar6ImageRef.current) {
+    if (thickRoundStar6ImageRef.current && scrollY - 300 < window.innerHeight) {
       thickRoundStar6ImageRef.current.style.transform = `rotate(${-scrollY / 8 - (time * 0.01) % 360}deg) translate3d(0,0,0)`;
     }
 
-    if (thickRoundStar5.current) {
+    if (thickRoundStar5.current && scrollY - 300 < window.innerHeight) {
       thickRoundStar5.current.style.transform = `translate3D(-50%, -50%,0) rotate(${-scrollY / 6 - 10}deg)`;
     }
   }, { accelerator: 0.06 });
@@ -142,7 +144,7 @@ export default function Header() {
           ref={transitionToBackgoundRef}
           className={styles.transitionToBackgound}
         />
-        <Gradients />
+        {!breakpoint600 && <Gradients />}
       </div>
     </header>
   );
