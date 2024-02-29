@@ -24,15 +24,15 @@ const threeCanvas = (
     scene,
     camera
   );
-  const stats = new Stats();
+  //const stats = new Stats();
   // the number will decide which information will be displayed
   // 0 => FPS Frames rendered in the last second. The higher the number the better.
   // 1 => MS Milliseconds needed to render a frame. The lower the number the better.
   // 2 => MB MBytes of allocated memory. (Run Chrome with --enable-precise-memory-info)
   // 3 => CUSTOM User-defined panel support.
-  stats.showPanel(0);
+  //stats.showPanel(0);
 
-  document.body.appendChild(stats.dom);
+  //document.body.appendChild(stats.dom);
 
   let elapsedTime = 0;
   let delta = 0;
@@ -40,14 +40,14 @@ const threeCanvas = (
 
   const animate = () => {
     if (!isActive) return;
-    stats.begin();
+    //stats.begin();
     elapsedTime = clock.elapsedTime + initTimeOffset;
     delta = clock.getDelta();
 
     renderGradient(elapsedTime, delta);
     renderFrame(elapsedTime, delta);
 
-    stats.end();
+    //stats.end();
     requestAnimationFrame(animate);
   };
 
