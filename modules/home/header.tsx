@@ -43,7 +43,7 @@ const locales: LocalesMap = {
   en: {
     slogan_line_1: (
       <>
-        <span>An</span>
+        <span>A</span>
         <span>small</span>
         <span>app</span>
         <span>that</span>
